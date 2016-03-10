@@ -1,0 +1,428 @@
+\documentclass[14pt,aspectratio=169]{beamer} %aspectratio=169 %aspectratio
+\usepackage[ngerman]{babel}
+\usepackage[ansinew]{luainputenc}
+\usepackage{listings}
+% Some styles for listings
+\lstset{tabsize=2}
+\lstdefinestyle{customscala}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=Scala,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+\lstset{escapechar=@,style=customscala}
+
+\setbeameroption{hide notes} % hide notes % show notes
+\setbeamerfont{note page}{size=\tiny}
+
+\usetheme[progressbar=foot, 
+					numbering=none, 
+					background=light,
+					block=transparent]{metropolis} % block:fill
+\setsansfont[BoldFont={Fira Sans},ItalicFont={Fira Sans Light Italic}]{Fira Sans Light}
+\metroset{sectionpage=none} %sectionpage=progressbar
+
+% Some colors
+\definecolor{hBlue}{HTML}{004C99}
+\definecolor{hBlack}{HTML}{555555}
+\definecolor{hHeaderRed}{HTML}{E32119}
+\definecolor{hBgLightBlue}{HTML}{E9E9E9}
+\definecolor{hDarkBlue}{HTML}{00264C}
+
+\definecolor{mDarkBrown}{HTML}{604c38}
+\definecolor{mDarkTeal}{HTML}{23373b}
+\definecolor{mLightBrown}{HTML}{EB811B}
+\definecolor{mLightGreen}{HTML}{14B03D}
+
+
+\setbeamercolor{normal text}{%
+    fg=black!2,
+    bg=hBlue
+  }
+\setbeamercolor{normal text}{%
+    fg=hBlue,
+    bg=black!2
+  }
+\setbeamercolor{alerted text}{%
+  fg=hHeaderRed
+}
+\setbeamercolor{example text}{%
+  fg=mLightGreen
+}
+\setbeamercolor{titlelike}{use=normal text, parent=normal text}
+\setbeamercolor{author}{use=normal text, parent=normal text}
+\setbeamercolor{date}{use=normal text, parent=normal text}
+\setbeamercolor{institute}{use=normal text, parent=normal text}
+\setbeamercolor{structure}{use=normal text, fg=normal text.fg}
+\setbeamercolor{palette primary}{%
+  use=normal text,
+  fg=normal text.bg,
+  bg=normal text.fg
+}
+\setbeamercolor{frametitle}{%
+  use=palette primary,
+  parent=palette primary
+}
+\setbeamercolor{progress bar}{%
+  use=alerted text,
+  fg=alerted text.fg,
+  bg=alerted text.fg!50!black!30
+}
+\setbeamercolor{title separator}{
+  use=progress bar,
+  parent=progress bar
+}
+\setbeamercolor{progress bar in head/foot}{%
+  use=progress bar,
+  parent=progress bar
+}
+\setbeamercolor{progress bar in section page}{
+  use=progress bar,
+  parent=progress bar
+}
+%block transparent
+\setbeamercolor{block title}{%
+    use=normal text,
+    fg=hBlack, %normal text.fg,
+    bg=
+  }
+  \setbeamercolor{block body}{
+    bg=
+  }
+	% block fill
+	%\setbeamercolor{block title}{%
+   % use=normal text,
+   % fg=normal text.fg,
+   % bg=normal text.bg!80!fg
+  %}
+  %\setbeamercolor{block body}{
+  %  use={block title, normal text},
+  %  bg=block title.bg!50!normal text.bg
+  %}
+	%\setbeamercolor{block title alerted}{%
+  %  use={block title, alerted text},
+  %  bg=block title.bg,
+  %  fg=alerted text.fg
+%}
+%\setbeamercolor{block title example}{%
+%    use={block title, example text},
+%    bg=block title.bg,
+%    fg=example text.fg
+%}
+% Block fill end
+\setbeamercolor{block body alerted}{use=block body, parent=block body}
+\setbeamercolor{block body example}{use=block body, parent=block body}
+\setbeamercolor{footnote}{fg=normal text.fg!90}
+\setbeamercolor{footnote mark}{fg=.}
+
+%% End color definition
+
+% Subsectionpage
+\AtBeginSubsection{\frame{\subsectionpage}}
+
+\defbeamertemplate{subsection page}{progressbar}{
+  \centering
+  \begin{minipage}{22em}
+    \raggedright
+    \usebeamercolor[fg]{section title}
+    \usebeamerfont{section title}
+    \insertsectionhead\\[-1ex]
+    \usebeamertemplate*{progress bar in section page}
+    \par
+    \ifx\insertsubsection\@empty\else%
+      \usebeamercolor[fg]{subsection title}%
+      \usebeamerfont{subsection title}%
+      \insertsubsection
+    \fi
+  \end{minipage}
+  \par
+  \vspace{\baselineskip}
+}
+
+\setbeamertemplate{subsection page}[progressbar]
+% End Subsectionpage
+
+\usepackage{appendixnumberbeamer}
+\usepackage[scale=2]{ccicons}
+\usepackage{xspace}
+
+\title{Scala}
+\subtitle{Gedanken zu einer Programmiersprache}
+\date{16. März 2016}
+\author{Sebastian Eidecker}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{}
+  \begin{quote}
+		{\large Wer als Werkzeug nur einen Hammer hat,\\sieht in jedem Problem einen Nagel.}
+		\vskip3mm
+		\hspace*\fill{\small--- Paul Watzlawick}
+	\end{quote}
+	\note{
+	Ich möchte heute über Scala reden. Eigentlich will ich aber nicht nur über Scala reden.  Ich möchte nicht Scala verkaufen, sondern etwas völlig anderes. Scala ist spannend - für Nerds, die des Geldes wegen Java benutzen. Wir müssen aber auch über wichtigere Probleme reden. Und vielleicht passt Scala ja doch irgendwie.
+	
+In der IT wollen wir Probleme lösen und Möglichkeiten schaffen. 
+Ich bin der festen Überzeugung, dass wir zu selten über den Kern unserer Probleme nachdenken und auch, dass sich diese Probleme gerade ändern und immer schneller ändern werden.
+
+Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kennen müssen. Ich glaube, dass wir zumindest wissen müssen, was im Baumarkt ausliegt und wir bei Bedarf einkaufen können. Daher kann es aus meiner Sicht nie schaden, sich neue Werkzeuge und Arbeitsweisen anzuschauen, damit man sie bei Bedarf zumindest im Hinterkopf hat. Sonst kann es passieren, dass wir das Problem gar nicht verstehen, weil wir kein passendes Werkzeug dafür besitzen und verwenden können.}
+
+\end{frame}
+
+
+\begin{frame}{}
+	\setbeamertemplate{section in toc}[sections unnumbered]
+	\begin{block}{Inhalt}
+		\vskip2mm
+		\onslide<1->{\tableofcontents[pausesections,pausesubsections]} %[hideallsubsections]}
+	\end{block}
+		\note{Deswegen, möchte ich über zwei Dinge reden: Neue Herausforderungen und Scala.}
+\end{frame}
+
+\section{IT im Wandel}
+
+
+\begin{frame}{}
+	\only<1>{\Large\textbf{Software Engineering}}\only<2>{\Large\textbf{Software \alert{Engineering}}}
+\end{frame}
+\note{Software Engineering. Passt der Begriff?}
+
+\subsection{Herausforderungen}
+\begin{frame}{}
+	\begin{block}{Forderungen an IT}
+		\begin{itemize}
+			\item<2->Stabilität und Resilienz
+			\item<3->Wertbeitrag
+			\item<4->Businesstreiber
+		\end{itemize}
+		\onslide<5->{\vskip3mm --- Matthias Magnor -- CEO Surface und Contract Logistics}
+	\end{block}
+	\note{Das Bewusstsein, dass ein Wandel stattfindet, ist im Business angekommen. Diese Forderungen stammen von Matthias Magnor!}
+\end{frame}
+
+\subsection{Manifeste}
+\begin{frame}{}
+	\begin{block}{Manifeste}
+		\begin{itemize}
+			\item<1,4->Antwortbereit, Widerstandsfähig, Elastisch, Nachrichtenorientiert (2013)
+			\item<2,4->Gut gefertigt, Stets Mehrwert, Gemeinschaft aus Experten, Produktive Partnerschaften (2009)
+			\item<3,4->Individuen und Interaktionen, Funktionierende Software, Zusammenarbeit mit dem Kunden, Reagieren auf Veränderung (2001)
+		\end{itemize}
+	\end{block}
+	\note{Es gibt Manifeste von Softwareentwicklern, die sehr Ähnliches aussagen. (Reaktives Manifest, agiles Manifest, Manifest der Software Craftmanship-Bewegung als Beispiele) Diese sind bekannt und -- ich habe zumindest das Gefühl -- auch anerkannt. Ich will auch nur sehr kurz darauf eingehen, es soll ja vor allem um Scala gehen.}
+\end{frame}
+
+\begin{frame}{}
+	\Large Wo stehen wir\only<2->{\alert{ im Wettbewerb}}?
+	\note{TODO: Was bedeutet das}
+\end{frame}
+		
+\begin{frame}[fragile]{}
+	\begin{block}{Businesslogik?}
+		\scriptsize
+  \begin{lstlisting}
+// ToDo
+	\end{lstlisting}
+	\end{block}
+	\note{Wo ist die Businesslogik versteckt?}
+\end{frame}
+
+\section{Scala}
+
+
+\begin{frame}{}
+	\Large\textbf{\alert{Sc}}alable \textbf{\alert{La}}nguage
+	\note{TODO: Was bedeutet das}
+\end{frame}
+
+
+\subsection{Management Summary}
+
+\begin{frame}{}
+	\begin{block}{Charakter}
+	\begin{itemize}
+		\item<2->Java 2.0
+		\item<3->Objektorientiert
+		\item<4->Funktional
+		\item<5->Java Virtual Machine
+		\item<6->Entwicklungsprozess wie gehabt
+	\end{itemize}
+	\end{block}
+	\note{Passt in unseren Entwicklungsprozess.
+
+Leichte Änderungen an Deployment etc.}
+\end{frame}
+
+\begin{frame}{}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+	  \onslide<+->
+      \begin{block}{Vorteile}
+		\begin{itemize}
+			\item<+->Modern
+			\item<+->Verständlich funktional
+			\item<+->Java-Ökosystem
+			\item<+->Macht Spaß
+			\item<+->Statisch typisiert
+		\end{itemize}
+	\end{block}
+    \column{0.5\textwidth}
+	  \onslide<+->
+      \begin{block}{Nachteile}
+		\begin{itemize}
+			\item<+->Komplex
+			\item<+->Statisch typisiert\\(nicht mehr cool)
+			\item<+->Java-Ökosystem\\(nicht mehr cool)
+		\end{itemize}
+	\end{block}
+  \end{columns}
+\end{frame}
+
+
+
+
+
+
+\subsection{Ein wenig Code}
+\begin{frame}[fragile]{}
+ \begin{block}{Eine Klasse}
+\small
+	\onslide<2->
+  \begin{lstlisting}
+	case class Person(firstName:String, lastName:String)
+	\end{lstlisting}
+\end{block}
+\end{frame}
+
+
+\subsection{Spannendes}
+
+\begin{frame}{}
+	\begin{block}{Akka}
+		\begin{itemize}
+			\item<2->Scalable real-time transaction processing
+			\item<3->Will die aktuellen Probleme lösen
+			\item<4->
+		\end{itemize}
+	\end{block}
+	\note{}
+\end{frame}
+
+\begin{frame}{}
+	\begin{block}{ScalaTest}
+		\begin{itemize}
+			\item<2->
+			\item<3->
+			\item<4->
+		\end{itemize}
+	\end{block}
+	\note{}
+\end{frame}
+
+
+\subsection*{Mehr für Nerds}
+\begin{frame}{}
+	\begin{block}{Mehr für Nerds}
+		\begin{itemize}
+			\item<2->Sprecht mich an
+			\item<3->Eigener Termin bei Interesse
+			\item<4->Heiko Seeberger: "`Durchstarten mit Scala. Tutorial für Einsteiger (2. Aufl.)"'
+		\end{itemize}
+	\end{block}
+	\note{}
+\end{frame}
+
+
+\plain{}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Vorlagen
+%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+
+% Listing einfach
+\begin{frame}[fragile, allowframebreaks]{}
+ \begin{block}{}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+		class
+	\end{lstlisting}
+\end{block}
+\end{frame}
+
+% Listing mit Header
+\begin{frame}[fragile]{Primzahlen}
+	\begin{block}{}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+def swap(i: Int, j: Int) {
+	val t = xs(i); xs(i) = xs(j); xs(j) = t
+	()
+}
+	\end{lstlisting}
+	\end{block}
+\end{frame}
+
+% Großer Text
+\begin{frame}{}
+	\Large\textbf{}
+\end{frame}
+
+% Einfacher Block
+\begin{frame}{}
+	\begin{block}{}
+		
+	\end{block}
+	\note{}
+\end{frame}
+
+% Aufzählung
+\begin{frame}{}
+	\begin{block}{Titel}
+		\begin{itemize}
+			\item<2->
+			\item<3->
+			\item<4->
+		\end{itemize}
+	\end{block}
+	\note{}
+\end{frame}
+
+% Vergleich
+\begin{frame}{}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+	  \onslide<+->
+      \begin{block}{Titel}
+		\begin{itemize}
+			\item<+->
+			\item<+->
+			\item<+->
+		\end{itemize}
+	\end{block}
+    \column{0.5\textwidth}
+	  \onslide<+->
+      \begin{block}{Titel}
+		\begin{itemize}
+			\item<+->
+			\item<+->
+			\item<+->
+		\end{itemize}
+	\end{block}
+  \end{columns}
+\end{frame}
+
+
+\end{document}
+
