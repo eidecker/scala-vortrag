@@ -2,32 +2,6 @@
 \usepackage[ngerman]{babel}
 \usepackage[ansinew]{luainputenc}
 \usepackage{listings}
-% Some styles for listings
-\lstset{tabsize=2}
-\lstdefinestyle{customscala}{
-  belowcaptionskip=1\baselineskip,
-  breaklines=true,
-  frame=L,
-  xleftmargin=\parindent,
-  language=Scala,
-  showstringspaces=false,
-  basicstyle=\footnotesize\ttfamily,
-  keywordstyle=\bfseries\color{green!40!black},
-  commentstyle=\itshape\color{purple!40!black},
-  identifierstyle=\color{blue},
-  stringstyle=\color{orange},
-}
-\lstset{escapechar=@,style=customscala}
-
-\setbeameroption{show notes} % hide notes % show notes % show only notes
-\setbeamerfont{note page}{size=\tiny}
-
-\usetheme[progressbar=foot, 
-					numbering=none, 
-					background=light,
-					block=transparent]{metropolis} % block:fill
-\setsansfont[BoldFont={Fira Sans},ItalicFont={Fira Sans Light Italic}]{Fira Sans Light}
-\metroset{sectionpage=none} %sectionpage=progressbar
 
 % Some colors
 \definecolor{hBlue}{HTML}{004C99}
@@ -40,6 +14,52 @@
 \definecolor{mDarkTeal}{HTML}{23373b}
 \definecolor{mLightBrown}{HTML}{EB811B}
 \definecolor{mLightGreen}{HTML}{14B03D}
+
+% Some styles for listings
+\lstset{tabsize=2}
+\lstdefinestyle{customscala}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=none,
+  xleftmargin=\parindent,
+  language=Scala,
+  showstringspaces=false,
+	numberstyle={\tiny},
+  numbers=left,
+  basicstyle=\footnotesize\ttfamily\color{black},
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{hBlue},
+  stringstyle=\color{orange},
+}
+\lstdefinestyle{customjava}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=none,
+  xleftmargin=\parindent,
+  language=Java,
+  showstringspaces=false,
+	numberstyle={\tiny},
+  numbers=left,
+  basicstyle=\footnotesize\ttfamily\color{black},
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{hBlue},
+  stringstyle=\color{orange},
+}
+
+\lstset{style=customscala}
+
+\setbeameroption{show notes} % hide notes % show notes % show only notes
+\setbeamerfont{note page}{size=\tiny}
+
+\usetheme[progressbar=foot, 
+					numbering=none, 
+					background=light,
+					block=transparent]{metropolis} % block:fill
+\setsansfont[BoldFont={Fira Sans},ItalicFont={Fira Sans Light Italic}]{Fira Sans Light}
+\metroset{sectionpage=none} %sectionpage=progressbar
+
 
 
 \setbeamercolor{normal text}{%
@@ -286,12 +306,78 @@ Leichte Änderungen an Deployment etc.}
 \note{}
 
 \subsection{Ein wenig Code}
+
 \begin{frame}[fragile]{}
- \begin{block}{Eine Klasse}
+ \begin{block}{Eine Java-Klasse}
+\scriptsize
+\lstset{style=customjava}
+	\onslide<2->
+  \begin{lstlisting}
+public class Person {
+	private final String firstName;
+	private final String lastName;
+	public Person(String firstName, String lastName) {
+			this.firstName = firstName;
+			this.lastName = lastName;
+					}
+	public String getFirstName() {
+			return firstName;
+	}
+	public String getLastName() {
+			return lastName;
+	}
+	\end{lstlisting}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Eine Java-Klasse}
+\scriptsize
+\lstset{style=customjava}
+	\onslide<1->
+	\begin{lstlisting}
+	@Override
+	public boolean equals(Object o) {
+			if (this == o) return true;
+			if (o == null || getClass() != o.getClass()) return false;
+			Person person = (Person) o;
+			if (firstName != null ? 
+					!firstName.equals(person.firstName) : 
+					person.firstName != null) return false;
+			if (lastName != null ? 
+					!lastName.equals(person.lastName) : 
+					person.lastName != null) return false;
+			return true;
+	}
+	\end{lstlisting}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Eine Java-Klasse}
+\scriptsize
+\lstset{style=customjava}
+	\onslide<1->
+	\begin{lstlisting}
+	@Override
+	public int hashCode() {
+			int result = firstName != null ? firstName.hashCode() : 0;
+			result = 
+					31 * result + (lastName != null ? lastName.hashCode() : 0);
+			return result;
+	}
+}
+	\end{lstlisting}
+\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]{}
+ \begin{block}{Eine Scala-Klasse}
 \small
 	\onslide<2->
   \begin{lstlisting}
-	case class Person(firstName:String, lastName:String)
+case class Person(firstName:String, lastName:String)
 	\end{lstlisting}
 \end{block}
 \end{frame}
