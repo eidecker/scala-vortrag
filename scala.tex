@@ -1,4 +1,6 @@
 \documentclass[14pt,aspectratio=169]{beamer} %aspectratio=169 %aspectratio=43
+\setbeameroption{hide notes} % hide notes % show notes % show only notes
+\setbeamerfont{note page}{size=\tiny}
 \usepackage[ngerman]{babel}
 \usepackage[ansinew]{luainputenc}
 \usepackage{listings}
@@ -49,9 +51,6 @@
 }
 
 \lstset{style=customscala}
-
-\setbeameroption{show notes} % hide notes % show notes % show only notes
-\setbeamerfont{note page}{size=\tiny}
 
 \usetheme[progressbar=foot, 
 					numbering=none, 
@@ -116,27 +115,6 @@
   \setbeamercolor{block body}{
     bg=
   }
-	% block fill
-	%\setbeamercolor{block title}{%
-   % use=normal text,
-   % fg=normal text.fg,
-   % bg=normal text.bg!80!fg
-  %}
-  %\setbeamercolor{block body}{
-  %  use={block title, normal text},
-  %  bg=block title.bg!50!normal text.bg
-  %}
-	%\setbeamercolor{block title alerted}{%
-  %  use={block title, alerted text},
-  %  bg=block title.bg,
-  %  fg=alerted text.fg
-%}
-%\setbeamercolor{block title example}{%
-%    use={block title, example text},
-%    bg=block title.bg,
-%    fg=example text.fg
-%}
-% Block fill end
 \setbeamercolor{block body alerted}{use=block body, parent=block body}
 \setbeamercolor{block body example}{use=block body, parent=block body}
 \setbeamercolor{footnote}{fg=normal text.fg!90}
@@ -245,16 +223,6 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 	\Large Wo stehen wir\only<2->{\alert{ im Wettbewerb}}?
 \end{frame}
 \note{TODO: Was bedeutet das}
-		
-\begin{frame}[fragile]{}
-	\begin{block}{Businesslogik?}
-		\scriptsize
-  \begin{lstlisting}
-// ToDo
-	\end{lstlisting}
-	\end{block}
-\end{frame}
-\note{Wo ist die Businesslogik versteckt?}
 
 \section{Scala}
 
@@ -266,18 +234,47 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 \note{TODO: Was bedeutet das}
 
 \begin{frame}{}
-	\begin{block}{Charakter}
+	\begin{block}{Eigenschaften}
+		\begin{itemize}
+			\item<2->Objektorientiert
+			\item<3->Funktional
+			\item<4->Statisch typisiert
+			\note<4>{Aber Type Inference, wenn gewünscht}
+			\item<5->Gewohnte Syntax ("`Java ohne Semikolon"')
+			\item<6->Ausdrucksstark (APIs/DSLs schreiben)
+			\note<6>{Bei Java bricht man sich schon die Hände, will man ein Builder-Pattern rekursiv umsetzen oder eine fluent API}
+			\item<7->Immutable Objects als Konzept
+		\end{itemize}
+	\end{block}
+\end{frame}
+\note{}
+
+\begin{frame}{}
+	\begin{block}{Versprechen}
 	\begin{itemize}
-		\item<2->Java 2.0
-		\item<3->Objektorientiert
-		\item<4->Funktional
-		\item<5->Java Virtual Machine
-		\item<6->Entwicklungsprozess wie gehabt
+		\item<2->Produktivitätssteierung
+		\item<3->Höhere Codequalität
+		\item<4->\alert{durch}
+		\item<4->Weniger Code
+		\item<5->Höheres Abstraktionsniveau
+		\item<6->Mehr Spaß
 	\end{itemize}
 	\end{block}
 \end{frame}
 \note{Passt in unseren Entwicklungsprozess.
 Leichte Änderungen an Deployment etc.}
+
+\begin{frame}{}
+	\begin{block}{Scala und die Java-Plattform}
+		\begin{itemize}
+			\item<2->Java-Bytecode, läuft auf JVM
+			\item<3->Java-Bibliotheken nutzbar
+			\item<4->Bekannte IDEs
+			\item<5->Ähnlicher Paketierungs- und Buildprozess (sbt)
+		\end{itemize}
+	\end{block}
+\end{frame}
+\note{}
 
 \begin{frame}{}
   \begin{columns}[T,onlytextwidth]
@@ -297,8 +294,9 @@ Leichte Änderungen an Deployment etc.}
       \begin{block}{Nachteile}
 		\begin{itemize}
 			\item<+->Komplex
-			\item<+->Statisch typisiert\\(nicht mehr cool)
-			\item<+->Java-Ökosystem\\(nicht mehr cool)
+			\item<+->Zukunftssicher?
+			\item<+->Zahl an Entwicklungssklaven
+			\item<+->Binärkompatibilität nicht in alle Ewigkeit
 		\end{itemize}
 	\end{block}
   \end{columns}
@@ -371,9 +369,19 @@ public class Person {
 \end{block}
 \end{frame}
 
+\begin{frame}[fragile]{}
+\Large\textbf{Businesslogik?}
+\end{frame}
+\note{Wo ist die Businesslogik versteckt? Ich gebe zu, das wird nur ein Beispiel, aber es zeigt symptomatisch eine Schwäche von Java: 
+Java ist leicht verständlich, Änderungen werden aber immer non-breaking eingeführt und fühlen sich oft deplatziert an.
+Scala hat den Vorteil, neuer zu sein und kennt die Schmerzen der Java-Entwickler. Daher sind viele Dinge eingebaut, die man sich schon lange wünscht 
+oder Konzepte, die man eigentlich schon immer umsetzen wollte, wenn es denn nicht so lästig wäre.
+(Immutable Objects, Lambdas, Generics, checked Exceptions als Beispiel)
+
+Ein besonders lästiges Nicht-Feature-Feature sind in meinen Augen JavaBeans, wie wir sie gerade gesehen haben. Leicht verständlich, aber strikte Richtlinien durch Konvention. Und wehe, dein Framework mag die Namen Deiner Getter und Setter nicht.}
 
 \begin{frame}[fragile]{}
- \begin{block}{Eine Scala-Klasse}
+ \begin{block}{Dasselbe in Scala}
 \small
 	\onslide<2->
   \begin{lstlisting}
@@ -381,6 +389,7 @@ case class Person(firstName:String, lastName:String)
 	\end{lstlisting}
 \end{block}
 \end{frame}
+\note{Ja, nur ein Beispiel, ein besonders krasses. Aber dennoch ein alltägliches.}
 
 \subsection{Spannendes}
 
@@ -412,7 +421,7 @@ case class Person(firstName:String, lastName:String)
 	\begin{block}{Mehr für Nerds}
 		\begin{itemize}
 			\item<2->Sprecht mich an
-			\item<3->Eigener Termin bei Interesse
+			\item<3->Hands on-Termin bei Interesse
 			\item<4->Heiko Seeberger: "`Durchstarten mit Scala. Tutorial für Einsteiger (2. Aufl.)"'
 		\end{itemize}
 	\end{block}
