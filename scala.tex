@@ -1,4 +1,4 @@
-\documentclass[14pt,aspectratio=169]{beamer} %aspectratio=169 %aspectratio
+\documentclass[14pt,aspectratio=169]{beamer} %aspectratio=169 %aspectratio=43
 \usepackage[ngerman]{babel}
 \usepackage[ansinew]{luainputenc}
 \usepackage{listings}
@@ -19,7 +19,7 @@
 }
 \lstset{escapechar=@,style=customscala}
 
-\setbeameroption{hide notes} % hide notes % show notes
+\setbeameroption{show notes} % hide notes % show notes % show only notes
 \setbeamerfont{note page}{size=\tiny}
 
 \usetheme[progressbar=foot, 
@@ -168,7 +168,8 @@
 		\vskip3mm
 		\hspace*\fill{\small--- Paul Watzlawick}
 	\end{quote}
-	\note{
+\end{frame}
+\note{
 	Ich möchte heute über Scala reden. Eigentlich will ich aber nicht nur über Scala reden.  Ich möchte nicht Scala verkaufen, sondern etwas völlig anderes. Scala ist spannend - für Nerds, die des Geldes wegen Java benutzen. Wir müssen aber auch über wichtigere Probleme reden. Und vielleicht passt Scala ja doch irgendwie.
 	
 In der IT wollen wir Probleme lösen und Möglichkeiten schaffen. 
@@ -176,7 +177,6 @@ Ich bin der festen Überzeugung, dass wir zu selten über den Kern unserer Problem
 
 Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kennen müssen. Ich glaube, dass wir zumindest wissen müssen, was im Baumarkt ausliegt und wir bei Bedarf einkaufen können. Daher kann es aus meiner Sicht nie schaden, sich neue Werkzeuge und Arbeitsweisen anzuschauen, damit man sie bei Bedarf zumindest im Hinterkopf hat. Sonst kann es passieren, dass wir das Problem gar nicht verstehen, weil wir kein passendes Werkzeug dafür besitzen und verwenden können.}
 
-\end{frame}
 
 
 \begin{frame}{}
@@ -185,11 +185,11 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 		\vskip2mm
 		\onslide<1->{\tableofcontents[pausesections,pausesubsections]} %[hideallsubsections]}
 	\end{block}
-		\note{Deswegen, möchte ich über zwei Dinge reden: Neue Herausforderungen und Scala.}
+		
 \end{frame}
+\note{Deswegen, möchte ich über zwei Dinge reden: Neue Herausforderungen und Scala.}
 
 \section{IT im Wandel}
-
 
 \begin{frame}{}
 	\only<1>{\Large\textbf{Software Engineering}}\only<2>{\Large\textbf{Software \alert{Engineering}}}
@@ -206,8 +206,8 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 		\end{itemize}
 		\onslide<5->{\vskip3mm --- Matthias Magnor -- CEO Surface und Contract Logistics}
 	\end{block}
-	\note{Das Bewusstsein, dass ein Wandel stattfindet, ist im Business angekommen. Diese Forderungen stammen von Matthias Magnor!}
 \end{frame}
+\note{Das Bewusstsein, dass ein Wandel stattfindet, ist im Business angekommen. Diese Forderungen stammen von Matthias Magnor!}
 
 \subsection{Manifeste}
 \begin{frame}{}
@@ -218,13 +218,13 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 			\item<3,4->Individuen und Interaktionen, Funktionierende Software, Zusammenarbeit mit dem Kunden, Reagieren auf Veränderung (2001)
 		\end{itemize}
 	\end{block}
-	\note{Es gibt Manifeste von Softwareentwicklern, die sehr Ähnliches aussagen. (Reaktives Manifest, agiles Manifest, Manifest der Software Craftmanship-Bewegung als Beispiele) Diese sind bekannt und -- ich habe zumindest das Gefühl -- auch anerkannt. Ich will auch nur sehr kurz darauf eingehen, es soll ja vor allem um Scala gehen.}
 \end{frame}
+\note{Es gibt Manifeste von Softwareentwicklern, die sehr Ähnliches aussagen. (Reaktives Manifest, agiles Manifest, Manifest der Software Craftmanship-Bewegung als Beispiele) Diese sind bekannt und -- ich habe zumindest das Gefühl -- auch anerkannt. Ich will auch nur sehr kurz darauf eingehen, es soll ja vor allem um Scala gehen.}
 
 \begin{frame}{}
 	\Large Wo stehen wir\only<2->{\alert{ im Wettbewerb}}?
-	\note{TODO: Was bedeutet das}
 \end{frame}
+\note{TODO: Was bedeutet das}
 		
 \begin{frame}[fragile]{}
 	\begin{block}{Businesslogik?}
@@ -233,19 +233,17 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 // ToDo
 	\end{lstlisting}
 	\end{block}
-	\note{Wo ist die Businesslogik versteckt?}
 \end{frame}
+\note{Wo ist die Businesslogik versteckt?}
 
 \section{Scala}
 
+\subsection{Management Summary}
 
 \begin{frame}{}
 	\Large\textbf{\alert{Sc}}alable \textbf{\alert{La}}nguage
-	\note{TODO: Was bedeutet das}
 \end{frame}
-
-
-\subsection{Management Summary}
+\note{TODO: Was bedeutet das}
 
 \begin{frame}{}
 	\begin{block}{Charakter}
@@ -257,10 +255,9 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 		\item<6->Entwicklungsprozess wie gehabt
 	\end{itemize}
 	\end{block}
-	\note{Passt in unseren Entwicklungsprozess.
-
-Leichte Änderungen an Deployment etc.}
 \end{frame}
+\note{Passt in unseren Entwicklungsprozess.
+Leichte Änderungen an Deployment etc.}
 
 \begin{frame}{}
   \begin{columns}[T,onlytextwidth]
@@ -286,11 +283,7 @@ Leichte Änderungen an Deployment etc.}
 	\end{block}
   \end{columns}
 \end{frame}
-
-
-
-
-
+\note{}
 
 \subsection{Ein wenig Code}
 \begin{frame}[fragile]{}
@@ -303,7 +296,6 @@ Leichte Änderungen an Deployment etc.}
 \end{block}
 \end{frame}
 
-
 \subsection{Spannendes}
 
 \begin{frame}{}
@@ -314,8 +306,8 @@ Leichte Änderungen an Deployment etc.}
 			\item<4->
 		\end{itemize}
 	\end{block}
-	\note{}
 \end{frame}
+\note{}
 
 \begin{frame}{}
 	\begin{block}{ScalaTest}
@@ -325,8 +317,8 @@ Leichte Änderungen an Deployment etc.}
 			\item<4->
 		\end{itemize}
 	\end{block}
-	\note{}
 \end{frame}
+\note{}
 
 
 \subsection*{Mehr für Nerds}
@@ -338,16 +330,22 @@ Leichte Änderungen an Deployment etc.}
 			\item<4->Heiko Seeberger: "`Durchstarten mit Scala. Tutorial für Einsteiger (2. Aufl.)"'
 		\end{itemize}
 	\end{block}
-	\note{}
 \end{frame}
+\note{}
 
-
+% Abschlussfolie, leer und dunkel.
 \plain{}
+
+\end{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%
 % Vorlagen
 %%%%%%%%%%%%%%%%%%%%%%%
 \appendix
+
+% Notes
+% Notes können innerhalb von Folien definiert und mit Overlays spezifiziert werden. Dann werden sie entsprechend zum Folienteil angezeigt.
+% Nach der Folie definierte Notes werden der Folie zugeordnet, aber nur einmal - am Ende der Folie - ausgegeben.
 
 % Listing einfach
 \begin{frame}[fragile, allowframebreaks]{}
@@ -359,6 +357,7 @@ Leichte Änderungen an Deployment etc.}
 	\end{lstlisting}
 \end{block}
 \end{frame}
+\note{}
 
 % Listing mit Header
 \begin{frame}[fragile]{Primzahlen}
@@ -373,19 +372,21 @@ def swap(i: Int, j: Int) {
 	\end{lstlisting}
 	\end{block}
 \end{frame}
+\note{}
 
 % Großer Text
 \begin{frame}{}
 	\Large\textbf{}
 \end{frame}
+\note{}
 
 % Einfacher Block
 \begin{frame}{}
 	\begin{block}{}
 		
 	\end{block}
-	\note{}
 \end{frame}
+\note{}
 
 % Aufzählung
 \begin{frame}{}
@@ -396,8 +397,8 @@ def swap(i: Int, j: Int) {
 			\item<4->
 		\end{itemize}
 	\end{block}
-	\note{}
 \end{frame}
+\note{}
 
 % Vergleich
 \begin{frame}{}
@@ -422,7 +423,7 @@ def swap(i: Int, j: Int) {
 	\end{block}
   \end{columns}
 \end{frame}
+\note{}
 
 
-\end{document}
 
