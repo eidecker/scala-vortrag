@@ -151,8 +151,8 @@
 \usepackage[scale=2]{ccicons}
 \usepackage{xspace}
 
-\title{Scala}
-\subtitle{Gedanken zu einer Programmiersprache}
+\title{Scala (Programmiersprache)}
+\subtitle{Ein Teaser und allgemeinere Gedanken}
 \date{16. März 2016}
 \author{Sebastian Eidecker}
 
@@ -179,7 +179,7 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 
 \begin{frame}{}
 	\setbeamertemplate{section in toc}[sections unnumbered]
-	\begin{block}{Inhalt}
+	\begin{block}{Worüber reden wir?}
 		\vskip2mm
 		\onslide<1->{\tableofcontents[pausesections,pausesubsections]} %[hideallsubsections]}
 	\end{block}
@@ -189,12 +189,14 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 
 \section{IT im Wandel}
 
+
+\subsection{Herausforderungen}
+
 \begin{frame}{}
 	\only<1>{\Large\textbf{Software Engineering}}\only<2>{\Large\textbf{Software \alert{Engineering}}}
 \end{frame}
 \note{Software Engineering. Passt der Begriff?}
 
-\subsection{Herausforderungen}
 \begin{frame}{}
 	\begin{block}{Forderungen an IT}
 		\begin{itemize}
@@ -244,6 +246,7 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 			\item<6->Ausdrucksstark (APIs/DSLs schreiben)
 			\note<6>{Bei Java bricht man sich schon die Hände, will man ein Builder-Pattern rekursiv umsetzen oder eine fluent API}
 			\item<7->Immutable Objects als Konzept
+			\item<8->Jung (2004, Hype gegen 2011)
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -282,7 +285,7 @@ Leichte Änderungen an Deployment etc.}
 	  \onslide<+->
       \begin{block}{Vorteile}
 		\begin{itemize}
-			\item<+->Modern
+			\item<+->Für moderne Architekturen geeignet
 			\item<+->Verständlich funktional
 			\item<+->Java-Ökosystem
 			\item<+->Macht Spaß
@@ -304,6 +307,7 @@ Leichte Änderungen an Deployment etc.}
 \note{}
 
 \subsection{Ein wenig Code}
+\note{Alles geklaut von Wikipedia oder Heiko Seebergers Buch}
 
 \begin{frame}[fragile]{}
  \begin{block}{Eine Java-Klasse}
@@ -391,6 +395,215 @@ case class Person(firstName:String, lastName:String)
 \end{frame}
 \note{Ja, nur ein Beispiel, ein besonders krasses. Aber dennoch ein alltägliches.}
 
+
+% Listing einfach
+\begin{frame}[fragile]{}
+ \begin{block}{Es wird funktional -- Quicksort}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = xs match {
+  case Nil     => xs
+  case y :: ys => ys partition (_ <= y) match {
+    case (l1, l2) => quickSort(l1) ++ (y :: quickSort(l2)) 
+	}
+}
+	\end{lstlisting}
+\end{block}
+\end{frame}
+\note{Man sieht: Ausdrucksstark, aber auch nicht mehr so straight forward wie Java (vor 8)}
+
+\begin{frame}{}
+	\Large\textbf{Schnelldurchlauf Scala -- \alert{Endlich!}}
+\end{frame}
+\note{Jetzt endlich ein Schnelldurchlauf durch einige grundlegende Features von Scala. Leider nur kurz, 
+ich habe meine Zeit ja mit Management Summary und meiner politischen Agenda vertrödelt.
+Alle Beispiele sind natürlich geklaut.
+
+Also hier nur ein paar Dinge zum Grundverständnis und ein paar nette Sachen, die Java-Entwickler interessieren dürften.}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Klassen und Objekte}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+		class
+	\end{lstlisting}
+\end{block}
+\end{frame}
+\note{}
+
+\begin{frame}[fragile]{}
+ \begin{block}{val und var -- Immutables}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+		class
+	\end{lstlisting}
+\end{block}
+\end{frame}
+\note{}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Listen}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+		class
+	\end{lstlisting}
+\end{block}
+\end{frame}
+\note{}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Pattern Matching}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+		class
+	\end{lstlisting}
+\end{block}
+\end{frame}
+\note{}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Type Inference}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+		class
+	\end{lstlisting}
+\end{block}
+\end{frame}
+\note{}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Alles hat einen Typ -- aber kein return}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+		class
+	\end{lstlisting}
+\end{block}
+\end{frame}
+\note{}
+
+\begin{frame}[fragile]{}
+ \begin{block}{??? -- Mein heimlicher Star}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = ???
+	\end{lstlisting}
+\end{block}
+\onslide<3->{Kompilierbar, aber nicht gefährlich.}
+\end{frame}
+\note{}
+
+
+\begin{frame}[fragile]{}
+ \begin{block}{Vererbung und Traits}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+		class
+	\end{lstlisting}
+\end{block}
+\end{frame}
+\note{}
+
+\begin{frame}[fragile]{}
+ \begin{block}{}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+		class
+	\end{lstlisting}
+\end{block}
+\end{frame}
+\note{}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Funktionen -- Benannte Parameter}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+		class
+	\end{lstlisting}
+\end{block}
+\end{frame}
+\note{}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Funktionen funktional -- Lambdas schön}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+		class
+	\end{lstlisting}
+\end{block}
+\end{frame}
+\note{}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Flatmap that shit!}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+		class
+	\end{lstlisting}
+\end{block}
+\end{frame}
+\note{}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Arbeit mit Strings}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+		class
+	\end{lstlisting}
+\end{block}
+\end{frame}
+\note{}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Tupel}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+		class
+	\end{lstlisting}
+\end{block}
+\end{frame}
+\note{}
+
+
+\begin{frame}[fragile]{}
+ \begin{block}{Implicits}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+		class
+	\end{lstlisting}
+\end{block}
+\end{frame}
+\note{}
+
+
+
+\begin{frame}[fragile]{}
+ \begin{block}{}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+		class
+	\end{lstlisting}
+\end{block}
+\end{frame}
+\note{}
+
+
 \subsection{Spannendes}
 
 \begin{frame}{}
@@ -415,6 +628,16 @@ case class Person(firstName:String, lastName:String)
 \end{frame}
 \note{}
 
+\begin{frame}{}
+	\begin{block}{Domain Specific Languages}
+		\begin{itemize}
+			\item<2->
+			\item<3->
+			\item<4->
+		\end{itemize}
+	\end{block}
+\end{frame}
+\note{}
 
 \subsection*{Mehr für Nerds}
 \begin{frame}{}
@@ -426,7 +649,9 @@ case class Person(firstName:String, lastName:String)
 		\end{itemize}
 	\end{block}
 \end{frame}
-\note{}
+\note{Wie gesagt habe ich wenig Ahnung von Scala, da ich es noch nicht produktiv eingesetzt habe. Ich lasse mich aber gerne zwingen, 
+für Interessierte ein Hands on durchzuführen, bei dem wir ein paar Stunden mit Scala in einer echten IDE spielen, nicht auf Folien.
+Ich würde natürlich auch dafür aus Büchern klauen.}
 
 % Abschlussfolie, leer und dunkel.
 \plain{}
@@ -443,7 +668,7 @@ case class Person(firstName:String, lastName:String)
 % Nach der Folie definierte Notes werden der Folie zugeordnet, aber nur einmal - am Ende der Folie - ausgegeben.
 
 % Listing einfach
-\begin{frame}[fragile, allowframebreaks]{}
+\begin{frame}[fragile]{}
  \begin{block}{}
 \scriptsize
 	\onslide<2->
