@@ -3,7 +3,7 @@
 \usepackage[ansinew]{luainputenc}
 \usepackage{listings}
 \usepackage{pgfpages} % Second screen
-\setbeameroption{show notes on second screen=bottom} % show notes on second screen=bottom % hide notes % show notes % show only notes
+\setbeameroption{hide notes} % show notes on second screen=bottom % hide notes % show notes % show only notes
 \setbeamerfont{note page}{size=\tiny}
 
 
@@ -61,62 +61,23 @@
 \setsansfont[BoldFont={Fira Sans},ItalicFont={Fira Sans Light Italic}]{Fira Sans Light}
 \metroset{sectionpage=none} %sectionpage=progressbar
 
-
-
-\setbeamercolor{normal text}{%
-    fg=black!2,
-    bg=hBlue
-  }
-\setbeamercolor{normal text}{%
-    fg=hBlue,
-    bg=black!2
-  }
-\setbeamercolor{alerted text}{%
-  fg=hHeaderRed
-}
-\setbeamercolor{example text}{%
-  fg=mLightGreen
-}
+\setbeamercolor{normal text}{fg=hBlue, bg=black!2}
+\setbeamercolor{alerted text}{fg=hHeaderRed}
+\setbeamercolor{example text}{fg=mLightGreen}
 \setbeamercolor{titlelike}{use=normal text, parent=normal text}
 \setbeamercolor{author}{use=normal text, parent=normal text}
 \setbeamercolor{date}{use=normal text, parent=normal text}
 \setbeamercolor{institute}{use=normal text, parent=normal text}
 \setbeamercolor{structure}{use=normal text, fg=normal text.fg}
-\setbeamercolor{palette primary}{%
-  use=normal text,
-  fg=normal text.bg,
-  bg=normal text.fg
-}
-\setbeamercolor{frametitle}{%
-  use=palette primary,
-  parent=palette primary
-}
-\setbeamercolor{progress bar}{%
-  use=alerted text,
-  fg=alerted text.fg,
-  bg=alerted text.fg!50!black!30
-}
-\setbeamercolor{title separator}{
-  use=progress bar,
-  parent=progress bar
-}
-\setbeamercolor{progress bar in head/foot}{%
-  use=progress bar,
-  parent=progress bar
-}
-\setbeamercolor{progress bar in section page}{
-  use=progress bar,
-  parent=progress bar
-}
+\setbeamercolor{palette primary}{use=normal text, fg=normal text.bg, bg=normal text.fg}
+\setbeamercolor{frametitle}{use=palette primary, parent=palette primary}
+\setbeamercolor{progress bar}{use=alerted text, fg=alerted text.fg, bg=alerted text.fg!50!black!30}
+\setbeamercolor{title separator}{use=progress bar, parent=progress bar}
+\setbeamercolor{progress bar in head/foot}{use=progress bar, parent=progress bar}
+\setbeamercolor{progress bar in section page}{use=progress bar, parent=progress bar}
 %block transparent
-\setbeamercolor{block title}{%
-    use=normal text,
-    fg=hBlack, %normal text.fg,
-    bg=
-  }
-  \setbeamercolor{block body}{
-    bg=
-  }
+\setbeamercolor{block title}{use=normal text, fg=hBlack, bg=}
+\setbeamercolor{block body}{bg= }
 \setbeamercolor{block body alerted}{use=block body, parent=block body}
 \setbeamercolor{block body example}{use=block body, parent=block body}
 \setbeamercolor{footnote}{fg=normal text.fg!90}
@@ -196,8 +157,9 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 
 \begin{frame}{}
 	\only<1>{\Large\textbf{Software Engineering}}\only<2>{\Large\textbf{Software \alert{Engineering}}}
+	\note{Software Engineering. Passt der Begriff?}
 \end{frame}
-\note{Software Engineering. Passt der Begriff?}
+
 
 \begin{frame}{}
 	\begin{block}{Forderungen an IT}
@@ -233,25 +195,27 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 \note{Es gibt Manifeste von Softwareentwicklern, die sehr Ähnliches aussagen. (Reaktives Manifest, agiles Manifest, Manifest der Software Craftmanship-Bewegung als Beispiele) Diese sind bekannt und -- ich habe zumindest das Gefühl -- auch anerkannt. Ich will auch nur sehr kurz darauf eingehen, es soll ja vor allem um Scala gehen.}
 
 \begin{frame}{}
-	\Large Wo stehen wir\only<2->{\alert{ im Wettbewerb}}?
+	\only<1->{\Large \textbf{Wo stehen wir\only<2->{\alert{ im Wettbewerb}}?}}
 \end{frame}
-\note{TODO: Was bedeutet das}
+
 
 \section{Scala}
 
 \subsection{Management Summary}
 
 \begin{frame}{}
-	\Large\textbf{\alert{Sc}}alable \textbf{\alert{La}}nguage
+	\Large\textbf{\alert{Sca}}lable \textbf{\alert{La}}nguage
 	\only<2->{
+	\vskip3mm
 	\begin{quote}
 		{\normalsize This means that Scala grows with you. You can play with it by typing \alert{one-line expressions} and observing the results. But you can also rely on it for \alert{large mission critical systems} [...]}
 		\vskip3mm
 		\hspace*\fill{\small--- www.scala-lang.org}
 	\end{quote}
 	}
+	\note{Was bedeutet das? Scala ist sehr flexibel. Es vereint sehr viele Konzepte und ist im API-Design sehr stark. So sollen unterschiedlichste Szenarien und Anforderungen bedient werden. Schauen wir, ob das Versprechen gehalten wird.}
 \end{frame}
-\note{TODO: Was bedeutet das? Scala ist sehr flexibel. Es vereint sehr viele Konzepte und ist im API-Design sehr stark. So sollen unterschiedlichste Szenarien und Anforderungen bedient werden. Schauen wir, ob das Versprechen gehalten wird.}
+
 
 \begin{frame}{}
 	\begin{block}{Eigenschaften}
@@ -293,6 +257,7 @@ Leichte Änderungen an Deployment etc.}
 			\item<2->Java-Bytecode, läuft auf JVM
 			\item<3->Java-Bibliotheken nutzbar
 			\item<4->Bekannte IDEs
+			\note<4,5>{Wenn man schon eine neue Sprache lernt, wird man wenigstens bei IDE und Buildprozess abgeholt.}
 			\item<5->Ähnlicher Paketierungs- und Buildprozess (sbt)
 		\end{itemize}
 	\end{block}
@@ -368,8 +333,8 @@ public class Person {
 \end{frame}
 
 \begin{frame}[fragile]{}
-\Large\textbf{Businesslogik?}
-\note{Wo ist die Businesslogik versteckt? Ich gebe zu, das wird nur ein Beispiel, aber es zeigt symptomatisch eine Schwäche von Java: 
+	\Large\textbf{Businesslogik?}
+	\note{Wo ist die Businesslogik versteckt? Ich gebe zu, das wird nur ein Beispiel, aber es zeigt symptomatisch eine Schwäche von Java: 
 Java ist leicht verständlich, Änderungen werden aber immer non-breaking eingeführt und fühlen sich oft deplatziert an.
 Scala hat den Vorteil, neuer zu sein und kennt die Schmerzen der Java-Entwickler. Daher sind viele Dinge eingebaut, die man sich schon lange wünscht 
 oder Konzepte, die man eigentlich schon immer umsetzen wollte, wenn es denn nicht so lästig wäre.
@@ -411,7 +376,7 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = xs match {
 
 
 \begin{frame}{}
-	\Large\textbf{Schnelldurchlauf Scala -- \alert{Endlich!}}
+	{\usebeamercolor{normal text}\Large\textbf{Schnelldurchlauf Scala -- \alert{Endlich!}}}
 	\note{Jetzt endlich ein Schnelldurchlauf durch einige grundlegende Features von Scala. Leider nur kurz, 
 ich habe meine Zeit ja mit Management Summary und meiner politischen Agenda vertrödelt.
 Alle Beispiele sind natürlich geklaut.
@@ -428,6 +393,7 @@ Also hier nur ein paar Dinge zum Grundverständnis und ein paar nette Sachen, die
 def addOne(i: Int): Int = { i += 1; i }
 	\end{lstlisting}
 \end{block}
+\onslide<3->Compile-Fehler, da i immutable
 \note{i ist val per Default, also immutable. Letzter Ausdruck ist return}
 \end{frame}
 
@@ -486,7 +452,9 @@ def addOne(i: Int): Int = { i += 1; i }
 \scriptsize
 	\onslide<2->
   \begin{lstlisting}
-		class
+def f() = 3 * 2
+
+def f() : Int = 3 * 2
 	\end{lstlisting}
 \end{block}
 \note{}
@@ -494,29 +462,39 @@ def addOne(i: Int): Int = { i += 1; i }
 
 
 \begin{frame}[fragile]{}
- \begin{block}{Alles hat einen Typ -- aber kein return}
-\scriptsize
+ \begin{block}{Implizites return}
 	\onslide<2->
   \begin{lstlisting}
-		class
+def f() = {
+  if (something)
+    "A"
+  else
+    "B"
+}
 	\end{lstlisting}
 \end{block}
-\note{}
+\onslide<3->{Letzte Anweisung wird zurückgegeben, impliziter Typ String.}
+\note{Kein return, letzte Anweisung wird zurückgegeben.
+Die Methode ist statisch typisiert! Der Compiler kann den Typen der Rückgabe ermitteln: String -- Type Inference
+Wenn wir wollen, können wir ihn deklarieren. Bei öffentlichen Methoden sollte man das auch tun.}
 \end{frame}
-
 
 \begin{frame}[fragile]{}
- \begin{block}{??? -- Mein heimlicher Star}
+ \begin{block}{Type Inference II}
 \scriptsize
 	\onslide<2->
   \begin{lstlisting}
-def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = ???
+def f() = {
+  if (something)
+    "A"
+  else
+    1
+}
 	\end{lstlisting}
 \end{block}
-\onslide<3->{Kompilierbar, aber nicht gefährlich.}
+Erste gemeinsame Oberklasse, zur Not Any
 \note{}
 \end{frame}
-
 
 
 \begin{frame}[fragile]{}
@@ -529,19 +507,6 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = ???
 \end{block}
 \note{}
 \end{frame}
-
-
-\begin{frame}[fragile]{}
- \begin{block}{}
-\scriptsize
-	\onslide<2->
-  \begin{lstlisting}
-		class
-	\end{lstlisting}
-\end{block}
-\note{}
-\end{frame}
-
 
 
 
@@ -601,6 +566,18 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = ???
 		class
 	\end{lstlisting}
 \end{block}
+\note{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+ \begin{block}{??? -- Mein heimlicher Star}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = ???
+	\end{lstlisting}
+\end{block}
+\onslide<3->{Kompilierbar, aber nicht gefährlich.}
 \note{}
 \end{frame}
 
@@ -679,7 +656,7 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = ???
 	  \onslide<2->
       \begin{block}{Vorteile}
 		\begin{itemize}
-			\item<3->Für moderne Architekturen geeignet
+			\item<3->Für moderne Architekturen
 			\item<4->Verständlich funktional
 			\item<5->Java-Ökosystem
 			\item<6->Macht Spaß
@@ -692,7 +669,7 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = ???
 		\begin{itemize}
 			\item<9->Komplex
 			\item<10->Zukunftssicher?
-			\item<11->Zahl an Entwicklungssklaven
+			\item<11->Anzahl Entwicklungssklaven
 			\item<12->Binärkompatibilität nicht in alle Ewigkeit
 		\end{itemize}
 	\end{block}
