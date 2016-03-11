@@ -1,9 +1,11 @@
-\documentclass[14pt,aspectratio=169]{beamer} %aspectratio=169 %aspectratio=43
-\setbeameroption{hide notes} % hide notes % show notes % show only notes
-\setbeamerfont{note page}{size=\tiny}
+\documentclass[14pt,aspectratio=169]{beamer} %aspectratio=169 %aspectratio=43 % trans erzeugt Folien ohne Overlay
 \usepackage[ngerman]{babel}
 \usepackage[ansinew]{luainputenc}
 \usepackage{listings}
+\usepackage{pgfpages} % Second screen
+\setbeameroption{show notes on second screen=bottom} % show notes on second screen=bottom % hide notes % show notes % show only notes
+\setbeamerfont{note page}{size=\tiny}
+
 
 % Some colors
 \definecolor{hBlue}{HTML}{004C99}
@@ -183,9 +185,9 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 		\vskip2mm
 		\onslide<1->{\tableofcontents[pausesections,pausesubsections]} %[hideallsubsections]}
 	\end{block}
-		
+	\note{Deswegen, möchte ich über zwei Dinge reden: Neue Herausforderungen und Scala.}
 \end{frame}
-\note{Deswegen, möchte ich über zwei Dinge reden: Neue Herausforderungen und Scala.}
+
 
 \section{IT im Wandel}
 
@@ -201,15 +203,24 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 	\begin{block}{Forderungen an IT}
 		\begin{itemize}
 			\item<2->Stabilität und Resilienz
+			\note<2>{Magnor: Sorgen sie durch ihre Arbeit dafür, dass Systeme Kriterien der Stabilität und Resilienz erfüllen.
+			Seien sie "`dran"' an den Problemen, antizipieren sie sie, schaffen sie Fall-Back-Lösungen -- auch an Wochenenden.}
 			\item<3->Wertbeitrag
+			\note<3>{IT entwickelt sich zunehmend zu einem eigenen Produktionsfaktor (4-Sektor-Hypothese).
+			Seien sie ein verlässlicher Partner für das Business, nehmen sie die Business-Seite auch an die Hand, helfen und unterstützen sie, leisten sie einen wahrgenommenen Wertbeitrag.[...]}
 			\item<4->Businesstreiber
+			\note<4>{Die Entwicklung der IT treibt zunehmend die Business-Seite und verändert Geschäftsmodelle.
+			Seien sie an der Front und treiben sie das Business, entwickeln sie neue Ideen, forschen sie nach neuen Lösungen (Beispiele: Uber, 3D-Printing, CoLo21, ...}
 		\end{itemize}
 		\onslide<5->{\vskip3mm --- Matthias Magnor -- CEO Surface und Contract Logistics}
+		\note<5->{Das Bewusstsein, dass ein Wandel stattfindet, ist im Business angekommen. Diese Forderungen stammen von Matthias Magnor!}
 	\end{block}
 \end{frame}
-\note{Das Bewusstsein, dass ein Wandel stattfindet, ist im Business angekommen. Diese Forderungen stammen von Matthias Magnor!}
+
 
 \subsection{Manifeste}
+\note{Ein Manifest (lateinisch manifestus ‚handgreiflich gemacht‘) ist eine öffentliche Erklärung von Zielen und Absichten, oftmals politischer Natur. (Wikipedia)}
+
 \begin{frame}{}
 	\begin{block}{Manifeste}
 		\begin{itemize}
@@ -232,21 +243,29 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 
 \begin{frame}{}
 	\Large\textbf{\alert{Sc}}alable \textbf{\alert{La}}nguage
+	\only<2->{
+	\begin{quote}
+		{\normalsize This means that Scala grows with you. You can play with it by typing \alert{one-line expressions} and observing the results. But you can also rely on it for \alert{large mission critical systems} [...]}
+		\vskip3mm
+		\hspace*\fill{\small--- www.scala-lang.org}
+	\end{quote}
+	}
 \end{frame}
-\note{TODO: Was bedeutet das}
+\note{TODO: Was bedeutet das? Scala ist sehr flexibel. Es vereint sehr viele Konzepte und ist im API-Design sehr stark. So sollen unterschiedlichste Szenarien und Anforderungen bedient werden. Schauen wir, ob das Versprechen gehalten wird.}
 
 \begin{frame}{}
 	\begin{block}{Eigenschaften}
 		\begin{itemize}
 			\item<2->Objektorientiert
+			\note<2>{Keine Primitive, wie in Java. Ein schönes Beispiel: Dort hat man per Autoboxing Komplexität eingeführt statt Schönheit. NullPointer bei Primitiven anyone?}
 			\item<3->Funktional
-			\item<4->Statisch typisiert
+			\item<4->Statisch typisiert mit Type Inference
 			\note<4>{Aber Type Inference, wenn gewünscht}
-			\item<5->Gewohnte Syntax ("`Java ohne Semikolon"')
-			\item<6->Ausdrucksstark (APIs/DSLs schreiben)
-			\note<6>{Bei Java bricht man sich schon die Hände, will man ein Builder-Pattern rekursiv umsetzen oder eine fluent API}
-			\item<7->Immutable Objects als Konzept
-			\item<8->Jung (2004, Hype gegen 2011)
+			\item<5->Immutable by default
+			\item<6->Gewohnte Syntax ("`Java ohne Semikolon"')
+			\item<7->Ausdrucksstark (APIs/DSLs schreiben)
+			\note<7>{Bei Java bricht man sich schon die Hände, will man ein Builder-Pattern rekursiv umsetzen oder eine fluent API}
+			\item<8->Jung (2004, Hype 2011)
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -257,10 +276,11 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 	\begin{itemize}
 		\item<2->Produktivitätssteierung
 		\item<3->Höhere Codequalität
-		\item<4->\alert{durch}
-		\item<4->Weniger Code
-		\item<5->Höheres Abstraktionsniveau
-		\item<6->Mehr Spaß
+		\item<4->Mehr Spaß
+		\item[]<5->\alert{durch}
+		\item<5->Weniger Code
+		\item<6->Höheres Abstraktionsniveau
+		\item<7->Skalierbarkeit
 	\end{itemize}
 	\end{block}
 \end{frame}
@@ -276,35 +296,9 @@ Leichte Änderungen an Deployment etc.}
 			\item<5->Ähnlicher Paketierungs- und Buildprozess (sbt)
 		\end{itemize}
 	\end{block}
+	\note{}
 \end{frame}
-\note{}
 
-\begin{frame}{}
-  \begin{columns}[T,onlytextwidth]
-    \column{0.5\textwidth}
-	  \onslide<+->
-      \begin{block}{Vorteile}
-		\begin{itemize}
-			\item<+->Für moderne Architekturen geeignet
-			\item<+->Verständlich funktional
-			\item<+->Java-Ökosystem
-			\item<+->Macht Spaß
-			\item<+->Statisch typisiert
-		\end{itemize}
-	\end{block}
-    \column{0.5\textwidth}
-	  \onslide<+->
-      \begin{block}{Nachteile}
-		\begin{itemize}
-			\item<+->Komplex
-			\item<+->Zukunftssicher?
-			\item<+->Zahl an Entwicklungssklaven
-			\item<+->Binärkompatibilität nicht in alle Ewigkeit
-		\end{itemize}
-	\end{block}
-  \end{columns}
-\end{frame}
-\note{}
 
 \subsection{Ein wenig Code}
 \note{Alles geklaut von Wikipedia oder Heiko Seebergers Buch}
@@ -375,7 +369,6 @@ public class Person {
 
 \begin{frame}[fragile]{}
 \Large\textbf{Businesslogik?}
-\end{frame}
 \note{Wo ist die Businesslogik versteckt? Ich gebe zu, das wird nur ein Beispiel, aber es zeigt symptomatisch eine Schwäche von Java: 
 Java ist leicht verständlich, Änderungen werden aber immer non-breaking eingeführt und fühlen sich oft deplatziert an.
 Scala hat den Vorteil, neuer zu sein und kennt die Schmerzen der Java-Entwickler. Daher sind viele Dinge eingebaut, die man sich schon lange wünscht 
@@ -383,6 +376,8 @@ oder Konzepte, die man eigentlich schon immer umsetzen wollte, wenn es denn nich
 (Immutable Objects, Lambdas, Generics, checked Exceptions als Beispiel)
 
 Ein besonders lästiges Nicht-Feature-Feature sind in meinen Augen JavaBeans, wie wir sie gerade gesehen haben. Leicht verständlich, aber strikte Richtlinien durch Konvention. Und wehe, dein Framework mag die Namen Deiner Getter und Setter nicht.}
+\end{frame}
+
 
 \begin{frame}[fragile]{}
  \begin{block}{Dasselbe in Scala}
@@ -392,8 +387,9 @@ Ein besonders lästiges Nicht-Feature-Feature sind in meinen Augen JavaBeans, wie
 case class Person(firstName:String, lastName:String)
 	\end{lstlisting}
 \end{block}
-\end{frame}
 \note{Ja, nur ein Beispiel, ein besonders krasses. Aber dennoch ein alltägliches.}
+\end{frame}
+
 
 
 % Listing einfach
@@ -410,17 +406,43 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = xs match {
 }
 	\end{lstlisting}
 \end{block}
-\end{frame}
 \note{Man sieht: Ausdrucksstark, aber auch nicht mehr so straight forward wie Java (vor 8)}
+\end{frame}
+
 
 \begin{frame}{}
 	\Large\textbf{Schnelldurchlauf Scala -- \alert{Endlich!}}
-\end{frame}
-\note{Jetzt endlich ein Schnelldurchlauf durch einige grundlegende Features von Scala. Leider nur kurz, 
+	\note{Jetzt endlich ein Schnelldurchlauf durch einige grundlegende Features von Scala. Leider nur kurz, 
 ich habe meine Zeit ja mit Management Summary und meiner politischen Agenda vertrödelt.
 Alle Beispiele sind natürlich geklaut.
 
 Also hier nur ein paar Dinge zum Grundverständnis und ein paar nette Sachen, die Java-Entwickler interessieren dürften.}
+\end{frame}
+
+
+\begin{frame}[fragile]{}
+ \begin{block}{val und var -- Immutables}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+def addOne(i: Int): Int = { i += 1; i }
+	\end{lstlisting}
+\end{block}
+\note{i ist val per Default, also immutable. Letzter Ausdruck ist return}
+\end{frame}
+
+
+\begin{frame}[fragile]{}
+ \begin{block}{Funktionen -- Benannte Parameter}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+		class
+	\end{lstlisting}
+\end{block}
+\note{}
+\end{frame}
+
 
 \begin{frame}[fragile]{}
  \begin{block}{Klassen und Objekte}
@@ -430,19 +452,10 @@ Also hier nur ein paar Dinge zum Grundverständnis und ein paar nette Sachen, die
 		class
 	\end{lstlisting}
 \end{block}
-\end{frame}
 \note{}
+\end{frame}
 
-\begin{frame}[fragile]{}
- \begin{block}{val und var -- Immutables}
-\scriptsize
-	\onslide<2->
-  \begin{lstlisting}
-		class
-	\end{lstlisting}
-\end{block}
-\end{frame}
-\note{}
+
 
 \begin{frame}[fragile]{}
  \begin{block}{Listen}
@@ -452,8 +465,9 @@ Also hier nur ein paar Dinge zum Grundverständnis und ein paar nette Sachen, die
 		class
 	\end{lstlisting}
 \end{block}
-\end{frame}
 \note{}
+\end{frame}
+
 
 \begin{frame}[fragile]{}
  \begin{block}{Pattern Matching}
@@ -463,8 +477,9 @@ Also hier nur ein paar Dinge zum Grundverständnis und ein paar nette Sachen, die
 		class
 	\end{lstlisting}
 \end{block}
-\end{frame}
 \note{}
+\end{frame}
+
 
 \begin{frame}[fragile]{}
  \begin{block}{Type Inference}
@@ -474,8 +489,9 @@ Also hier nur ein paar Dinge zum Grundverständnis und ein paar nette Sachen, die
 		class
 	\end{lstlisting}
 \end{block}
-\end{frame}
 \note{}
+\end{frame}
+
 
 \begin{frame}[fragile]{}
  \begin{block}{Alles hat einen Typ -- aber kein return}
@@ -485,8 +501,9 @@ Also hier nur ein paar Dinge zum Grundverständnis und ein paar nette Sachen, die
 		class
 	\end{lstlisting}
 \end{block}
-\end{frame}
 \note{}
+\end{frame}
+
 
 \begin{frame}[fragile]{}
  \begin{block}{??? -- Mein heimlicher Star}
@@ -497,8 +514,9 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = ???
 	\end{lstlisting}
 \end{block}
 \onslide<3->{Kompilierbar, aber nicht gefährlich.}
-\end{frame}
 \note{}
+\end{frame}
+
 
 
 \begin{frame}[fragile]{}
@@ -509,8 +527,9 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = ???
 		class
 	\end{lstlisting}
 \end{block}
-\end{frame}
 \note{}
+\end{frame}
+
 
 \begin{frame}[fragile]{}
  \begin{block}{}
@@ -520,19 +539,11 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = ???
 		class
 	\end{lstlisting}
 \end{block}
-\end{frame}
 \note{}
+\end{frame}
 
-\begin{frame}[fragile]{}
- \begin{block}{Funktionen -- Benannte Parameter}
-\scriptsize
-	\onslide<2->
-  \begin{lstlisting}
-		class
-	\end{lstlisting}
-\end{block}
-\end{frame}
-\note{}
+
+
 
 \begin{frame}[fragile]{}
  \begin{block}{Funktionen funktional -- Lambdas schön}
@@ -542,8 +553,9 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = ???
 		class
 	\end{lstlisting}
 \end{block}
-\end{frame}
 \note{}
+\end{frame}
+
 
 \begin{frame}[fragile]{}
  \begin{block}{Flatmap that shit!}
@@ -553,8 +565,9 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = ???
 		class
 	\end{lstlisting}
 \end{block}
-\end{frame}
 \note{}
+\end{frame}
+
 
 \begin{frame}[fragile]{}
  \begin{block}{Arbeit mit Strings}
@@ -564,8 +577,9 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = ???
 		class
 	\end{lstlisting}
 \end{block}
-\end{frame}
 \note{}
+\end{frame}
+
 
 \begin{frame}[fragile]{}
  \begin{block}{Tupel}
@@ -575,8 +589,8 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = ???
 		class
 	\end{lstlisting}
 \end{block}
-\end{frame}
 \note{}
+\end{frame}
 
 
 \begin{frame}[fragile]{}
@@ -587,10 +601,8 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = ???
 		class
 	\end{lstlisting}
 \end{block}
-\end{frame}
 \note{}
-
-
+\end{frame}
 
 \begin{frame}[fragile]{}
  \begin{block}{}
@@ -600,9 +612,8 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = ???
 		class
 	\end{lstlisting}
 \end{block}
-\end{frame}
 \note{}
-
+\end{frame}
 
 \subsection{Spannendes}
 
@@ -614,19 +625,41 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = ???
 			\item<4->
 		\end{itemize}
 	\end{block}
+	\note{}
 \end{frame}
-\note{}
+
 
 \begin{frame}{}
 	\begin{block}{ScalaTest}
 		\begin{itemize}
-			\item<2->
-			\item<3->
-			\item<4->
+			\item<2->Fachlich verständliche Tests
+			\item<3->Testdatengenerierung
 		\end{itemize}
 	\end{block}
+	\note{}
 \end{frame}
+
+
+\begin{frame}[fragile]{}
+ \begin{block}{Scalatest -- Beispiel}
+\scriptsize
+	\onslide<1->
+  \begin{lstlisting}
+"Creating a Time" should {
+    "throw an IllegalArgumentException for hours less than 0 or greater equal 24" in {
+      forAll("hours") { (hours: Int) =>
+        whenever(hours < 0 || hours >= 24) {
+          an[IllegalArgumentException] should be thrownBy Time(hours)
+        }
+      }
+    }
+  }
+	\end{lstlisting}
+\end{block}
 \note{}
+\end{frame}
+
+
 
 \begin{frame}{}
 	\begin{block}{Domain Specific Languages}
@@ -636,10 +669,47 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = ???
 			\item<4->
 		\end{itemize}
 	\end{block}
+	\note{}
 \end{frame}
-\note{}
 
-\subsection*{Mehr für Nerds}
+
+\begin{frame}{Meine wenig qualifizierte Meinung}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+	  \onslide<2->
+      \begin{block}{Vorteile}
+		\begin{itemize}
+			\item<3->Für moderne Architekturen geeignet
+			\item<4->Verständlich funktional
+			\item<5->Java-Ökosystem
+			\item<6->Macht Spaß
+			\item<7->Statisch typisiert
+		\end{itemize}
+	\end{block}
+    \column{0.5\textwidth}
+	  \onslide<8->
+      \begin{block}{Nachteile}
+		\begin{itemize}
+			\item<9->Komplex
+			\item<10->Zukunftssicher?
+			\item<11->Zahl an Entwicklungssklaven
+			\item<12->Binärkompatibilität nicht in alle Ewigkeit
+		\end{itemize}
+	\end{block}
+  \end{columns}
+	\note{}
+\end{frame}
+
+
+\begin{frame}{}
+  \begin{quote}
+		{\large We’ve found that Scala has enabled us to \alert{deliver things faster} with less code. It’s reinvigorated the team.}
+		\vskip3mm
+		\hspace*\fill{\small--- Graham Tackley, Guardian}
+	\end{quote}
+	\note{Der Guardian ist der Inbegriff für den Technologiewandel in einer klassischen, behäbigen Branche. Lange, bevor Springer wach geworden ist.}
+\end{frame}
+
 \begin{frame}{}
 	\begin{block}{Mehr für Nerds}
 		\begin{itemize}
@@ -648,10 +718,11 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = ???
 			\item<4->Heiko Seeberger: "`Durchstarten mit Scala. Tutorial für Einsteiger (2. Aufl.)"'
 		\end{itemize}
 	\end{block}
-\end{frame}
-\note{Wie gesagt habe ich wenig Ahnung von Scala, da ich es noch nicht produktiv eingesetzt habe. Ich lasse mich aber gerne zwingen, 
+	\note{Wie gesagt habe ich wenig Ahnung von Scala, da ich es noch nicht produktiv eingesetzt habe. Ich lasse mich aber gerne zwingen, 
 für Interessierte ein Hands on durchzuführen, bei dem wir ein paar Stunden mit Scala in einer echten IDE spielen, nicht auf Folien.
 Ich würde natürlich auch dafür aus Büchern klauen.}
+\end{frame}
+
 
 % Abschlussfolie, leer und dunkel.
 \plain{}
@@ -676,8 +747,9 @@ Ich würde natürlich auch dafür aus Büchern klauen.}
 		class
 	\end{lstlisting}
 \end{block}
-\end{frame}
 \note{}
+\end{frame}
+
 
 % Listing mit Header
 \begin{frame}[fragile]{Primzahlen}
@@ -691,22 +763,25 @@ def swap(i: Int, j: Int) {
 }
 	\end{lstlisting}
 	\end{block}
+	\note{}
 \end{frame}
-\note{}
+
 
 % Großer Text
 \begin{frame}{}
 	\Large\textbf{}
+	\note{}
 \end{frame}
-\note{}
+
 
 % Einfacher Block
 \begin{frame}{}
 	\begin{block}{}
 		
 	\end{block}
+	\note{}
 \end{frame}
-\note{}
+
 
 % Aufzählung
 \begin{frame}{}
@@ -717,8 +792,9 @@ def swap(i: Int, j: Int) {
 			\item<4->
 		\end{itemize}
 	\end{block}
+	\note{}
 \end{frame}
-\note{}
+
 
 % Vergleich
 \begin{frame}{}
@@ -742,8 +818,6 @@ def swap(i: Int, j: Int) {
 		\end{itemize}
 	\end{block}
   \end{columns}
+	\note{}
 \end{frame}
-\note{}
-
-
 
