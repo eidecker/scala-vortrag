@@ -3,7 +3,7 @@
 \usepackage[ansinew]{luainputenc}
 \usepackage{listings}
 \usepackage{pgfpages} % Second screen
-\setbeameroption{show notes on second screen=bottom} % show notes on second screen=bottom % hide notes % show notes % show only notes
+\setbeameroption{hide notes} % show notes on second screen=bottom % hide notes % show notes % show only notes
 \setbeamerfont{note page}{size=\tiny}
 
 
@@ -427,41 +427,50 @@ List(1,2,3) isEmpty
 \note{}
 \end{frame}
 
+
+
 \begin{frame}[fragile]{}
  \begin{block}{Definition eigener Operatoren}
 \scriptsize
-	\only<2-4>{
+\begin{overlayarea}{\textwidth}{4cm}
+	\begin{onlyenv}<2-4>
   \begin{lstlisting}
 case class Time(hour:Int, minute:Int) {
   def minus(time: Time) = {new Time(this.hour - time.hour, this.minute - time.minute)}
 
 }
-	\end{lstlisting}}
-	\only<5->{
+	\end{lstlisting}
+	\end{onlyenv}
+	\begin{onlyenv}<5->
 	\begin{lstlisting}
 case class Time(hour:Int, minute:Int) {
   def minus(time: Time) = {new Time(this.hour - time.hour, this.minute - time.minute)}
   def -(time: Time) = minus(time)
 }
-	\end{lstlisting}}
-	\only<3>{
+	\end{lstlisting}
+	\end{onlyenv}
+	\begin{onlyenv}<3>
   \begin{lstlisting}
 Time(10,20).minus(Time(1,10))
 
-
-	\end{lstlisting}}
-	\only<4>{
+			
+	\end{lstlisting}
+	\end{onlyenv}
+	\begin{onlyenv}<4-5>
   \begin{lstlisting}
 Time(10,20).minus(Time(1,10))
 Time(10,20) minus Time(1,10)
 
-	\end{lstlisting}}
-	\only<5->{
+	\end{lstlisting}
+	\end{onlyenv}
+	\begin{onlyenv}<6->
   \begin{lstlisting}
 Time(10,20).minus(Time(1,10))
 Time(10,20) minus Time(1,10)
 Time(10,20) - Time(1,10)
-	\end{lstlisting}}
+	\end{lstlisting}
+	\end{onlyenv}
+	\end{overlayarea}
 \end{block}
 \note{}
 \end{frame}
@@ -476,8 +485,6 @@ Time(10,20) - Time(1,10)
 \end{block}
 \note{}
 \end{frame}
-
-
 
 \begin{frame}[fragile]{}
  \begin{block}{Listen}
@@ -640,26 +647,15 @@ case class Time(hour:Int, minute:Int) {
 \note{}
 \end{frame}
 
-\begin{frame}[fragile]{}
- \begin{block}{}
-\scriptsize
-	\onslide<2->
-  \begin{lstlisting}
-		class
-	\end{lstlisting}
-\end{block}
-\note{}
-\end{frame}
 
 \subsection{Spannendes}
 
-\begin[allowframebreaks]{frame}{}
+\begin{frame}{}
 	\begin{block}{Aktoren}
 		\begin{itemize}
 			\item<2->Scalable real-time transaction processing
 			\item<3->Nebenläufige Berechnungen
 			\item<4->Kommunikation ausschließlich über Nachrichten
-			\framebreak
 			\item<5->Elastizität und Resilienz
 			\item<6->Einfaches Mapping auf Prozessdefinitionen
 		\end{itemize}
@@ -669,7 +665,38 @@ case class Time(hour:Int, minute:Int) {
 
 
 \begin{frame}{}
-	\begin{block}{ScalaTest}
+	 \begin{block}{Domain Specific Languages}
+			 \begin{itemize}
+				 \item<2->Fachliche Abstraktion
+				 \item<3->Verständlicher
+				 \item<4->Entwicklung schwierig
+				 \item<5->Einschränkungen vorhanden
+				\note<5->{Gegenüber externen DSLs wie Xtext, die beliebige Syntax erlauben}
+			 \end{itemize}
+	 \end{block}
+	 \note{}
+\end{frame}
+
+
+\begin{frame}[fragile]{}
+ \begin{block}{DSL -- Beispiel}
+\scriptsize
+	\onslide<1->
+  \begin{lstlisting}
+100 PRINT "Distance " % 'dist % "km, " % "Velocity " % 'v % "km/s, " % "Fuel " % 'fuel
+110 INPUT 'burn
+120 IF ABS('burn) <= 'fuel THEN 150
+130 PRINT "You don't have that much fuel"
+140 GOTO 100
+150 LET ('v := 'v + 'burn * 10 / ('fuel + 'mass))
+	\end{lstlisting}
+\end{block}
+\note{Ist natürlich Quatsch, zeigt aber, was geht.}
+\end{frame}
+
+
+\begin{frame}{}
+	\begin{block}{DSL sinnvoll -- ScalaTest}
 		\begin{itemize}
 			\item<2->Fachlich verständliche Tests
 			\item<3->Testdatengenerierung
@@ -696,19 +723,6 @@ case class Time(hour:Int, minute:Int) {
 	\end{lstlisting}
 \end{block}
 \note{}
-\end{frame}
-
-
-
-\begin{frame}{}
-	\begin{block}{Domain Specific Languages}
-		\begin{itemize}
-			\item<2->
-			\item<3->
-			\item<4->
-		\end{itemize}
-	\end{block}
-	\note{}
 \end{frame}
 
 
