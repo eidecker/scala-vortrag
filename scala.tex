@@ -296,7 +296,7 @@ public class Person {
 \scriptsize
 \lstset{style=customjava}
 	\onslide<1->
-	\begin{lstlisting}
+	\begin{lstlisting}[firstnumber=14]
 	@Override
 	public boolean equals(Object o) {
 			if (this == o) return true;
@@ -319,7 +319,7 @@ public class Person {
 \scriptsize
 \lstset{style=customjava}
 	\onslide<1->
-	\begin{lstlisting}
+	\begin{lstlisting}[firstnumber=27]
 	@Override
 	public int hashCode() {
 			int result = firstName != null ? firstName.hashCode() : 0;
@@ -384,9 +384,24 @@ Alle Beispiele sind natürlich geklaut.
 Also hier nur ein paar Dinge zum Grundverständnis und ein paar nette Sachen, die Java-Entwickler interessieren dürften.}
 \end{frame}
 
+\begin{frame}[fragile]{}
+ \begin{block}{val und var}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+val j = 3
+var k = 3
+
+j = 4
+k = 4
+	\end{lstlisting}
+\end{block}
+\onslide<3->Compile-Fehler für j, da immutable
+\note{val ist Default}
+\end{frame}
 
 \begin{frame}[fragile]{}
- \begin{block}{val und var -- Immutables}
+ \begin{block}{Parameter sind vals}
 \scriptsize
 	\onslide<2->
   \begin{lstlisting}
@@ -450,21 +465,21 @@ case class Time(hour:Int, minute:Int) {
 	\end{lstlisting}
 	\end{onlyenv}
 	\begin{onlyenv}<3>
-  \begin{lstlisting}
+  \begin{lstlisting}[firstnumber=5]
 Time(10,20).minus(Time(1,10))
 
 			
 	\end{lstlisting}
 	\end{onlyenv}
 	\begin{onlyenv}<4-5>
-  \begin{lstlisting}
+  \begin{lstlisting}[firstnumber=5]
 Time(10,20).minus(Time(1,10))
 Time(10,20) minus Time(1,10)
 
 	\end{lstlisting}
 	\end{onlyenv}
 	\begin{onlyenv}<6->
-  \begin{lstlisting}
+  \begin{lstlisting}[firstnumber=5]
 Time(10,20).minus(Time(1,10))
 Time(10,20) minus Time(1,10)
 Time(10,20) - Time(1,10)
