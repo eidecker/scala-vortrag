@@ -411,6 +411,62 @@ def addOne(i: Int): Int = { i += 1; i }
 
 
 \begin{frame}[fragile]{}
+ \begin{block}{Schönere Methodenaufrufe}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+"Test".startsWith("T")
+List(1,2,3).isEmpty
+	\end{lstlisting}
+	\onslide<3->
+  \begin{lstlisting}
+"Test" startsWith "T"
+List(1,2,3) isEmpty
+	\end{lstlisting}
+\end{block}
+\note{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Definition eigener Operatoren}
+\scriptsize
+	\only<2-4>{
+  \begin{lstlisting}
+case class Time(hour:Int, minute:Int) {
+  def minus(time: Time) = {new Time(this.hour - time.hour, this.minute - time.minute)}
+
+}
+	\end{lstlisting}}
+	\only<5->{
+	\begin{lstlisting}
+case class Time(hour:Int, minute:Int) {
+  def minus(time: Time) = {new Time(this.hour - time.hour, this.minute - time.minute)}
+  def -(time: Time) = minus(time)
+}
+	\end{lstlisting}}
+	\only<3>{
+  \begin{lstlisting}
+Time(10,20).minus(Time(1,10))
+
+
+	\end{lstlisting}}
+	\only<4>{
+  \begin{lstlisting}
+Time(10,20).minus(Time(1,10))
+Time(10,20) minus Time(1,10)
+
+	\end{lstlisting}}
+	\only<5->{
+  \begin{lstlisting}
+Time(10,20).minus(Time(1,10))
+Time(10,20) minus Time(1,10)
+Time(10,20) - Time(1,10)
+	\end{lstlisting}}
+\end{block}
+\note{}
+\end{frame}
+
+\begin{frame}[fragile]{}
  \begin{block}{Klassen und Objekte}
 \scriptsize
 	\onslide<2->
@@ -574,7 +630,10 @@ Erste gemeinsame Oberklasse, zur Not Any
 \scriptsize
 	\onslide<2->
   \begin{lstlisting}
-def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = ???
+case class Time(hour:Int, minute:Int) {
+  def minus(time: Time) = ???
+  def -(time: Time) = minus(time)
+}
 	\end{lstlisting}
 \end{block}
 \onslide<3->{Kompilierbar, aber nicht gefährlich.}
@@ -594,12 +653,15 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = ???
 
 \subsection{Spannendes}
 
-\begin{frame}{}
-	\begin{block}{Akka}
+\begin[allowframebreaks]{frame}{}
+	\begin{block}{Aktoren}
 		\begin{itemize}
 			\item<2->Scalable real-time transaction processing
-			\item<3->Will die aktuellen Probleme lösen
-			\item<4->
+			\item<3->Nebenläufige Berechnungen
+			\item<4->Kommunikation ausschließlich über Nachrichten
+			\framebreak
+			\item<5->Elastizität und Resilienz
+			\item<6->Einfaches Mapping auf Prozessdefinitionen
 		\end{itemize}
 	\end{block}
 	\note{}
