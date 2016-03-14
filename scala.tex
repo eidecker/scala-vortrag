@@ -195,7 +195,7 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 \note{Es gibt Manifeste von Softwareentwicklern, die sehr Ähnliches aussagen. (Reaktives Manifest, agiles Manifest, Manifest der Software Craftmanship-Bewegung als Beispiele) Diese sind bekannt und -- ich habe zumindest das Gefühl -- auch anerkannt. Ich will auch nur sehr kurz darauf eingehen, es soll ja vor allem um Scala gehen.}
 
 \begin{frame}{}
-	\only<1->{\Large \textbf{Wo stehen wir\only<2->{\alert{ im Wettbewerb}}?}}
+	\only<1->{\Large \textbf{Wo stehen wir}?}
 \end{frame}
 
 
@@ -227,7 +227,7 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 			\note<4>{Aber Type Inference, wenn gewünscht}
 			\item<5->Immutable by default
 			\item<6->Gewohnte Syntax ("`Java ohne Semikolon"')
-			\item<7->Ausdrucksstark (APIs/DSLs schreiben)
+			\item<7->Ausdrucksstark (APIs/DSLs)
 			\note<7>{Bei Java bricht man sich schon die Hände, will man ein Builder-Pattern rekursiv umsetzen oder eine fluent API}
 			\item<8->Jung (2004, Hype 2011)
 		\end{itemize}
@@ -258,7 +258,7 @@ Leichte Änderungen an Deployment etc.}
 			\item<3->Java-Bibliotheken nutzbar
 			\item<4->Bekannte IDEs
 			\note<4,5>{Wenn man schon eine neue Sprache lernt, wird man wenigstens bei IDE und Buildprozess abgeholt.}
-			\item<5->Ähnlicher Paketierungs- und Buildprozess (sbt)
+			\item<5->Ähnliches Toolset, oft wiederverwendbar
 		\end{itemize}
 	\end{block}
 	\note{}
@@ -668,15 +668,128 @@ case class Time(hour:Int, minute:Int) {
 \begin{frame}{}
 	\begin{block}{Aktoren}
 		\begin{itemize}
-			\item<2->Scalable real-time transaction processing
-			\item<3->Nebenläufige Berechnungen
-			\item<4->Kommunikation ausschließlich über Nachrichten
-			\item<5->Elastizität und Resilienz
-			\item<6->Einfaches Mapping auf Prozessdefinitionen
+				\item<2->Nebenläufige Einheiten
+				\item<3->Empfangen Nachrichten (Ereignisse)
+				\item<4->Abarbeitung FIFO
+				\item<5->Verhaltensänderung
+				\item<6->Asynchrone Kommunikation mit Aktoren
+			\end{itemize}
+	\end{block}
+	\note{The Actor Model, which was first proposed by Carl Hewitt in 1973 [5] and was improved, among others, by Gul Agha [6]. This model takes a different approach to concurrency, which should avoid the problems caused by threading and locking.
+
+In the actor model, each object is an actor. This is an entity that has a mailbox and a behaviour. Messages can be exchanged between actors, which will be buffered in the mailbox. Upon receiving a message, the behaviour of the actor is executed, upon which the actor can: send a number of messages to other actors, create a number of actors and assume new behaviour for the next message to be received.
+
+Of importance in this model is that all communications are performed asynchronously. This implies that the sender does not wait for a message to be received upon sending it, it immediately continues its execution. There are no guarantees in which order messages will be received by the recipient, but they will eventually be delivered.
+
+A second important property is that all communications happen by means of messages: there is no shared state between actors. If an actor wishes to obtain information about the internal state of another actor, it will have to use messages to request this information. This allows actors to control access to their state, avoiding problems like the lost-update problem. Manipulation of the internal state also happens through messages.
+
+Each actor runs concurrently with other actors: it can be seen as a small independently running process.}
+	\note{Das ist ähnlich der reinen Objektorientierung, aber komplett asynchron. Die Idee ist übrigens alt (1973) und schon lange, z.B. in Erlang im Einsatz. Momentan passen die Probleme aber.
+	http://www.brianstorti.com/the-actor-model/ }
+\end{frame}
+
+
+\begin{frame}{}
+	\begin{block}{Akka}
+		\begin{itemize}
+			\item<2->Aktoren
+			\note<2>{Klar, sonst hätte es die vorherige Folie nicht gegeben.
+			Actors give you:
+Simple and high-level abstractions for concurrency and parallelism.
+Asynchronous, non-blocking and highly performant event-driven programming model.
+Very lightweight event-driven processes (several million actors per GB of heap memory).
+}
+			\item<3->Fehlertoleranz
+			\note<3>{
+    Supervisor hierarchies with "let-it-crash" semantics.
+    Supervisor hierarchies can span over multiple JVMs to provide truly fault-tolerant systems.
+    Excellent for writing highly fault-tolerant systems that self-heal and never stop.
+}
+			\item<4->Standort-Transparenz
+			\note<4>{}
+			\item<5->Nachrichten-Persistenz
+			\note<5>{Messages received by an actor can optionally be persisted and replayed when the actor is started or restarted. This allows actors to recover their state, even after JVM crashes or when being migrated to another node.}
+			\item<6->Reaktiv laut Manifest
 		\end{itemize}
 	\end{block}
-	\note{}
+	\note{Was bringt uns das nun: Ziemlich viel von dem, was moderne verteilte Systeme kennen sollten.}
 \end{frame}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Akka -- Ping-Aktor}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+class Ping(pong: ActorRef) extends Actor {
+  var count = 0
+  def incrementAndPrint { count += 1; println("ping") }
+	\end{lstlisting}
+\end{block}
+\note{http://alvinalexander.com/scala/scala-akka-actors-ping-pong-simple-example}
+\end{frame}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Akka -- Ping-Aktor}
+\scriptsize
+	\onslide<1->
+  \begin{lstlisting}[firstnumber=4]
+  def receive = {
+    case StartMessage =>
+        incrementAndPrint
+        pong ! PingMessage
+    case PongMessage => 
+        incrementAndPrint
+        if (count > 99) {
+          sender ! StopMessage
+          println("ping stopped")
+          context.stop(self)
+        } else {
+          sender ! PingMessage
+        }
+  }
+}
+	\end{lstlisting}
+\end{block}
+\note{http://alvinalexander.com/scala/scala-akka-actors-ping-pong-simple-example}
+\end{frame}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Akka -- Pong-Aktor}
+\scriptsize
+	\onslide<1->
+  \begin{lstlisting}[firstnumber=19]
+class Pong extends Actor {
+  def receive = {
+    case PingMessage =>
+        println("  pong")
+        sender ! PongMessage
+    case StopMessage =>
+        println("pong stopped")
+        context.stop(self)
+  }
+}
+	\end{lstlisting}
+\end{block}
+\note{Ein einfaches Beispiel, aber man sieht, wie hier Nachrichten ausgetauscht werden. Das soll hier aber keine Akka-Schulung sein, die ich auch nicht halten könnte, sondern
+eine Idee geben, warum Scala geeignet sein könnte, Aktoren zu implementieren.}
+\end{frame}
+
+
+
+\begin{frame}{}
+	\begin{block}{Warum in Scala}
+		\begin{itemize}
+			\item<2->Pattern Matching
+			\item<3->Funktional
+			\item<4->Weniger Code
+			\item<5->Besser verständlich
+		\end{itemize}
+	\end{block}
+	\note{Akka kann man auch mit Java umsetzen. Aber insbesondere das Pattern Matching macht einem das Leben mit Scala viel leichter. 
+Es ist einfach natürlicher.}
+\end{frame}
+
+
 
 
 \begin{frame}{}
@@ -706,7 +819,7 @@ case class Time(hour:Int, minute:Int) {
 150 LET ('v := 'v + 'burn * 10 / ('fuel + 'mass))
 	\end{lstlisting}
 \end{block}
-\note{Ist natürlich Quatsch, zeigt aber, was geht.}
+\note{Ist natürlich Quatsch, zeigt aber, was geht. Und wir kommen auch gleich }
 \end{frame}
 
 
@@ -760,8 +873,11 @@ case class Time(hour:Int, minute:Int) {
 		\begin{itemize}
 			\item<9->Komplex
 			\item<10->Zukunftssicher?
+			\note<10->{Ich glaube ja, und mittlerweile ist es auch keine Nische mehr. Wenn man aber darauf angewiesen ist, dass eine Technologie auch in 10 Jahren noch genauso vorhanden ist (was wahrscheinlich schlecht ist), dann muss man vielleicht den an sich schlechteren Mainstream wählen. Scala ist aber bei weitem nicht mehr esoterisch.}
 			\item<11->Anzahl Entwicklungssklaven
+			\note<11->{Es gibt eine Lernkurve, man braucht Entwickler, die Spaß daran haben und die Vorteile sehen wollen.}
 			\item<12->Binärkompatibilität nicht in alle Ewigkeit
+			\note<12->{Ist besser geworden, insbes. mit Java 8. Die Scala-Macher sind aber nicht so konservativ wie Oracle. Aber wozu das führt, haben wir ja gesehen.}
 		\end{itemize}
 	\end{block}
   \end{columns}
