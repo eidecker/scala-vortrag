@@ -131,14 +131,14 @@
 	\end{quote}
 \end{frame}
 \note{
-	Ich möchte heute über Scala reden. Eigentlich will ich aber nicht nur über Scala reden.  Ich möchte nicht Scala verkaufen, sondern etwas völlig anderes. Scala ist spannend - für Nerds, die des Geldes wegen Java benutzen. Wir müssen aber auch über wichtigere Probleme reden. Und vielleicht passt Scala ja doch irgendwie.
+	Ich möchte heute über Scala reden. Eigentlich will ich aber nicht nur über Scala reden.  Ich möchte nicht Scala verkaufen, sondern etwas völlig anderes. Scala ist spannend - für Nerds, die des Geldes wegen Java benutzen, denen aber mittlerweile Oracles Update-Politik nicht mehr gefällt. 
 	
-In der IT wollen wir Probleme lösen und Möglichkeiten schaffen. 
+Ich will aber auch über aus meiner Sicht wichtigere Probleme reden. Und vielleicht passt Scala ja doch irgendwie.
+	
+In der IT wollen wir Probleme lösen und Möglichkeiten schaffen.
 Ich bin der festen Überzeugung, dass wir zu selten über den Kern unserer Probleme nachdenken und auch, dass sich diese Probleme gerade ändern und immer schneller ändern werden.
 
 Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kennen müssen. Ich glaube, dass wir zumindest wissen müssen, was im Baumarkt ausliegt und wir bei Bedarf einkaufen können. Daher kann es aus meiner Sicht nie schaden, sich neue Werkzeuge und Arbeitsweisen anzuschauen, damit man sie bei Bedarf zumindest im Hinterkopf hat. Sonst kann es passieren, dass wir das Problem gar nicht verstehen, weil wir kein passendes Werkzeug dafür besitzen und verwenden können.}
-
-
 
 \begin{frame}{}
 	\setbeamertemplate{section in toc}[sections unnumbered]
@@ -157,7 +157,7 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 
 \begin{frame}{}
 	\only<1>{\Large\textbf{Software Engineering}}\only<2>{\Large\textbf{Software \alert{Engineering}}}
-	\note{Software Engineering. Passt der Begriff?}
+	\note{Software Engineering. Passt der Begriff? Ich denke, dies impliziert zu stark, dass wir ein Problem nur lange genug durchdenken, exakt definieren und dann eine gute Lösung bauen müssen. Womöglich verstehe ich den Beruf des Ingenieurs falsch, aber ich glaube, wir haben gesehen, dass Software agil gebaut werden sollte, dass wir nicht zu Beginn eines Projektes alle Anforderungen exakt spezifizieren können. Und: Wir können kein System bauen, das hunderte Jahre stabil steht, wie eine Kirche oder Brücke. Wir müssen es ständig pflegen und verbessern, damit es nützlich bleibt.}
 \end{frame}
 
 
@@ -186,16 +186,20 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 \begin{frame}{}
 	\begin{block}{Manifeste}
 		\begin{itemize}
-			\item<1,4->Antwortbereit, Widerstandsfähig, Elastisch, Nachrichtenorientiert (2013)
-			\item<2,4->Gut gefertigt, Stets Mehrwert, Gemeinschaft aus Experten, Produktive Partnerschaften (2009)
-			\item<3,4->Individuen und Interaktionen, Funktionierende Software, Zusammenarbeit mit dem Kunden, Reagieren auf Veränderung (2001)
+			\item<2,5->Antwortbereit, Widerstandsfähig, Elastisch, Nachrichtenorientiert (2013)
+			\note<2>{Reaktives Manifest}
+			\item<3,5->Gut gefertigt, Stets Mehrwert, Gemeinschaft aus Experten, Produktive Partnerschaften (2009)
+			\note<3>{Software Craftsmanship}
+			\item<4,5->Individuen und Interaktionen, Funktionierende Software, Zusammenarbeit mit dem Kunden, Reagieren auf Veränderung (2001)
+			\note<4>{Agiles Manifest}
 		\end{itemize}
 	\end{block}
 \end{frame}
 \note{Es gibt Manifeste von Softwareentwicklern, die sehr Ähnliches aussagen. (Reaktives Manifest, agiles Manifest, Manifest der Software Craftmanship-Bewegung als Beispiele) Diese sind bekannt und -- ich habe zumindest das Gefühl -- auch anerkannt. Ich will auch nur sehr kurz darauf eingehen, es soll ja vor allem um Scala gehen.}
 
 \begin{frame}{}
-	\only<1->{\Large \textbf{Wo stehen wir}?}
+	\only<1->{\Large \textbf{Wo stehen wir?}}
+	\note{Wie wollen wir uns positionieren, was müssen wir tun, um die Ziele zu erreichen bzw. unser Niveau zu halten? Hier kommt nun endlich Scala ins Spiel. Wir sollten so viele nützliche Tools wie möglich kennen, und ich denke, Scala ist eines der für uns interessanteren, was ich nun gleich hoffentlich zeigen kann.}
 \end{frame}
 
 
@@ -241,6 +245,7 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 		\item<2->Produktivitätssteierung
 		\item<3->Höhere Codequalität
 		\item<4->Mehr Spaß
+		\note<4>{REPL, habe ich mir für Java schon immer gewünscht. Wer hat keine Testklasse, um mal etwas auszuprobieren?}
 		\item[]<5->\alert{durch}
 		\item<5->Weniger Code
 		\item<6->Höheres Abstraktionsniveau
@@ -371,12 +376,12 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = xs match {
 }
 	\end{lstlisting}
 \end{block}
-\note{Man sieht: Ausdrucksstark, aber auch nicht mehr so straight forward wie Java (vor 8)}
+\note{Man sieht: Ausdrucksstark, aber auch nicht mehr so straight forward wie Java (vor 8). Scala ist beides: Sehr einfach und fast beliebig komplex. Und dieser Quicksort ist noch lange nicht das Ende der Möglichkeiten.}
 \end{frame}
 
 
 \begin{frame}{}
-	{\usebeamercolor{normal text}\Large\textbf{Schnelldurchlauf Scala -- \alert{Endlich!}}}
+	\Large\textbf{Schnelldurchlauf Scala -- \alert{Endlich!}}
 	\note{Jetzt endlich ein Schnelldurchlauf durch einige grundlegende Features von Scala. Leider nur kurz, 
 ich habe meine Zeit ja mit Management Summary und meiner politischen Agenda vertrödelt.
 Alle Beispiele sind natürlich geklaut.
@@ -385,19 +390,104 @@ Also hier nur ein paar Dinge zum Grundverständnis und ein paar nette Sachen, die
 \end{frame}
 
 \begin{frame}[fragile]{}
- \begin{block}{val und var}
+ \begin{block}{Variablen -- val und var}
 \scriptsize
 	\onslide<2->
   \begin{lstlisting}
-val j = 3
-var k = 3
-
+var j = 3
 j = 4
+\end{lstlisting}
+\onslide<3->
+\begin{lstlisting}[firstnumber=3]
+val k = 3
 k = 4
+\end{lstlisting}
+\end{block}
+\onslide<4->Compile-Fehler für k, da immutable
+\onslide<5->
+\begin{lstlisting}[firstnumber=5]
+val k: Int = 3
+	\end{lstlisting}
+\note{val ist Default. Typen kann man auch angeben}
+\end{frame}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Methoden}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+def f = 3 * 2
+
+	\end{lstlisting}
+	\onslide<3->
+  \begin{lstlisting}[firstnumber=2]
+def f(): Int = 3 * 2
+
+	\end{lstlisting}
+	\onslide<4->
+  \begin{lstlisting}[firstnumber=3]
+def f(i: Int) = 3 * i
+	\end{lstlisting}
+	\onslide<5->
+  \begin{lstlisting}[firstnumber=4]
+def f(i: Int) = {
+	3 * i
+}
 	\end{lstlisting}
 \end{block}
-\onslide<3->Compile-Fehler für j, da immutable
-\note{val ist Default}
+\note{Hier mal eine Methode. Mit = definiert. Methoden können mehr als in Java, dazu später.
+Die Klammern kann man sich sparen, wenn 
+Typen kann man angeben, muss es aber nicht, so lange der Compiler sie ermitteln kann. 
+Bei öffentlichen Methoden sollte man es aber tun, dann hat der Nutzer auch eine reelle Chance.}
+\end{frame}
+
+
+\begin{frame}[fragile]{}
+ \begin{block}{Implizites return}
+	\onslide<2->
+  \begin{lstlisting}
+def f() = {
+  if (something)
+    "A"
+  else
+    "B"
+}
+	\end{lstlisting}
+\end{block}
+\onslide<3->{Letzte Anweisung wird zurückgegeben, impliziter Typ String.}
+\note{
+Kein return, letzte Anweisung wird zurückgegeben. Alles hat einen Typen!
+Die Methode ist statisch typisiert! Der Compiler kann den Typen der Rückgabe ermitteln: String -- Type Inference
+Wenn wir wollen, können wir ihn deklarieren. Bei öffentlichen Methoden sollte man das auch tun.}
+\end{frame}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Type Inference -- Any}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+def f() = {
+  if (something)
+    "A"
+  else
+    1
+}
+	\end{lstlisting}
+\end{block}
+\onslide<3->
+Erste gemeinsame Oberklasse, zur Not Any
+\note{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Unit}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+def print(s: String): Unit = println(s)
+	\end{lstlisting}
+\end{block}
+\note{Wollen wir mal wirklich nichts zurückgeben, so existiert der Typ Unit. Sinnvoll bei Methoden, die ausschließlich Seiteneffekte haben. Sollte also selten sein.}
 \end{frame}
 
 \begin{frame}[fragile]{}
@@ -412,18 +502,166 @@ def addOne(i: Int): Int = { i += 1; i }
 \note{i ist val per Default, also immutable. Letzter Ausdruck ist return}
 \end{frame}
 
-
 \begin{frame}[fragile]{}
- \begin{block}{Funktionen -- Benannte Parameter}
+ \begin{block}{Listen}
 \scriptsize
 	\onslide<2->
   \begin{lstlisting}
-		class
+val numbers = List(1, 2, 3, 4)
+
+	\end{lstlisting}
+	\onslide<3->
+  \begin{lstlisting}[firstnumber = 2]
+val bagContent = List(1, "a", Time(12,30), 4)
 	\end{lstlisting}
 \end{block}
-\note{}
+\onslide<4->
+Immutable-Listen bevorzugen
+\note{Einfache Erstellung von Listen. Type Inference auch hier, zweite ist Liste von Any. Collections gibt es immer auch Immutable, die auch schnell sind.}
 \end{frame}
 
+\begin{frame}[fragile]{}
+ \begin{block}{Funktionen höherer Ordnung}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+val numbers = List(1, 2, 3, 4)
+
+	\end{lstlisting}
+\onslide<3->
+  \begin{lstlisting}[firstnumber = 2]
+val numbersDecreasing = numbers.sortWith((x, y) => x > y)	
+\end{lstlisting}
+\onslide<4->
+  \begin{lstlisting}[firstnumber = 3]
+val numbersPlusOne = numbers.map(x => x + 1)
+\end{lstlisting}
+\end{block}
+\note{Funktionen können als Parameter übergeben werden. Auch die Funktion ist ein Objekt.
+Kennt man in Java mittlerweile auch, wirkt aber aus meiner Sicht nicht so schön integriert.}
+\end{frame}
+
+
+\begin{frame}[fragile]{}
+ \begin{block}{Funktionen als Typen}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+val numbersPlusOne = numbers.map(x => x + 1)
+
+	\end{lstlisting}
+\onslide<3->
+  \begin{lstlisting}[firstnumber = 2]
+val addTwo = (n: Int) => n + 2
+\end{lstlisting}
+\onslide<4->
+  \begin{lstlisting}[firstnumber = 3]
+val numbersPlusTwo = numbers.map(addTwo)
+
+\end{lstlisting}
+\onslide<5->
+  \begin{lstlisting}[firstnumber = 4]
+val descending = (n: Int, m: Int) => n > m
+\end{lstlisting}
+\onslide<6->
+  \begin{lstlisting}[firstnumber = 5]
+val sortedNumbers = numbers.sortWith(descending)
+\end{lstlisting}
+
+\end{block}
+\note{Wir können Funktionen auch wie Variablen verwenden und übergeben. Es sind first class citizens. Und das ist mächtig. Das sehen wir schon in Java 8, aber in Scala war es schon immer und wird bereits fleißig in APIs genutzt. Das macht es für Programmierer, die keinen funktionalen Background haben, leider auch nicht einfacher. Methoden sind übrigens keine Objekte (Methode per def, Funktion per val deklariert.
+Methode in Funktion umwandeln
+def addOne(n: Int) = n+1
+val f = addOne _
+addOne kann dennoch übergeben werden, da Compiler die Arbeit übernimmt.
+}
+\end{frame}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Klassen}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+class Time(val hours: Int = 0, val minutes: Int = 0) {
+  // Primärer Konstruktor
+  require(hours < 24 && hours >= 0)
+  require(minutes < 60 && minutes >= 0)
+	
+	def this() = this(0)
+}
+	\end{lstlisting}
+	\onslide<3->
+  \begin{lstlisting}[firstnumber=8]
+val t = new Time(1, 14)
+val t2 = new Time
+	\end{lstlisting}
+\end{block}
+\note{Der Standardkonstruktor für alle Parameter ist direkt im Methodenrumpf. Hilfskonstruktoren sind möglich.}
+\end{frame}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Benannte Parameter und Standardwerte}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+class Time(val hours: Int = 0, val minutes: Int = 0)
+
+	\end{lstlisting}
+	\onslide<3->
+  \begin{lstlisting}[firstnumber=2]
+val t = new Time(1)
+val t2 = new Time(minutes = 13)
+	\end{lstlisting}
+\end{block}
+\note{Damit werden Argumentnamen aber auch API-Bestandteil und dürfen nicht geändert werden.}
+\end{frame}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Singleton/Companion Objects}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+object Time {
+	def fromMinutes(minutes: Int): Time = 
+			new Time(minutes / 60, minutes % 60)
+}
+
+	\end{lstlisting}
+	\onslide<3->
+  \begin{lstlisting}[firstnumber=5]
+val t = Time.fromMimutes(100)
+	\end{lstlisting}
+\end{block}
+\note{Companion Objects sind Singleton Objects. Sie existieren nur ein mal. "`Ersatz"' für static, das es nicht gibt. Companion Objects (selber Name, selbes Paket, selbe Datei wie Klasse) können auf private Elemente der Klasse zugreifen}
+\end{frame}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Case classes}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+case class Person(nachname: String, vorname: String)
+
+	\end{lstlisting}
+	\onslide<3->
+  \begin{lstlisting}[firstnumber=5]
+val ich = Person("Eidecker", "Sebastian")
+val sohn = ich.copy(vorname = "Nils")
+	\end{lstlisting}
+\end{block}
+\note{Case classes sind JavaBeans in schön. Nehmen die üblichen Dinge ab, die sowieso die IDE macht. Ideal als DTO, man kann/sollte aber nicht von ihnen erben. Hübscher "`Konstruktor"', Copy-Konstruktor und toString}
+\end{frame}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Vererbung und Traits}
+\begin{itemize}
+	\item<2->Geht
+	\item<3->Mehrfachvererbung durch Traits
+	\item<4->Zu wenig Zeit heute
+\end{itemize}
+\end{block}
+\note{Ähnlich Java in den Grundzügen. Mit Traits Mehrfachvererbung möglich. Dadurch häufig kleinere Funktionsblöcke in Traits. Java 8 bietet mit default-Methoden in Interfaces ähnliches. Kann ich aber in der kurzen Zeit nicht sinnvoll motivieren.}
+\end{frame}
 
 \begin{frame}[fragile]{}
  \begin{block}{Schönere Methodenaufrufe}
@@ -441,7 +679,6 @@ List(1,2,3) isEmpty
 \end{block}
 \note{}
 \end{frame}
-
 
 
 \begin{frame}[fragile]{}
@@ -490,161 +727,68 @@ Time(10,20) - Time(1,10)
 \note{}
 \end{frame}
 
-\begin{frame}[fragile]{}
- \begin{block}{Klassen und Objekte}
-\scriptsize
-	\onslide<2->
-  \begin{lstlisting}
-		class
-	\end{lstlisting}
-\end{block}
-\note{}
-\end{frame}
-
-\begin{frame}[fragile]{}
- \begin{block}{Listen}
-\scriptsize
-	\onslide<2->
-  \begin{lstlisting}
-		class
-	\end{lstlisting}
-\end{block}
-\note{}
-\end{frame}
-
 
 \begin{frame}[fragile]{}
  \begin{block}{Pattern Matching}
 \scriptsize
 	\onslide<2->
   \begin{lstlisting}
-		class
-	\end{lstlisting}
-\end{block}
-\note{}
-\end{frame}
-
-
-\begin{frame}[fragile]{}
- \begin{block}{Type Inference}
-\scriptsize
-	\onslide<2->
-  \begin{lstlisting}
-def f() = 3 * 2
-
-def f() : Int = 3 * 2
-	\end{lstlisting}
-\end{block}
-\note{}
-\end{frame}
-
-
-\begin{frame}[fragile]{}
- \begin{block}{Implizites return}
-	\onslide<2->
-  \begin{lstlisting}
-def f() = {
-  if (something)
-    "A"
-  else
-    "B"
+val alice = new Person("Alice", 25)
+val bob = new Person("Bob", 32)
+val charlie = new Person("Charlie", 32)
+   
+for (person <- List(alice, bob, charlie)) {
+	person match {
+		case Person("Alice", 25) => println("Hallo Alice!")
+    case Person("Bob", 32) => println("Hallo Bob!")
+    case Person(name, age) => println("Alter: " + alter + ", Name: " + name)
+  }
 }
 	\end{lstlisting}
 \end{block}
-\onslide<3->{Letzte Anweisung wird zurückgegeben, impliziter Typ String.}
-\note{Kein return, letzte Anweisung wird zurückgegeben.
-Die Methode ist statisch typisiert! Der Compiler kann den Typen der Rückgabe ermitteln: String -- Type Inference
-Wenn wir wollen, können wir ihn deklarieren. Bei öffentlichen Methoden sollte man das auch tun.}
+\note{Sehr mächtiges Feature. Code wirkt auf einmal sinnvoll. Java-Case auf Steroids ist noch zu schwach. Vielfältige Pattern möglich. Dabei Aufspalten von Listen möglich, siehe Quicksort.
+Bekannt aus rein funktionalen Sprachen.}
 \end{frame}
 
 \begin{frame}[fragile]{}
- \begin{block}{Type Inference II}
+ \begin{block}{Pattern Matching -- Funktional Länge einer Liste}
 \scriptsize
 	\onslide<2->
   \begin{lstlisting}
-def f() = {
-  if (something)
-    "A"
-  else
-    1
+def length[A](list : List[A]) : Int = {
+  list match {
+    case _ :: tail => 1 + length(tail)
+    case Nil => 0
+  }
 }
 	\end{lstlisting}
 \end{block}
-Erste gemeinsame Oberklasse, zur Not Any
-\note{}
+\note{Liste wird in Head und tail getailt per :: Dann rekursiv weiter
+Da fühlt sich der Compiler-Entwickler foch schon fast abgeholt.}
 \end{frame}
-
-
-\begin{frame}[fragile]{}
- \begin{block}{Vererbung und Traits}
-\scriptsize
-	\onslide<2->
-  \begin{lstlisting}
-		class
-	\end{lstlisting}
-\end{block}
-\note{}
-\end{frame}
-
-
-
-\begin{frame}[fragile]{}
- \begin{block}{Funktionen funktional -- Lambdas schön}
-\scriptsize
-	\onslide<2->
-  \begin{lstlisting}
-		class
-	\end{lstlisting}
-\end{block}
-\note{}
-\end{frame}
-
-
-\begin{frame}[fragile]{}
- \begin{block}{Flatmap that shit!}
-\scriptsize
-	\onslide<2->
-  \begin{lstlisting}
-		class
-	\end{lstlisting}
-\end{block}
-\note{}
-\end{frame}
-
-
-\begin{frame}[fragile]{}
- \begin{block}{Arbeit mit Strings}
-\scriptsize
-	\onslide<2->
-  \begin{lstlisting}
-		class
-	\end{lstlisting}
-\end{block}
-\note{}
-\end{frame}
-
 
 \begin{frame}[fragile]{}
  \begin{block}{Tupel}
 \scriptsize
 	\onslide<2->
   \begin{lstlisting}
-		class
-	\end{lstlisting}
-\end{block}
-\note{}
-\end{frame}
+val ichMitAlter = (Person("Eidecker", "Sebastian"), 37)
 
-
-\begin{frame}[fragile]{}
- \begin{block}{Implicits}
-\scriptsize
-	\onslide<2->
-  \begin{lstlisting}
-		class
 	\end{lstlisting}
+\onslide<3->
+  \begin{lstlisting}[firstnumber=2]
+val ich = ichMitAlter._1
+val alter = ichMitAlter._2
+
+	\end{lstlisting}	
+	\onslide<4->
+  \begin{lstlisting}[firstnumber=4]
+def personMitAlter(person: Person, alter: Int): (Person, Int) = {
+	(person, alter)
+}
+\end{lstlisting}
 \end{block}
-\note{}
+\note{Tupel können nützlich sein, wenn man mal kein neues Objekt erstellen will. Oder, wenn man Maps verwendet. Oder, wenn man Funktionen als Parameter übergibt. Oder, wenn man Compiler baut.}
 \end{frame}
 
 \begin{frame}[fragile]{}
@@ -653,15 +797,20 @@ Erste gemeinsame Oberklasse, zur Not Any
 	\onslide<2->
   \begin{lstlisting}
 case class Time(hour:Int, minute:Int) {
+
   def minus(time: Time) = ???
-  def -(time: Time) = minus(time)
+	
 }
 	\end{lstlisting}
 \end{block}
 \onslide<3->{Kompilierbar, aber nicht gefährlich.}
-\note{}
+\note{Kompiliert, beim Aufruf aber Exception. Hilfreich, wenn man test first entwickelt. Dann jammert der Compiler nicht ständig.}
 \end{frame}
 
+\begin{frame}{}
+	\Large\textbf{Und noch viel, viel mehr ...}
+	\note{Insbesondere im Bereich der funktionalen Programmierung. Aber dafür haben wir leider keine Zeit, ich will ja noch etwas Spannendes erzählen}
+\end{frame}
 
 \subsection{Spannendes}
 
@@ -675,7 +824,9 @@ case class Time(hour:Int, minute:Int) {
 				\item<6->Asynchrone Kommunikation mit Aktoren
 			\end{itemize}
 	\end{block}
-	\note{The Actor Model, which was first proposed by Carl Hewitt in 1973 [5] and was improved, among others, by Gul Agha [6]. This model takes a different approach to concurrency, which should avoid the problems caused by threading and locking.
+	\note{Kommen wir zu etwas wirklich Spannenden. Ich habe davon zugegeben kaum Ahnung, finde es aber so interessant, dass ich es heute erzählen muss!
+	
+	The Actor Model, which was first proposed by Carl Hewitt in 1973 [5] and was improved, among others, by Gul Agha [6]. This model takes a different approach to concurrency, which should avoid the problems caused by threading and locking.
 
 In the actor model, each object is an actor. This is an entity that has a mailbox and a behaviour. Messages can be exchanged between actors, which will be buffered in the mailbox. Upon receiving a message, the behaviour of the actor is executed, upon which the actor can: send a number of messages to other actors, create a number of actors and assume new behaviour for the next message to be received.
 
@@ -720,19 +871,26 @@ Very lightweight event-driven processes (several million actors per GB of heap m
 \scriptsize
 	\onslide<2->
   \begin{lstlisting}
+case object PingMessage
+case object PongMessage
+case object StartMessage
+case object StopMessage
+
 class Ping(pong: ActorRef) extends Actor {
   var count = 0
   def incrementAndPrint { count += 1; println("ping") }
 	\end{lstlisting}
 \end{block}
-\note{http://alvinalexander.com/scala/scala-akka-actors-ping-pong-simple-example}
+\note{http://alvinalexander.com/scala/scala-akka-actors-ping-pong-simple-example
+Nachrichten mit Case-Klassen, einfacher geht es nicht. Und typsicher, was mir persönlich gut gefällt.
+Ein Aktor hat einen Zustand und vor allem eine receive-Methode.}
 \end{frame}
 
 \begin{frame}[fragile]{}
  \begin{block}{Akka -- Ping-Aktor}
 \scriptsize
 	\onslide<1->
-  \begin{lstlisting}[firstnumber=4]
+  \begin{lstlisting}[firstnumber=9]
   def receive = {
     case StartMessage =>
         incrementAndPrint
@@ -750,7 +908,8 @@ class Ping(pong: ActorRef) extends Actor {
 }
 	\end{lstlisting}
 \end{block}
-\note{http://alvinalexander.com/scala/scala-akka-actors-ping-pong-simple-example}
+\note{In der receive-Methode wird das Verhalten implementiert.
+http://alvinalexander.com/scala/scala-akka-actors-ping-pong-simple-example}
 \end{frame}
 
 \begin{frame}[fragile]{}
@@ -770,14 +929,22 @@ class Pong extends Actor {
 }
 	\end{lstlisting}
 \end{block}
-\note{Ein einfaches Beispiel, aber man sieht, wie hier Nachrichten ausgetauscht werden. Das soll hier aber keine Akka-Schulung sein, die ich auch nicht halten könnte, sondern
-eine Idee geben, warum Scala geeignet sein könnte, Aktoren zu implementieren.}
+\note{Und hier das Gegenstück:
+Ein einfaches Beispiel, aber man sieht, wie hier Nachrichten ausgetauscht werden. Das soll hier aber keine Akka-Schulung sein, die ich auch nicht halten könnte, sondern
+eine Idee geben, warum Scala geeignet sein könnte, Aktoren zu implementieren.
+
+Aktoren, die Daten empfangen, evtl. Zustand halten, die Daten verarbeiten und Nachrichten weiterschicken.
+Das ganze hochparallelisiert, die Nachrichten werden sicher gespeichert.
+Ich kann mir nicht helfen, aber das liest sich für mich wie ein Business-Prozess. Den man beliebig zusammenstecken kann. Und er funktioniert dennoch, weil man in der Programmiersprache dasselbe macht wie in einem EPK oder BPMN-Modell. (Disclaimer: Ich habe es noch nicht viel weiter als bis zu diesem Niveau ausprobiert, aber Menschen, die es getan haben, stimmen darin überein).
+
+Und mit Scala (vor allem Pattern Matching) bricht man sich bei der Implementierung auch nicht die Finger.
+}
 \end{frame}
 
 
 
 \begin{frame}{}
-	\begin{block}{Warum in Scala}
+	\begin{block}{Warum in Scala?}
 		\begin{itemize}
 			\item<2->Pattern Matching
 			\item<3->Funktional
@@ -788,8 +955,6 @@ eine Idee geben, warum Scala geeignet sein könnte, Aktoren zu implementieren.}
 	\note{Akka kann man auch mit Java umsetzen. Aber insbesondere das Pattern Matching macht einem das Leben mit Scala viel leichter. 
 Es ist einfach natürlicher.}
 \end{frame}
-
-
 
 
 \begin{frame}{}
@@ -827,7 +992,6 @@ Es ist einfach natürlicher.}
 	\begin{block}{DSL sinnvoll -- ScalaTest}
 		\begin{itemize}
 			\item<2->Fachlich verständliche Tests
-			\item<3->Testdatengenerierung
 		\end{itemize}
 	\end{block}
 	\note{}
