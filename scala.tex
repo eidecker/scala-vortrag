@@ -906,7 +906,7 @@ Very lightweight event-driven processes (several million actors per GB of heap m
     Excellent for writing highly fault-tolerant systems that self-heal and never stop.
 }
 			\item<4->Standort-Transparenz
-			\note<4>{}
+			\note<4>{Everything in Akka is designed to work in a distributed environment: all interactions of actors use pure message passing and everything is asynchronous.}
 			\item<5->Nachrichten-Persistenz
 			\note<5>{Messages received by an actor can optionally be persisted and replayed when the actor is started or restarted. This allows actors to recover their state, even after JVM crashes or when being migrated to another node.}
 			\item<6->Reaktiv laut Manifest
@@ -993,18 +993,20 @@ Und mit Scala (vor allem Pattern Matching) bricht man sich bei der Implementieru
 
 % Großer Text
 \begin{frame}{}
-	\Large\textbf{Mögliche Bedeutung}
+	\Large\textbf{Bedeutung?}
 	\note{}
 \end{frame}
 
 \begin{frame}{}
-	\begin{block}{Prozessdefinition}
+	\begin{block}{Was haben wir gesehen}
 		\begin{itemize}
 			\item<2->Start, Stop, Nachrichten, Zustand
 			\item<3->Klingt verdächtig nach Prozessen
-			\item<4->Nebenläufig, skalierbar, resilient
-			\item<4->Mein Traum: Direkte Abbildung
-			\item<5->Scheint machbar
+			\item<4->Nebenläufig, skalierbar, resilient durch Akka
+			\item[]<5->
+			\item<5->Mein Traum: Direkte Abbildung
+			\item<6->Scheint machbar
+			\item<7->Umgewöhnung
 		\end{itemize}
 	\end{block}
 	\note{}
@@ -1027,7 +1029,7 @@ Es ist einfach natürlicher.}
 
 
 
-\begin{frame}{Meine wenig qualifizierte Meinung}
+\begin{frame}{Scala- Meine Meinung}
   \begin{columns}[T,onlytextwidth]
     \column{0.5\textwidth}
 	  \onslide<2->
