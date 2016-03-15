@@ -3,7 +3,7 @@
 \usepackage[ansinew]{luainputenc}
 \usepackage{listings}
 \usepackage{pgfpages} % Second screen
-\setbeameroption{hide notes} % show notes on second screen=bottom % hide notes % show notes % show only notes
+\setbeameroption{show notes on second screen=bottom} % show notes on second screen=bottom % hide notes % show notes % show only notes
 \setbeamerfont{note page}{size=\tiny}
 
 
@@ -131,14 +131,16 @@
 	\end{quote}
 \end{frame}
 \note{
-	Ich möchte heute über Scala reden. Eigentlich will ich aber nicht nur über Scala reden.  Ich möchte nicht Scala verkaufen, sondern etwas völlig anderes. Scala ist spannend - für Nerds, die des Geldes wegen Java benutzen, denen aber mittlerweile Oracles Update-Politik nicht mehr gefällt. 
+Ich möchte heute über Scala reden. Eigentlich will ich aber nicht nur über Scala reden.  Ich möchte nicht Scala verkaufen, sondern etwas völlig anderes. Scala ist spannend - für Nerds, die des Geldes wegen Java benutzen, denen aber mittlerweile Oracles Update-Politik nicht mehr gefällt. 
 	
 Ich will aber auch über aus meiner Sicht wichtigere Probleme reden. Und vielleicht passt Scala ja doch irgendwie.
 	
 In der IT wollen wir Probleme lösen und Möglichkeiten schaffen.
 Ich bin der festen Überzeugung, dass wir zu selten über den Kern unserer Probleme nachdenken und auch, dass sich diese Probleme gerade ändern und immer schneller ändern werden.
 
-Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kennen müssen. Ich glaube, dass wir zumindest wissen müssen, was im Baumarkt ausliegt und wir bei Bedarf einkaufen können. Daher kann es aus meiner Sicht nie schaden, sich neue Werkzeuge und Arbeitsweisen anzuschauen, damit man sie bei Bedarf zumindest im Hinterkopf hat. Sonst kann es passieren, dass wir das Problem gar nicht verstehen, weil wir kein passendes Werkzeug dafür besitzen und verwenden können.}
+Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kennen müssen. Ich glaube, dass wir zumindest wissen müssen, was im Baumarkt ausliegt und wir bei Bedarf einkaufen können. Daher kann es aus meiner Sicht nie schaden, sich neue Werkzeuge und Arbeitsweisen anzuschauen, damit man sie bei Bedarf zumindest im Hinterkopf hat. Sonst kann es passieren, dass wir das Problem gar nicht verstehen, weil wir kein passendes Werkzeug dafür besitzen und verwenden können.
+
+}
 
 \begin{frame}{}
 	\setbeamertemplate{section in toc}[sections unnumbered]
@@ -157,7 +159,9 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 
 \begin{frame}{}
 	\only<1>{\Large\textbf{Software Engineering}}\only<2>{\Large\textbf{Software \alert{Engineering}}}
-	\note{Software Engineering. Passt der Begriff? Ich denke, dies impliziert zu stark, dass wir ein Problem nur lange genug durchdenken, exakt definieren und dann eine gute Lösung bauen müssen. Womöglich verstehe ich den Beruf des Ingenieurs falsch, aber ich glaube, wir haben gesehen, dass Software agil gebaut werden sollte, dass wir nicht zu Beginn eines Projektes alle Anforderungen exakt spezifizieren können. Und: Wir können kein System bauen, das hunderte Jahre stabil steht, wie eine Kirche oder Brücke. Wir müssen es ständig pflegen und verbessern, damit es nützlich bleibt.}
+	\note{Software Engineering. Passt der Begriff? Ich denke, dies impliziert zu stark, dass wir ein Problem nur lange genug durchdenken, exakt definieren und dann eine gute Lösung bauen müssen. Womöglich verstehe ich den Beruf des Ingenieurs falsch, aber ich glaube, wir haben gesehen, dass Software agil gebaut werden sollte, dass wir nicht zu Beginn eines Projektes alle Anforderungen exakt spezifizieren können. Und: Wir können kein System bauen, das hunderte Jahre stabil steht, wie eine Kirche oder Brücke. Wir müssen es ständig pflegen und verbessern, damit es nützlich bleibt.
+	
+}
 \end{frame}
 
 
@@ -166,13 +170,19 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 		\begin{itemize}
 			\item<2->Stabilität und Resilienz
 			\note<2>{Magnor: Sorgen sie durch ihre Arbeit dafür, dass Systeme Kriterien der Stabilität und Resilienz erfüllen.
-			Seien sie "`dran"' an den Problemen, antizipieren sie sie, schaffen sie Fall-Back-Lösungen -- auch an Wochenenden.}
+			Seien sie "`dran"' an den Problemen, antizipieren sie sie, schaffen sie Fall-Back-Lösungen -- auch an Wochenenden.
+			
+			}
 			\item<3->Wertbeitrag
 			\note<3>{IT entwickelt sich zunehmend zu einem eigenen Produktionsfaktor (4-Sektor-Hypothese).
-			Seien sie ein verlässlicher Partner für das Business, nehmen sie die Business-Seite auch an die Hand, helfen und unterstützen sie, leisten sie einen wahrgenommenen Wertbeitrag.[...]}
+			Seien sie ein verlässlicher Partner für das Business, nehmen sie die Business-Seite auch an die Hand, helfen und unterstützen sie, leisten sie einen wahrgenommenen Wertbeitrag.[...]
+			
+			}
 			\item<4->Businesstreiber
 			\note<4>{Die Entwicklung der IT treibt zunehmend die Business-Seite und verändert Geschäftsmodelle.
-			Seien sie an der Front und treiben sie das Business, entwickeln sie neue Ideen, forschen sie nach neuen Lösungen (Beispiele: Uber, 3D-Printing, CoLo21, ...}
+			Seien sie an der Front und treiben sie das Business, entwickeln sie neue Ideen, forschen sie nach neuen Lösungen (Beispiele: Uber, 3D-Printing, CoLo21, ...
+			
+			}
 		\end{itemize}
 		\onslide<5->{\vskip3mm --- Matthias Magnor -- CEO Surface und Contract Logistics}
 		\note<5->{Das Bewusstsein, dass ein Wandel stattfindet, ist im Business angekommen. Diese Forderungen stammen von Matthias Magnor!}
@@ -195,11 +205,14 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 		\end{itemize}
 	\end{block}
 \end{frame}
-\note{Es gibt Manifeste von Softwareentwicklern, die sehr Ähnliches aussagen. (Reaktives Manifest, agiles Manifest, Manifest der Software Craftmanship-Bewegung als Beispiele) Diese sind bekannt und -- ich habe zumindest das Gefühl -- auch anerkannt. Ich will auch nur sehr kurz darauf eingehen, es soll ja vor allem um Scala gehen.}
+\note{Es gibt Manifeste von Softwareentwicklern, die sehr Ähnliches aussagen. (Reaktives Manifest, agiles Manifest, Manifest der Software Craftmanship-Bewegung als Beispiele) Diese sind bekannt und -- ich habe zumindest das Gefühl -- auch anerkannt. Ich will auch nur sehr kurz darauf eingehen, es soll ja vor allem um Scala gehen.
 
+}
 \begin{frame}{}
 	\only<1->{\Large \textbf{Wo stehen wir?}}
-	\note{Wie wollen wir uns positionieren, was müssen wir tun, um die Ziele zu erreichen bzw. unser Niveau zu halten? Hier kommt nun endlich Scala ins Spiel. Wir sollten so viele nützliche Tools wie möglich kennen, und ich denke, Scala ist eines der für uns interessanteren, was ich nun gleich hoffentlich zeigen kann.}
+	\note{Wie wollen wir uns positionieren, was müssen wir tun, um die Ziele zu erreichen bzw. unser Niveau zu halten? Hier kommt nun endlich Scala ins Spiel. Wir sollten so viele nützliche Tools wie möglich kennen, und ich denke, Scala ist eines der für uns interessanteren, was ich nun gleich hoffentlich zeigen kann.
+	
+	}
 \end{frame}
 
 
@@ -217,7 +230,9 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 		\hspace*\fill{\small--- www.scala-lang.org}
 	\end{quote}
 	}
-	\note{Was bedeutet das? Scala ist sehr flexibel. Es vereint sehr viele Konzepte und ist im API-Design sehr stark. So sollen unterschiedlichste Szenarien und Anforderungen bedient werden. Schauen wir, ob das Versprechen gehalten wird.}
+	\note{Was bedeutet das? Scala ist sehr flexibel. Es vereint sehr viele Konzepte und ist im API-Design sehr stark. So sollen unterschiedlichste Szenarien und Anforderungen bedient werden. Schauen wir, ob das Versprechen gehalten wird.
+	
+	}
 \end{frame}
 
 
@@ -253,8 +268,9 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 	\end{itemize}
 	\end{block}
 \end{frame}
-\note{Passt in unseren Entwicklungsprozess.
-Leichte Änderungen an Deployment etc.}
+\note{Passt in unseren Entwicklungsprozess. Leichte Änderungen an Deployment etc.
+
+}
 
 \begin{frame}{}
 	\begin{block}{Scala und die Java-Plattform}
@@ -271,7 +287,7 @@ Leichte Änderungen an Deployment etc.}
 
 
 \subsection{Ein wenig Code}
-\note{Alles geklaut von Wikipedia oder Heiko Seebergers Buch}
+\note{Vieles geklaut von Wikipedia oder Heiko Seebergers Buch}
 
 \begin{frame}[fragile]{}
  \begin{block}{Eine Java-Klasse}
@@ -345,7 +361,9 @@ Scala hat den Vorteil, neuer zu sein und kennt die Schmerzen der Java-Entwickler
 oder Konzepte, die man eigentlich schon immer umsetzen wollte, wenn es denn nicht so lästig wäre.
 (Immutable Objects, Lambdas, Generics, checked Exceptions als Beispiel)
 
-Ein besonders lästiges Nicht-Feature-Feature sind in meinen Augen JavaBeans, wie wir sie gerade gesehen haben. Leicht verständlich, aber strikte Richtlinien durch Konvention. Und wehe, dein Framework mag die Namen Deiner Getter und Setter nicht.}
+Ein besonders lästiges Nicht-Feature-Feature sind in meinen Augen JavaBeans, wie wir sie gerade gesehen haben. Leicht verständlich, aber strikte Richtlinien durch Konvention. Und wehe, dein Framework mag die Namen Deiner Getter und Setter nicht.
+
+}
 \end{frame}
 
 
@@ -376,7 +394,9 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = xs match {
 }
 	\end{lstlisting}
 \end{block}
-\note{Man sieht: Ausdrucksstark, aber auch nicht mehr so straight forward wie Java (vor 8). Scala ist beides: Sehr einfach und fast beliebig komplex. Und dieser Quicksort ist noch lange nicht das Ende der Möglichkeiten.}
+\note{Man sieht: Ausdrucksstark, aber auch nicht mehr so straight forward wie Java (vor 8). Scala ist beides: Sehr einfach und fast beliebig komplex. Und dieser Quicksort ist noch lange nicht das Ende der Möglichkeiten.
+
+}
 \end{frame}
 
 
@@ -386,7 +406,9 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = xs match {
 ich habe meine Zeit ja mit Management Summary und meiner politischen Agenda vertrödelt.
 Alle Beispiele sind natürlich geklaut.
 
-Also hier nur ein paar Dinge zum Grundverständnis und ein paar nette Sachen, die Java-Entwickler interessieren dürften.}
+Also hier nur ein paar Dinge zum Grundverständnis und ein paar nette Sachen, die Java-Entwickler interessieren dürften.
+
+}
 \end{frame}
 
 \begin{frame}[fragile]{}
@@ -438,7 +460,9 @@ def f(i: Int) = {
 \note{Hier mal eine Methode. Mit = definiert. Methoden können mehr als in Java, dazu später.
 Die Klammern kann man sich sparen, wenn 
 Typen kann man angeben, muss es aber nicht, so lange der Compiler sie ermitteln kann. 
-Bei öffentlichen Methoden sollte man es aber tun, dann hat der Nutzer auch eine reelle Chance.}
+Bei öffentlichen Methoden sollte man es aber tun, dann hat der Nutzer auch eine reelle Chance.
+
+}
 \end{frame}
 
 
@@ -458,7 +482,9 @@ def f() = {
 \note{
 Kein return, letzte Anweisung wird zurückgegeben. Alles hat einen Typen!
 Die Methode ist statisch typisiert! Der Compiler kann den Typen der Rückgabe ermitteln: String -- Type Inference
-Wenn wir wollen, können wir ihn deklarieren. Bei öffentlichen Methoden sollte man das auch tun.}
+Wenn wir wollen, können wir ihn deklarieren. Bei öffentlichen Methoden sollte man das auch tun.
+
+}
 \end{frame}
 
 \begin{frame}[fragile]{}
@@ -487,7 +513,9 @@ Erste gemeinsame Oberklasse, zur Not Any
 def print(s: String): Unit = println(s)
 	\end{lstlisting}
 \end{block}
-\note{Wollen wir mal wirklich nichts zurückgeben, so existiert der Typ Unit. Sinnvoll bei Methoden, die ausschließlich Seiteneffekte haben. Sollte also selten sein.}
+\note{Wollen wir mal wirklich nichts zurückgeben, so existiert der Typ Unit. Sinnvoll bei Methoden, die ausschließlich Seiteneffekte haben. Sollte also selten sein.
+
+}
 \end{frame}
 
 \begin{frame}[fragile]{}
@@ -517,7 +545,9 @@ val bagContent = List(1, "a", Time(12,30), 4)
 \end{block}
 \onslide<4->
 Immutable-Listen bevorzugen
-\note{Einfache Erstellung von Listen. Type Inference auch hier, zweite ist Liste von Any. Collections gibt es immer auch Immutable, die auch schnell sind.}
+\note{Einfache Erstellung von Listen. Type Inference auch hier, zweite ist Liste von Any. Collections gibt es immer auch Immutable, die auch schnell sind.
+
+}
 \end{frame}
 
 \begin{frame}[fragile]{}
@@ -538,7 +568,9 @@ val numbersPlusOne = numbers.map(x => x + 1)
 \end{lstlisting}
 \end{block}
 \note{Funktionen können als Parameter übergeben werden. Auch die Funktion ist ein Objekt.
-Kennt man in Java mittlerweile auch, wirkt aber aus meiner Sicht nicht so schön integriert.}
+Kennt man in Java mittlerweile auch, wirkt aber aus meiner Sicht nicht so schön integriert.
+
+}
 \end{frame}
 
 
@@ -569,11 +601,13 @@ val sortedNumbers = numbers.sortWith(descending)
 \end{lstlisting}
 
 \end{block}
-\note{Wir können Funktionen auch wie Variablen verwenden und übergeben. Es sind first class citizens. Und das ist mächtig. Das sehen wir schon in Java 8, aber in Scala war es schon immer und wird bereits fleißig in APIs genutzt. Das macht es für Programmierer, die keinen funktionalen Background haben, leider auch nicht einfacher. Methoden sind übrigens keine Objekte (Methode per def, Funktion per val deklariert.
+\note{Wir können Funktionen auch wie Variablen verwenden und übergeben. Es sind first class citizens. Und das ist mächtig. Das sehen wir schon in Java 8, aber in Scala war es schon immer und wird bereits fleißig in APIs genutzt. Das macht es für Programmierer, die keinen funktionalen Background haben, leider auch nicht einfacher. Methoden sind übrigens keine Objekte (Methode per def, Funktion per val deklariert.)
 Methode in Funktion umwandeln
 def addOne(n: Int) = n+1
-val f = addOne _
+val f = addOne \_
+
 addOne kann dennoch übergeben werden, da Compiler die Arbeit übernimmt.
+
 }
 \end{frame}
 
@@ -632,7 +666,9 @@ object Time {
 val t = Time.fromMimutes(100)
 	\end{lstlisting}
 \end{block}
-\note{Companion Objects sind Singleton Objects. Sie existieren nur ein mal. "`Ersatz"' für static, das es nicht gibt. Companion Objects (selber Name, selbes Paket, selbe Datei wie Klasse) können auf private Elemente der Klasse zugreifen}
+\note{Companion Objects sind Singleton Objects. Sie existieren nur ein mal. "`Ersatz"' für static, das es nicht gibt. Companion Objects (selber Name, selbes Paket, selbe Datei wie Klasse) können auf private Elemente der Klasse zugreifen
+
+}
 \end{frame}
 
 \begin{frame}[fragile]{}
@@ -649,7 +685,9 @@ val ich = Person("Eidecker", "Sebastian")
 val sohn = ich.copy(vorname = "Nils")
 	\end{lstlisting}
 \end{block}
-\note{Case classes sind JavaBeans in schön. Nehmen die üblichen Dinge ab, die sowieso die IDE macht. Ideal als DTO, man kann/sollte aber nicht von ihnen erben. Hübscher "`Konstruktor"', Copy-Konstruktor und toString}
+\note{Case classes sind JavaBeans in schön. Nehmen die üblichen Dinge ab, die sowieso die IDE macht. Ideal als DTO, man kann/sollte aber nicht von ihnen erben. Hübscher "`Konstruktor"', Copy-Konstruktor und toString
+
+}
 \end{frame}
 
 \begin{frame}[fragile]{}
@@ -660,7 +698,9 @@ val sohn = ich.copy(vorname = "Nils")
 	\item<4->Zu wenig Zeit heute
 \end{itemize}
 \end{block}
-\note{Ähnlich Java in den Grundzügen. Mit Traits Mehrfachvererbung möglich. Dadurch häufig kleinere Funktionsblöcke in Traits. Java 8 bietet mit default-Methoden in Interfaces ähnliches. Kann ich aber in der kurzen Zeit nicht sinnvoll motivieren.}
+\note{Ähnlich Java in den Grundzügen. Mit Traits Mehrfachvererbung möglich. Dadurch häufig kleinere Funktionsblöcke in Traits. Java 8 bietet mit default-Methoden in Interfaces ähnliches. Kann ich aber in der kurzen Zeit nicht sinnvoll motivieren.
+
+}
 \end{frame}
 
 \begin{frame}[fragile]{}
@@ -747,7 +787,9 @@ for (person <- List(alice, bob, charlie)) {
 	\end{lstlisting}
 \end{block}
 \note{Sehr mächtiges Feature. Code wirkt auf einmal sinnvoll. Java-Case auf Steroids ist noch zu schwach. Vielfältige Pattern möglich. Dabei Aufspalten von Listen möglich, siehe Quicksort.
-Bekannt aus rein funktionalen Sprachen.}
+Bekannt aus rein funktionalen Sprachen.
+
+}
 \end{frame}
 
 \begin{frame}[fragile]{}
@@ -764,7 +806,9 @@ def length[A](list : List[A]) : Int = {
 	\end{lstlisting}
 \end{block}
 \note{Liste wird in Head und tail getailt per :: Dann rekursiv weiter
-Da fühlt sich der Compiler-Entwickler foch schon fast abgeholt.}
+Da fühlt sich der Compiler-Entwickler foch schon fast abgeholt.
+
+}
 \end{frame}
 
 \begin{frame}[fragile]{}
@@ -788,7 +832,9 @@ def personMitAlter(person: Person, alter: Int): (Person, Int) = {
 }
 \end{lstlisting}
 \end{block}
-\note{Tupel können nützlich sein, wenn man mal kein neues Objekt erstellen will. Oder, wenn man Maps verwendet. Oder, wenn man Funktionen als Parameter übergibt. Oder, wenn man Compiler baut.}
+\note{Tupel können nützlich sein, wenn man mal kein neues Objekt erstellen will. Oder, wenn man Maps verwendet. Oder, wenn man Funktionen als Parameter übergibt. Oder, wenn man Compiler baut.
+
+}
 \end{frame}
 
 \begin{frame}[fragile]{}
@@ -809,7 +855,9 @@ case class Time(hour:Int, minute:Int) {
 
 \begin{frame}{}
 	\Large\textbf{Und noch viel, viel mehr ...}
-	\note{Insbesondere im Bereich der funktionalen Programmierung. Aber dafür haben wir leider keine Zeit, ich will ja noch etwas Spannendes erzählen}
+	\note{Insbesondere im Bereich der funktionalen Programmierung. Aber dafür haben wir leider keine Zeit, ich will ja noch etwas Spannendes erzählen.
+	
+	}
 \end{frame}
 
 \subsection{Spannendes}
@@ -860,7 +908,9 @@ case class Time(hour:Int, minute:Int) {
   }
 	\end{lstlisting}
 \end{block}
-\note{DSLs sind sinnvoll, wenn sie besser zum Ausdruck bringen, was in der Domäne beschrieben wird.}
+\note{DSLs sind sinnvoll, wenn sie besser zum Ausdruck bringen, was in der Domäne beschrieben wird.
+
+}
 \end{frame}
 
 \begin{frame}{}
@@ -883,9 +933,13 @@ Of importance in this model is that all communications are performed asynchronou
 
 A second important property is that all communications happen by means of messages: there is no shared state between actors. If an actor wishes to obtain information about the internal state of another actor, it will have to use messages to request this information. This allows actors to control access to their state, avoiding problems like the lost-update problem. Manipulation of the internal state also happens through messages.
 
-Each actor runs concurrently with other actors: it can be seen as a small independently running process.}
-	\note{Das ist ähnlich der reinen Objektorientierung, aber komplett asynchron. Die Idee ist übrigens alt (1973) und schon lange, z.B. in Erlang im Einsatz. Momentan passen die Probleme aber.
-	http://www.brianstorti.com/the-actor-model/ }
+Each actor runs concurrently with other actors: it can be seen as a small independently running process.
+
+Das ist ähnlich der reinen Objektorientierung, aber komplett asynchron. Die Idee ist übrigens alt (1973) und schon lange, z.B. in Erlang im Einsatz. Momentan passen die Probleme aber.
+	http://www.brianstorti.com/the-actor-model/
+	
+	
+}
 \end{frame}
 
 
@@ -898,21 +952,27 @@ Each actor runs concurrently with other actors: it can be seen as a small indepe
 Simple and high-level abstractions for concurrency and parallelism.
 Asynchronous, non-blocking and highly performant event-driven programming model.
 Very lightweight event-driven processes (several million actors per GB of heap memory).
+
 }
 			\item<3->Fehlertoleranz
 			\note<3>{
     Supervisor hierarchies with "let-it-crash" semantics.
     Supervisor hierarchies can span over multiple JVMs to provide truly fault-tolerant systems.
     Excellent for writing highly fault-tolerant systems that self-heal and never stop.
+
 }
 			\item<4->Standort-Transparenz
 			\note<4>{Everything in Akka is designed to work in a distributed environment: all interactions of actors use pure message passing and everything is asynchronous.}
 			\item<5->Nachrichten-Persistenz
-			\note<5>{Messages received by an actor can optionally be persisted and replayed when the actor is started or restarted. This allows actors to recover their state, even after JVM crashes or when being migrated to another node.}
+			\note<5>{Messages received by an actor can optionally be persisted and replayed when the actor is started or restarted. This allows actors to recover their state, even after JVM crashes or when being migrated to another node.
+			
+			}
 			\item<6->Reaktiv laut Manifest
 		\end{itemize}
 	\end{block}
-	\note{Was bringt uns das nun: Ziemlich viel von dem, was moderne verteilte Systeme kennen sollten.}
+	\note{Was bringt uns das nun: Ziemlich viel von dem, was moderne verteilte Systeme leisten sollten.
+	
+	}
 \end{frame}
 
 \begin{frame}[fragile]{}
@@ -932,7 +992,9 @@ class Ping(pong: ActorRef) extends Actor {
 \end{block}
 \note{http://alvinalexander.com/scala/scala-akka-actors-ping-pong-simple-example
 Nachrichten mit Case-Klassen, einfacher geht es nicht. Und typsicher, was mir persönlich gut gefällt.
-Ein Aktor hat einen Zustand und vor allem eine receive-Methode.}
+Ein Aktor hat einen Zustand und vor allem eine receive-Methode.
+
+}
 \end{frame}
 
 \begin{frame}[fragile]{}
@@ -987,6 +1049,7 @@ Das ganze hochparallelisiert, die Nachrichten werden sicher gespeichert.
 Ich kann mir nicht helfen, aber das liest sich für mich wie ein Business-Prozess. Den man beliebig zusammenstecken kann. Und er funktioniert dennoch, weil man in der Programmiersprache dasselbe macht wie in einem EPK oder BPMN-Modell. (Disclaimer: Ich habe es noch nicht viel weiter als bis zu diesem Niveau ausprobiert, aber Menschen, die es getan haben, stimmen darin überein).
 
 Und mit Scala (vor allem Pattern Matching) bricht man sich bei der Implementierung auch nicht die Finger.
+
 }
 \end{frame}
 
@@ -1022,7 +1085,9 @@ Und mit Scala (vor allem Pattern Matching) bricht man sich bei der Implementieru
 		\end{itemize}
 	\end{block}
 	\note{Akka kann man auch mit Java umsetzen. Aber insbesondere das Pattern Matching macht einem das Leben mit Scala viel leichter. 
-Es ist einfach natürlicher.}
+Es ist einfach natürlicher.
+
+}
 \end{frame}
 
 
@@ -1080,7 +1145,9 @@ Es ist einfach natürlicher.}
 	\end{block}
 	\note{Wie gesagt habe ich wenig Ahnung von Scala, da ich es noch nicht produktiv eingesetzt habe. Ich lasse mich aber gerne zwingen, 
 für Interessierte ein Hands on durchzuführen, bei dem wir ein paar Stunden mit Scala in einer echten IDE spielen, nicht auf Folien.
-Ich würde natürlich auch dafür aus Büchern klauen.}
+Ich würde natürlich auch dafür aus Büchern klauen.
+
+}
 \end{frame}
 
 
