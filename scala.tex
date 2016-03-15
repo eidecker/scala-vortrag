@@ -815,6 +815,55 @@ case class Time(hour:Int, minute:Int) {
 \subsection{Spannendes}
 
 \begin{frame}{}
+	 \begin{block}{Domain Specific Languages}
+			 \begin{itemize}
+				 \item<2->Fachliche Abstraktion
+				 \item<3->Verständlicher
+				 \item<4->Entwicklung schwierig
+				 \item<5->Einschränkungen vorhanden
+				\note<5->{Gegenüber externen DSLs wie Xtext, die beliebige Syntax erlauben}
+			 \end{itemize}
+	 \end{block}
+	 \note{}
+\end{frame}
+
+
+\begin{frame}[fragile]{}
+ \begin{block}{DSL -- Beispiel}
+\scriptsize
+	\onslide<1->
+  \begin{lstlisting}
+100 PRINT "Distance " % 'dist % "km, " % "Velocity " % 'v % "km/s, " % "Fuel " % 'fuel
+110 INPUT 'burn
+120 IF ABS('burn) <= 'fuel THEN 150
+130 PRINT "You don't have that much fuel"
+140 GOTO 100
+150 LET ('v := 'v + 'burn * 10 / ('fuel + 'mass))
+	\end{lstlisting}
+\end{block}
+\note{Ist natürlich Quatsch, zeigt aber, was geht. Und wir kommen auch gleich }
+\end{frame}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Scalatest}
+\scriptsize
+	\onslide<1->
+  \begin{lstlisting}
+"Creating a Time" should {
+    "throw an IllegalArgumentException for hours less than 0 or greater equal 24" in {
+      forAll("hours") { (hours: Int) =>
+        whenever(hours < 0 || hours >= 24) {
+          an[IllegalArgumentException] should be thrownBy Time(hours)
+        }
+      }
+    }
+  }
+	\end{lstlisting}
+\end{block}
+\note{DSLs sind sinnvoll, wenn sie besser zum Ausdruck bringen, was in der Domäne beschrieben wird.}
+\end{frame}
+
+\begin{frame}{}
 	\begin{block}{Aktoren}
 		\begin{itemize}
 				\item<2->Nebenläufige Einheiten
@@ -942,6 +991,24 @@ Und mit Scala (vor allem Pattern Matching) bricht man sich bei der Implementieru
 \end{frame}
 
 
+% Großer Text
+\begin{frame}{}
+	\Large\textbf{Mögliche Bedeutung}
+	\note{}
+\end{frame}
+
+\begin{frame}{}
+	\begin{block}{Prozessdefinition}
+		\begin{itemize}
+			\item<2->Start, Stop, Nachrichten, Zustand
+			\item<3->Klingt verdächtig nach Prozessen
+			\item<4->Nebenläufig, skalierbar, resilient
+			\item<4->Mein Traum: Direkte Abbildung
+			\item<5->Scheint machbar
+		\end{itemize}
+	\end{block}
+	\note{}
+\end{frame}
 
 \begin{frame}{}
 	\begin{block}{Warum in Scala?}
@@ -957,65 +1024,7 @@ Es ist einfach natürlicher.}
 \end{frame}
 
 
-\begin{frame}{}
-	 \begin{block}{Domain Specific Languages}
-			 \begin{itemize}
-				 \item<2->Fachliche Abstraktion
-				 \item<3->Verständlicher
-				 \item<4->Entwicklung schwierig
-				 \item<5->Einschränkungen vorhanden
-				\note<5->{Gegenüber externen DSLs wie Xtext, die beliebige Syntax erlauben}
-			 \end{itemize}
-	 \end{block}
-	 \note{}
-\end{frame}
 
-
-\begin{frame}[fragile]{}
- \begin{block}{DSL -- Beispiel}
-\scriptsize
-	\onslide<1->
-  \begin{lstlisting}
-100 PRINT "Distance " % 'dist % "km, " % "Velocity " % 'v % "km/s, " % "Fuel " % 'fuel
-110 INPUT 'burn
-120 IF ABS('burn) <= 'fuel THEN 150
-130 PRINT "You don't have that much fuel"
-140 GOTO 100
-150 LET ('v := 'v + 'burn * 10 / ('fuel + 'mass))
-	\end{lstlisting}
-\end{block}
-\note{Ist natürlich Quatsch, zeigt aber, was geht. Und wir kommen auch gleich }
-\end{frame}
-
-
-\begin{frame}{}
-	\begin{block}{DSL sinnvoll -- ScalaTest}
-		\begin{itemize}
-			\item<2->Fachlich verständliche Tests
-		\end{itemize}
-	\end{block}
-	\note{}
-\end{frame}
-
-
-\begin{frame}[fragile]{}
- \begin{block}{Scalatest -- Beispiel}
-\scriptsize
-	\onslide<1->
-  \begin{lstlisting}
-"Creating a Time" should {
-    "throw an IllegalArgumentException for hours less than 0 or greater equal 24" in {
-      forAll("hours") { (hours: Int) =>
-        whenever(hours < 0 || hours >= 24) {
-          an[IllegalArgumentException] should be thrownBy Time(hours)
-        }
-      }
-    }
-  }
-	\end{lstlisting}
-\end{block}
-\note{}
-\end{frame}
 
 
 \begin{frame}{Meine wenig qualifizierte Meinung}
@@ -1064,6 +1073,7 @@ Es ist einfach natürlicher.}
 			\item<2->Sprecht mich an
 			\item<3->Hands on-Termin bei Interesse
 			\item<4->Heiko Seeberger: "`Durchstarten mit Scala. Tutorial für Einsteiger (2. Aufl.)"'
+			\item<5->Martin Odersky: "`"'
 		\end{itemize}
 	\end{block}
 	\note{Wie gesagt habe ich wenig Ahnung von Scala, da ich es noch nicht produktiv eingesetzt habe. Ich lasse mich aber gerne zwingen, 
