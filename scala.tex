@@ -3,7 +3,7 @@
 \usepackage[ansinew]{luainputenc}
 \usepackage{listings}
 \usepackage{pgfpages} % Second screen
-\setbeameroption{show notes on second screen=bottom} % show notes on second screen=bottom % hide notes % show notes % show only notes
+\setbeameroption{hide notes} % show notes on second screen=bottom % hide notes % show notes % show only notes
 \setbeamerfont{note page}{size=\tiny}
 
 
@@ -207,6 +207,7 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 \end{frame}
 \note{Es gibt Manifeste von Softwareentwicklern, die sehr Ähnliches aussagen. (Reaktives Manifest, agiles Manifest, Manifest der Software Craftmanship-Bewegung als Beispiele) Diese sind bekannt und -- ich habe zumindest das Gefühl -- auch anerkannt. Ich will auch nur sehr kurz darauf eingehen, es soll ja vor allem um Scala gehen.
 
+Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bedürnisse des Kunden aktiv zu erforschen und möglichst zuverlässige und nützliche Software zu erstellen.
 }
 \begin{frame}{}
 	\only<1->{\Large \textbf{Wo stehen wir?}}
@@ -257,7 +258,7 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 \begin{frame}{}
 	\begin{block}{Versprechen}
 	\begin{itemize}
-		\item<2->Produktivitätssteierung
+		\item<2->Produktivitätssteigerung
 		\item<3->Höhere Codequalität
 		\item<4->Mehr Spaß
 		\note<4>{REPL, habe ich mir für Java schon immer gewünscht. Wer hat keine Testklasse, um mal etwas auszuprobieren?}
@@ -518,7 +519,7 @@ def print(s: String): Unit = println(s)
 }
 \end{frame}
 
-\begin{frame}[fragile]{}
+\begin{frame}<presentation:0>[fragile]{}
  \begin{block}{Parameter sind vals}
 \scriptsize
 	\onslide<2->
@@ -616,7 +617,7 @@ addOne kann dennoch übergeben werden, da Compiler die Arbeit übernimmt.
 \scriptsize
 	\onslide<2->
   \begin{lstlisting}
-class Time(val hours: Int = 0, val minutes: Int = 0) {
+class Time(val hours: Int, val minutes: Int) {
   // Primärer Konstruktor
   require(hours < 24 && hours >= 0)
   require(minutes < 60 && minutes >= 0)
@@ -837,7 +838,7 @@ def personMitAlter(person: Person, alter: Int): (Person, Int) = {
 }
 \end{frame}
 
-\begin{frame}[fragile]{}
+\begin{frame}<presentation:0>[fragile]{}
  \begin{block}{??? -- Mein heimlicher Star}
 \scriptsize
 	\onslide<2->
@@ -876,7 +877,7 @@ case class Time(hour:Int, minute:Int) {
 \end{frame}
 
 
-\begin{frame}[fragile]{}
+\begin{frame}<presentation:0>[fragile]{}
  \begin{block}{DSL -- Beispiel}
 \scriptsize
 	\onslide<1->
@@ -1138,9 +1139,13 @@ Es ist einfach natürlicher.
 	\begin{block}{Mehr für Nerds}
 		\begin{itemize}
 			\item<2->Sprecht mich an
+			\note<2>{Oder Jörn, er kennt Scala und vor allem Akka noch deutlich besser}
 			\item<3->Hands on-Termin bei Interesse
+			\note<3>{Wenn einige Lust haben, organisieren wir eine Coding-Session}
 			\item<4->Heiko Seeberger: "`Durchstarten mit Scala. Tutorial für Einsteiger"'
+			\note<4>{Sehr angenehmes Einsteigerbuch, das nur an der Oberfläche kratzt, aber genügend zeigt, um arbeiten zu können.}
 			\item<5->Martin Odersky: "`Programming in Scala"'
+			\note<5>{Unglaublich detaillierte Vorstellung des Schöpfers. Lest das nicht zuerst, es erschlägt.}
 		\end{itemize}
 	\end{block}
 	\note{Wie gesagt habe ich wenig Ahnung von Scala, da ich es noch nicht produktiv eingesetzt habe. Ich lasse mich aber gerne zwingen, 
