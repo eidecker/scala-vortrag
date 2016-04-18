@@ -116,12 +116,24 @@
 
 \title{Scala (Programmiersprache)}
 \subtitle{Ein Teaser und allgemeinere Gedanken}
-\date{16. März 2016}
+\date{4. Mai 2016}
 \author{Sebastian Eidecker}
 
 \begin{document}
 
 \maketitle
+
+
+\begin{frame}{}
+	\begin{block}{Über mich}
+		\begin{itemize}
+			\item<2->Sebastian Eidecker
+			\item<3->Softwareentwickler
+			\item<4->Java-geprägt
+		\end{itemize}
+	\end{block}
+	\note{}
+\end{frame}
 
 \begin{frame}{}
   \begin{quote}
@@ -164,9 +176,12 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 }
 \end{frame}
 
+% Todo: Folie mit Belegen für IT im Wandel, z.B. Werbung adesso Codecentric
+
 
 \begin{frame}{}
 	\begin{block}{Forderungen an IT}
+	% Todo: Raus, da Hellmann-Interna? Stattdessen öffentliche Quelle suchen
 		\begin{itemize}
 			\item<2->Stabilität und Resilienz
 			\note<2>{Magnor: Sorgen sie durch ihre Arbeit dafür, dass Systeme Kriterien der Stabilität und Resilienz erfüllen.
@@ -184,7 +199,7 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 			
 			}
 		\end{itemize}
-		\onslide<5->{\vskip3mm --- Matthias Magnor -- CEO Surface und Contract Logistics}
+		\onslide<5->{\vskip3mm --- CEO eines Logistik-Dienstleisters}
 		\note<5->{Das Bewusstsein, dass ein Wandel stattfindet, ist im Business angekommen. Diese Forderungen stammen von Matthias Magnor!}
 	\end{block}
 \end{frame}
@@ -1065,7 +1080,8 @@ Und mit Scala (vor allem Pattern Matching) bricht man sich bei der Implementieru
 	\begin{block}{Was haben wir gesehen}
 		\begin{itemize}
 			\item<2->Start, Stop, Nachrichten, Zustand
-			\item<3->Klingt verdächtig nach Prozessen
+			% Todo: Stimmt das?
+			\item<3->???Klingt verdächtig nach Prozessen???
 			\item<4->Nebenläufig, skalierbar, resilient durch Akka
 			\item[]<5->
 			\item<5->Mein Traum: Direkte Abbildung
@@ -1136,16 +1152,13 @@ Es ist einfach natürlicher.
 \end{frame}
 
 \begin{frame}{}
-	\begin{block}{Mehr für Nerds}
+	\begin{block}{Literatur}
 		\begin{itemize}
-			\item<2->Sprecht mich an
-			\note<2>{Oder Jörn, er kennt Scala und vor allem Akka noch deutlich besser}
-			\item<3->Hands on-Termin bei Interesse
-			\note<3>{Wenn einige Lust haben, organisieren wir eine Coding-Session}
-			\item<4->Heiko Seeberger: "`Durchstarten mit Scala. Tutorial für Einsteiger"'
-			\note<4>{Sehr angenehmes Einsteigerbuch, das nur an der Oberfläche kratzt, aber genügend zeigt, um arbeiten zu können.}
-			\item<5->Martin Odersky: "`Programming in Scala"'
-			\note<5>{Unglaublich detaillierte Vorstellung des Schöpfers. Lest das nicht zuerst, es erschlägt.}
+			\item<2->Heiko Seeberger: "`Durchstarten mit Scala. Tutorial für Einsteiger"'
+			\note<2>{Sehr angenehmes Einsteigerbuch, das nur an der Oberfläche kratzt, aber genügend zeigt, um arbeiten zu können.}
+			\item<3->Martin Odersky: "`Programming in Scala"'
+			\note<3>{Unglaublich detaillierte Vorstellung des Schöpfers. Lest das nicht zuerst, es erschlägt.}
+			% Todo: Mehr Referenzen, z.B. Präsentationen, Screencasts
 		\end{itemize}
 	\end{block}
 	\note{Wie gesagt habe ich wenig Ahnung von Scala, da ich es noch nicht produktiv eingesetzt habe. Ich lasse mich aber gerne zwingen, 
