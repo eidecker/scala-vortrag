@@ -124,16 +124,7 @@
 \maketitle
 
 
-\begin{frame}{}
-	\begin{block}{Über mich}
-		\begin{itemize}
-			\item<2->Sebastian Eidecker
-			\item<3->Softwareentwickler
-			\item<4->Java-geprägt
-		\end{itemize}
-	\end{block}
-	\note{}
-\end{frame}
+
 
 \begin{frame}{}
   \begin{quote}
@@ -155,6 +146,17 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 }
 
 \begin{frame}{}
+	\begin{block}{Über mich}
+		\begin{itemize}
+			\item<2->Sebastian Eidecker
+			\item<3->Softwareentwickler
+			\item<4->Java-geprägt
+		\end{itemize}
+	\end{block}
+	\note{}
+\end{frame}
+
+\begin{frame}{}
 	\setbeamertemplate{section in toc}[sections unnumbered]
 	\begin{block}{Worüber reden wir?}
 		\vskip2mm
@@ -164,27 +166,22 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 \end{frame}
 
 
-\section{IT im Wandel}
+\section{Motivation}
 
 
-\subsection{Herausforderungen}
-
-\begin{frame}{}
-	\only<1>{\Large\textbf{Software Engineering}}\only<2>{\Large\textbf{Software \alert{Engineering}}}
-	\note{Software Engineering. Passt der Begriff? Ich denke, dies impliziert zu stark, dass wir ein Problem nur lange genug durchdenken, exakt definieren und dann eine gute Lösung bauen müssen. Womöglich verstehe ich den Beruf des Ingenieurs falsch, aber ich glaube, wir haben gesehen, dass Software agil gebaut werden sollte, dass wir nicht zu Beginn eines Projektes alle Anforderungen exakt spezifizieren können. Und: Wir können kein System bauen, das hunderte Jahre stabil steht, wie eine Kirche oder Brücke. Wir müssen es ständig pflegen und verbessern, damit es nützlich bleibt.
-	
-}
-\end{frame}
+\subsection{IT als vierter Sektor}
 
 % Todo: Folie mit Belegen für IT im Wandel, z.B. Werbung adesso Codecentric
+% Vier Sektoren
+% Beispiele: Uber, Amazon, ...
 
 
 \begin{frame}{}
-	\begin{block}{Forderungen an IT}
+	\begin{block}{Forderungen des Business}
 	% Todo: Raus, da Hellmann-Interna? Stattdessen öffentliche Quelle suchen
 		\begin{itemize}
 			\item<2->Stabilität und Resilienz
-			\note<2>{Magnor: Sorgen sie durch ihre Arbeit dafür, dass Systeme Kriterien der Stabilität und Resilienz erfüllen.
+			\note<2>{Sorgen sie durch ihre Arbeit dafür, dass Systeme Kriterien der Stabilität und Resilienz erfüllen.
 			Seien sie "`dran"' an den Problemen, antizipieren sie sie, schaffen sie Fall-Back-Lösungen -- auch an Wochenenden.
 			
 			}
@@ -200,7 +197,7 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 			}
 		\end{itemize}
 		\onslide<5->{\vskip3mm --- CEO eines Logistik-Dienstleisters}
-		\note<5->{Das Bewusstsein, dass ein Wandel stattfindet, ist im Business angekommen. Diese Forderungen stammen von Matthias Magnor!}
+		\note<5->{Das Bewusstsein, dass ein Wandel stattfindet, ist im Business angekommen!}
 	\end{block}
 \end{frame}
 
@@ -209,23 +206,54 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 \note{Ein Manifest (lateinisch manifestus ‚handgreiflich gemacht‘) ist eine öffentliche Erklärung von Zielen und Absichten, oftmals politischer Natur. (Wikipedia)}
 
 \begin{frame}{}
-	\begin{block}{Manifeste}
+	\only<1>{\Large\textbf{Software Engineering}}\only<2>{\Large\textbf{Software \alert{Engineering}}}
+	\note{Software Engineering. Passt der Begriff? Ich denke, dies impliziert zu stark, dass wir ein Problem nur lange genug durchdenken, exakt definieren und dann eine gute Lösung bauen müssen. Womöglich verstehe ich den Beruf des Ingenieurs falsch, aber ich glaube, wir haben gesehen, dass Software agil gebaut werden sollte, dass wir nicht zu Beginn eines Projektes alle Anforderungen exakt spezifizieren können. Und: Wir können kein System bauen, das hunderte Jahre stabil steht, wie eine Kirche oder Brücke. Wir müssen es ständig pflegen und verbessern, damit es nützlich bleibt.
+	
+}
+\end{frame}
+
+
+\begin{frame}{}
+	\begin{block}{Reaktives Manifest (2013)}
 		\begin{itemize}
-			\item<2,5->Antwortbereit, Widerstandsfähig, Elastisch, Nachrichtenorientiert (2013)
-			\note<2>{Reaktives Manifest}
-			\item<3,5->Gut gefertigt, Stets Mehrwert, Gemeinschaft aus Experten, Produktive Partnerschaften (2009)
-			\note<3>{Software Craftsmanship}
-			\item<4,5->Individuen und Interaktionen, Funktionierende Software, Zusammenarbeit mit dem Kunden, Reagieren auf Veränderung (2001)
-			\note<4>{Agiles Manifest}
+			\item<2->Antwortbereit
+			\item<3->Widerstandsfähig
+			\item<4->Elastisch
+			\item<5->Nachrichtenorientiert
 		\end{itemize}
 	\end{block}
 \end{frame}
+
+\begin{frame}{}
+	\begin{block}{Software Craftsmanship (2009)}
+		\begin{itemize}
+			\item<2->Gut gefertigte Software
+			\item<3->Stets Mehrwert schaffen
+			\item<4->Gemeinschaft aus Experten bilden
+			\item<5->Produktive Partnerschaften mit Kunden
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}{}
+	\begin{block}{Agiles Manifest (2001)}
+		% Todo: Ausführlicher, die Punkte sind wichter als...
+		\begin{itemize}
+			\item<2->Individuen und Interaktionen mehr als Prozesse und Werkzeuge
+			\item<3->Funktionierende Software mehr als umfassende Dokumentation
+			\item<4->Zusammenarbeit mit dem Kunden mehr als Vertragsverhandlung
+			\item<5->Reagieren auf Veränderung mehr als das Befolgen eines Plans
+		\end{itemize}
+	\end{block}
+\end{frame}
+
 \note{Es gibt Manifeste von Softwareentwicklern, die sehr Ähnliches aussagen. (Reaktives Manifest, agiles Manifest, Manifest der Software Craftmanship-Bewegung als Beispiele) Diese sind bekannt und -- ich habe zumindest das Gefühl -- auch anerkannt. Ich will auch nur sehr kurz darauf eingehen, es soll ja vor allem um Scala gehen.
 
 Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bedürnisse des Kunden aktiv zu erforschen und möglichst zuverlässige und nützliche Software zu erstellen.
 }
+
 \begin{frame}{}
-	\only<1->{\Large \textbf{Wo stehen wir?}}
+	\only<1->{\Large \textbf{Wo stehen wir in unseren Projekten?}}
 	\note{Wie wollen wir uns positionieren, was müssen wir tun, um die Ziele zu erreichen bzw. unser Niveau zu halten? Hier kommt nun endlich Scala ins Spiel. Wir sollten so viele nützliche Tools wie möglich kennen, und ich denke, Scala ist eines der für uns interessanteren, was ich nun gleich hoffentlich zeigen kann.
 	
 	}
