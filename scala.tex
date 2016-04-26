@@ -267,8 +267,8 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 }
 
 \begin{frame}{}
-	\only<1->{\Large \textbf{Wo stehen wir in unseren Projekten?}}
-	\note{Wie wollen wir uns positionieren, was müssen wir tun, um die Ziele zu erreichen bzw. unser Niveau zu halten? Hier kommt nun endlich Scala ins Spiel. Wir sollten so viele nützliche Tools wie möglich kennen, und ich denke, Scala ist eines der für uns interessanteren, was ich nun gleich hoffentlich zeigen kann.
+	\only<1->{\Large \textbf{Und unsere Projekte?}}
+	\note{Passt das? Haben wir ähnliche Herausforderungen? Haben wir diese schon gelöst?
 	
 	}
 \end{frame}
@@ -330,6 +330,10 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 
 }
 
+
+\subsection{Entwicklungsumgebung}
+\note{Wie sieht die Entwicklung mit Scala aus}
+
 \begin{frame}{}
 	\begin{block}{Scala und die Java-Plattform}
 		\begin{itemize}
@@ -338,9 +342,70 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 			\item<4->Bekannte IDEs
 			\note<4,5>{Wenn man schon eine neue Sprache lernt, wird man wenigstens bei IDE und Buildprozess abgeholt.}
 			\item<5->Ähnliches Toolset, oft wiederverwendbar
+			\item<6->Projektstruktur wie Maven
 		\end{itemize}
 	\end{block}
 	\note{}
+\end{frame}
+
+
+\begin{frame}{}
+	\begin{block}{IDE-Unterstützung}
+		\begin{itemize}
+			\item<2->Die üblichen Verdächtigen 
+			\item<3->"'Richtige"' IDEs: IntelliJ, Eclipse, Netbeans
+			\item<4->Plugins für Editoren: Emacs, vi, ...
+			\item<5->Mittlerweile sehr ordentlich
+		\end{itemize}
+	\end{block}
+	\note{}
+\end{frame}
+
+
+% Todo
+\begin{frame}{}
+	\begin{block}{SBT  -- Scala build tool}
+		\begin{itemize}
+			\item<2->Buildtool für Scala-Projekte
+			\item<3->Auch interaktiv (REPL -- Read eval print loop)
+			\item<4->Projektdefinition in Konfigurationsdatei
+			\item<5->scalac und scala natürlich auch
+		\end{itemize}
+	\end{block}
+	\note{}
+\end{frame}
+
+% Todo
+\begin{frame}{}
+	\begin{block}{Continious Integration}
+		\begin{itemize}
+			\item<2->SBT-Plugins für Jenkins/Bamboo
+			\item<3->Unit-Tests: Scalatest
+			\item<4->Statische Codeanalyse: ScalaStyle
+			\item<5->Tools für die JVM funktionieren
+		\end{itemize}
+	\end{block}
+	\note{Also alles wie gewohnt
+	
+	}
+\end{frame}
+
+% Großer Text
+\begin{frame}<presentation:0>{}
+	\Large\textbf{REPL-Demo}
+	\note{}
+\end{frame}
+
+% Todo
+\begin{frame}[fragile]{}
+	\begin{block}{Buildfile}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+
+	\end{lstlisting}
+	\end{block}
+	\note{Definiert die grundlegende Konfiguration unseres Projektes, mit deren Hilfe SBT das Projekt bauen kann}
 \end{frame}
 
 
@@ -456,6 +521,21 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = xs match {
 
 }
 \end{frame}
+
+?\begin{frame}[fragile]{}
+ \begin{block}{Noch mehr}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+def foldRightViaFoldLeft_1[A,B](l: List[A], z: B)(f: (A,B) => B): B =
+??foldLeft(l, (b:B) => b)((g,a) => b => g(f(a,b)))(z)
+	\end{lstlisting}
+\end{block}
+\note{Man sieht: Ausdrucksstark, aber auch nicht mehr so straight forward wie Java (vor 8). Scala ist beides: Sehr einfach und fast beliebig komplex. Und dieser Quicksort ist noch lange nicht das Ende der Möglichkeiten.
+
+}
+\end{frame}
+
 
 
 \begin{frame}{}
@@ -753,13 +833,92 @@ val sohn = ich.copy(vorname = "Nils")
 \begin{itemize}
 	\item<2->Geht
 	\item<3->Mehrfachvererbung durch Traits
-	\item<4->Zu wenig Zeit heute
+	\item<4->Weniger strukturell, eher funktionaler als in Java
 \end{itemize}
 \end{block}
 \note{Ähnlich Java in den Grundzügen. Mit Traits Mehrfachvererbung möglich. Dadurch häufig kleinere Funktionsblöcke in Traits. Java 8 bietet mit default-Methoden in Interfaces ähnliches. Kann ich aber in der kurzen Zeit nicht sinnvoll motivieren.
 
 }
 \end{frame}
+
+% Todo
+\begin{frame}[fragile]{}
+	\begin{block}{Vererbung}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+
+	\end{lstlisting}
+	\end{block}
+	\note{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+	\begin{block}{Vererbung}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+
+	\end{lstlisting}
+	\end{block}
+	\note{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+	\begin{block}{Vererbung}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+
+	\end{lstlisting}
+	\end{block}
+	\note{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+	\begin{block}{Vererbung}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+
+	\end{lstlisting}
+	\end{block}
+	\note{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+	\begin{block}{Vererbung}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+
+	\end{lstlisting}
+	\end{block}
+	\note{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+	\begin{block}{Vererbung}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+
+	\end{lstlisting}
+	\end{block}
+	\note{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+	\begin{block}{Vererbung}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+
+	\end{lstlisting}
+	\end{block}
+	\note{}
+\end{frame}
+
 
 \begin{frame}[fragile]{}
  \begin{block}{Schönere Methodenaufrufe}
@@ -825,6 +984,26 @@ Time(10,20) - Time(1,10)
 \note{}
 \end{frame}
 
+\begin{frame}[fragile]{}
+	\begin{block}{For-Ausdrücke}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+val times = List(Time(12,0), Time(13,0), Time(14,0))
+
+for {
+  time <- times
+  minutes = time.hour * 60
+} yield minutes
+	\end{lstlisting}
+	\onslide<3->
+  \begin{lstlisting}[firstnumber = 7]
+List[Int] = List(720, 780, 840)
+	\end{lstlisting}
+	\end{block}
+	\note{}
+\end{frame}
+
 
 \begin{frame}[fragile]{}
  \begin{block}{Pattern Matching}
@@ -863,11 +1042,40 @@ def length[A](list : List[A]) : Int = {
 }
 	\end{lstlisting}
 \end{block}
-\note{Liste wird in Head und tail getailt per :: Dann rekursiv weiter
+\note{Liste wird in Head und tail geteilt per :: Dann rekursiv weiter
 Da fühlt sich der Compiler-Entwickler foch schon fast abgeholt.
 
 }
 \end{frame}
+
+\begin{frame}[fragile]{}
+ \begin{block}{@tailrec}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+def factorial(n: Int): Int = {
+  if (n <= 1) 1
+  else n * factorial(n - 1)
+}
+	\end{lstlisting}
+	\onslide<3->
+  \begin{lstlisting}[firstnumber = 5]
+def factorialTail(n: Int): Int = {
+  @tailrec
+  def factorialAcc(acc: Int, n: Int): Int = {
+    if (n <= 1) acc
+    else factorialAcc(n * acc, n - 1)
+  }
+  factorialAcc(1, n)
+}
+	\end{lstlisting}
+\end{block}
+\note{Es müssen keine Ergebnisse zwischengespeichert werden. Optimierung durch den Compiler. Warnung, wenn nicht tail recursive.
+https://myadventuresincoding.wordpress.com/2010/06/20/tail-recursion-in-scala-a-simple-example/
+
+}
+\end{frame}
+
 
 \begin{frame}[fragile]{}
  \begin{block}{Tupel}
@@ -895,7 +1103,40 @@ def personMitAlter(person: Person, alter: Int): (Person, Int) = {
 }
 \end{frame}
 
-\begin{frame}<presentation:0>[fragile]{}
+% Todo
+\begin{frame}[fragile]{}
+	\begin{block}{Exceptions}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+try {
+  val f = new FileReader("input.txt")
+} catch {
+  case ex: FileNotFoundException => {
+    println("Missing file exception")
+  }
+  case ex: IOException => {
+    println("IO Exception")
+  }
+}
+	\end{lstlisting}
+	\end{block}
+	\note{}
+\end{frame}
+
+% Todo
+\begin{frame}{}
+	\begin{block}{Exceptions}
+		\begin{itemize}
+			\item<2->Wie in Java
+			\item<3->Pattern Matching
+			\item<4->Selten: Option oder Either nutzen
+		\end{itemize}
+	\end{block}
+	\note{}
+\end{frame}
+
+\begin{frame}[fragile]{}
  \begin{block}{??? -- Mein heimlicher Star}
 \scriptsize
 	\onslide<2->
