@@ -474,7 +474,7 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 	\note{}
 \end{frame}
 
-\subsubsection*{Einführendes Beispiel und Gegenbeispiel}
+\subsubsection**{Einführendes Beispiel und Gegenbeispiel}
 
 \begin{frame}[fragile]{}
  \begin{block}{Eine Java-Klasse}
@@ -597,7 +597,7 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = xs match {
 
 
 
-\subsubsection*{Variablen}
+\subsubsection**{Variablen}
 
 \begin{frame}[fragile]{}
  \begin{block}{Variablen -- val und var}
@@ -722,7 +722,7 @@ def addOne(i: Int): Int = { i += 1; i }
 \plain
 
 
-\subsubsection*{Listen}
+\subsubsection**{Listen}
 
 \begin{frame}[fragile]{}
  \begin{block}{Listen}
@@ -744,7 +744,7 @@ Immutable-Listen bevorzugen
 }
 \end{frame}
 
-\subsubsection*{Collection-Struktur}
+\subsubsection**{Collection-Struktur}
 % Todo: Struktur, Immutables
 % Anwendungsbeispiele, auch Maps
 \begin{frame}{}
@@ -784,7 +784,7 @@ Immutable-Listen bevorzugen
 
 
 
-\subsubsection{Funktionen höherer Ordnung}
+\subsubsection*{Funktionen höherer Ordnung}
 
 \begin{frame}[fragile]{}
  \begin{block}{Funktionen höherer Ordnung}
@@ -878,7 +878,7 @@ val (minors, adults) = people partition (_.age < 18)
 \end{frame}
 
 
-\subsubsection{Klassen und Objekte}
+\subsubsection*{Klassen und Objekte}
 
 \begin{frame}[fragile]{}
  \begin{block}{Klassen}
@@ -960,7 +960,7 @@ val sohn = ich.copy(vorname = "Nils")
 \end{frame}
 
 
-\subsubsection{Vererbung}
+\subsubsection*{Vererbung}
 
 \begin{frame}[fragile]{}
  \begin{block}{Vererbung und Traits}
@@ -1078,7 +1078,7 @@ class StarCruiser extends Spacecraft
 \end{frame}
 
 
-\subsubsection{Operatorendefinition}
+\subsubsection*{Operatorendefinition}
 
 \begin{frame}[fragile]{}
  \begin{block}{Schönere Methodenaufrufe}
@@ -1164,7 +1164,7 @@ List[Int] = List(720, 780, 840)
 	\note{}
 \end{frame}
 
-\subsubsection{Schleifen}
+\subsubsection*{Schleifen}
 \begin{frame}[fragile]{}
 	\begin{block}{While}
 		\scriptsize
@@ -1188,7 +1188,7 @@ List[Int] = List(720, 780, 840)
 \end{frame}
 
 
-\subsubsection{Pattern Matching}
+\subsubsection*{Pattern Matching}
 
 \begin{frame}[fragile]{}
  \begin{block}{Pattern Matching}
@@ -1248,7 +1248,7 @@ Da fühlt sich der Compiler-Entwickler foch schon fast abgeholt.
 	\note{}
 \end{frame}
 
-\subsubsection{yield}
+\subsubsection*{yield}
 \begin{frame}[fragile]{}
 	\begin{block}{Yield}
 		\scriptsize
@@ -1260,7 +1260,7 @@ Da fühlt sich der Compiler-Entwickler foch schon fast abgeholt.
 	\note{}
 \end{frame}
 
-\subsubsection{Rekursion (tailrec)}
+\subsubsection*{Rekursion (tailrec)}
 
 \begin{frame}[fragile]{}
  \begin{block}{@tailrec}
@@ -1291,7 +1291,7 @@ Praktisch: Man kann Funktionen verschachteln.
 }
 \end{frame}
 
-\subsubsection{Tupel}
+\subsubsection*{Tupel}
 
 \begin{frame}[fragile]{}
  \begin{block}{Tupel}
@@ -1319,7 +1319,7 @@ def personMitAlter(person: Person, alter: Int): (Person, Int) = {
 }
 \end{frame}
 
-\subsubsection{???}
+\subsubsection*{???}
 
 \begin{frame}[fragile]{}
  \begin{block}{??? -- Mein heimlicher Star}
@@ -1337,7 +1337,7 @@ case class Time(hour:Int, minute:Int) {
 \note{Kompiliert, beim Aufruf aber Exception. Hilfreich, wenn man test first entwickelt. Dann jammert der Compiler nicht ständig.}
 \end{frame}
 
-\subsubsection{Arbeiten mit Strings}
+\subsubsection*{Arbeiten mit Strings}
 
 \begin{frame}[fragile]{}
 	\begin{block}{Arbeiten mit Strings}
@@ -1351,7 +1351,7 @@ case class Time(hour:Int, minute:Int) {
 \end{frame}
 
 
-\subsubsection{Implicits / Implicit conversion}
+\subsubsection*{Implicits / Implicit conversion}
 
 \begin{frame}[fragile]{}
 	\begin{block}{Implicits -- Wenn man nichts mehr versteht}
@@ -1364,7 +1364,7 @@ case class Time(hour:Int, minute:Int) {
 	\note{}
 \end{frame}
 
-\subsubsection{Futures}
+\subsubsection*{Futures}
 
 \begin{frame}[fragile]{}
 	\begin{block}{Futures}
@@ -1395,7 +1395,7 @@ In this example, the future{} construct evaluates its argument asynchronously, a
 \end{frame}
 
 
-\subsubsection{Option}
+\subsubsection*{Option}
 
 % Verwendung
 \begin{frame}{}
@@ -1412,10 +1412,10 @@ In this example, the future{} construct evaluates its argument asynchronously, a
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Ab hier Streichkandidaten
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Langweiligeres ab hier}
-\subsubsection{Exception Handling}
+\subsubsection*{Langweiligeres ab hier}
+\subsubsection*{Exception Handling}
 
-\subsubsection{Verschachtelte Funktionen}
+\subsubsection*{Verschachtelte Funktionen}
 \begin{frame}[fragile]{}
 	\begin{block}{Verschachtelte Funktionen}
 		\scriptsize
@@ -1468,7 +1468,7 @@ try {
 	\note{}
 \end{frame}
 
-\subsubsection{Annotationen}
+\subsubsection*{Annotationen}
 
 \begin{frame}[fragile]{}
 	\begin{block}{Annotationen}
@@ -1481,7 +1481,7 @@ try {
 	\note{}
 \end{frame}
 
-\subsubsection{Predef}
+\subsubsection*{Predef}
 
 \begin{frame}[fragile]{}
 	\begin{block}{Predef}
@@ -1494,7 +1494,7 @@ try {
 	\note{}
 \end{frame}
 
-\subsubsection{Und viel, viel mehr}
+\subsubsection*{Und viel, viel mehr}
 \begin{frame}{}
 	\Large\textbf{Und noch viel, viel mehr ...}
 	\note{Insbesondere im Bereich der funktionalen Programmierung. Aber dafür haben wir leider keine Zeit. Und ich kenne auch bwi weitem nicht alles.
@@ -1505,7 +1505,7 @@ try {
 
 \subsection{Spannendes aus dem Ökosystem}
 
-\subsubsection{Domain Specific Languages}
+\subsubsection*{Domain Specific Languages}
 
 \begin{frame}{}
 	 \begin{block}{Domain Specific Languages}
@@ -1558,7 +1558,7 @@ try {
 }
 \end{frame}
 
-\subsubsection{Aktoren und Akka}
+\subsubsection*{Aktoren und Akka}
 
 \begin{frame}{}
 	\begin{block}{Aktoren}
@@ -1700,7 +1700,7 @@ Und mit Scala (vor allem Pattern Matching) bricht man sich bei der Implementieru
 }
 \end{frame}
 
-\subsubsection{Akka HTTP}
+\subsubsection*{Akka HTTP}
 
 % Großer Text
 \begin{frame}{}
@@ -1741,7 +1741,7 @@ Es ist einfach natürlicher.
 
 
 
-
+\subsection*{Abschließende Worte}
 
 \begin{frame}{Scala -- Meine Meinung}
   \begin{columns}[T,onlytextwidth]
