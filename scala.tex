@@ -115,7 +115,7 @@
 \usepackage{xspace}
 
 \title{Scala (Programmiersprache)}
-\subtitle{Ein Teaser und allgemeinere Gedanken}
+\subtitle{Sicht eines Java-Entwicklers sowie \\Gedanken zum Wandel in der IT}
 \date{4. Mai 2016}
 \author{Sebastian Eidecker}
 
@@ -167,10 +167,9 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 \end{frame}
 
 
-\section{IT (mal wieder) im Wandel}
+\section{IT im Wandel -- Mal wieder}
 
-\subsection{Manifeste}
-\note{Ein Manifest (lateinisch manifestus ‚handgreiflich gemacht‘) ist eine öffentliche Erklärung von Zielen und Absichten, oftmals politischer Natur. (Wikipedia)}
+\subsection{Ein neuer Anspruch}
 
 \begin{frame}{}
 	\only<1>{\Large\textbf{Software Engineering}}\only<2>{\Large\textbf{Software \alert{Engineering}}}
@@ -179,14 +178,14 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 }
 \end{frame}
 
-
 \begin{frame}{}
-	\begin{block}{Reaktives Manifest (2013)}
+	\begin{block}{Agiles Manifest (2001)}
+		% Todo: Ausführlicher, die Punkte sind wichter als...
 		\begin{itemize}
-			\item<2->Antwortbereit
-			\item<3->Widerstandsfähig
-			\item<4->Elastisch
-			\item<5->Nachrichtenorientiert
+			\item<2->Individuen und Interaktionen mehr als Prozesse und Werkzeuge
+			\item<3->Funktionierende Software mehr als umfassende Dokumentation
+			\item<4->Zusammenarbeit mit dem Kunden mehr als Vertragsverhandlung
+			\item<5->Reagieren auf Veränderung mehr als das Befolgen eines Plans
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -203,16 +202,16 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 \end{frame}
 
 \begin{frame}{}
-	\begin{block}{Agiles Manifest (2001)}
-		% Todo: Ausführlicher, die Punkte sind wichter als...
+	\begin{block}{Reaktives Manifest (2013)}
 		\begin{itemize}
-			\item<2->Individuen und Interaktionen mehr als Prozesse und Werkzeuge
-			\item<3->Funktionierende Software mehr als umfassende Dokumentation
-			\item<4->Zusammenarbeit mit dem Kunden mehr als Vertragsverhandlung
-			\item<5->Reagieren auf Veränderung mehr als das Befolgen eines Plans
+			\item<2->Antwortbereit
+			\item<3->Widerstandsfähig
+			\item<4->Elastisch
+			\item<5->Nachrichtenorientiert
 		\end{itemize}
 	\end{block}
 \end{frame}
+
 
 \note{Es gibt Manifeste von Softwareentwicklern, die sehr Ähnliches aussagen. (Reaktives Manifest, agiles Manifest, Manifest der Software Craftmanship-Bewegung als Beispiele) Diese sind bekannt und -- ich habe zumindest das Gefühl -- auch anerkannt. Ich will auch nur sehr kurz darauf eingehen, es soll ja vor allem um Scala gehen.
 
@@ -224,24 +223,16 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 	\only<2>{\Large\textbf{Realitätsabgleich}}
 	\note{Erst einmal nur Manifeste. Sie stammen jedoch von Praktikern. Also schauen wir mal in die aktuelle Welt. Ich denke nämlich, die Anforderungen und die Rolle der IT ändern sich gerade dramatisch.
 	
-	}
-\end{frame}
-
-% Todo: Folie mit Belegen für IT im Wandel, z.B. Werbung adesso Codecentric
-% Vier Sektoren
-% Beispiele: Uber, Amazon, ...
-
-\subsection{Anforderungen und Rolle der IT}
-
-\begin{frame}{}
-	\only<1>{\Large\textbf{Vier-Sektoren-Hypothese}}
-	\note{
+	Ein paar Schlagworte: Was passiert eigentlich gerade?
 	
 	}
 \end{frame}
 
+\subsection{Eine neue Rolle}
+
 \begin{frame}{}
-	\only<1>{\Large\textbf{Mobile first -- Mobile only}}
+	\only<1>{\Large\textbf{Mobile first}}\only<2>{\Large\textbf{Mobile first -- \alert{Only mobile?}}}	
+	\only<1>{\Large\textbf{}}
 	\note{
 	
 	}
@@ -256,12 +247,38 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 
 
 \begin{frame}{}
-	\only<1>{\Large\textbf{Rasante Releasezyklen}}
-	\note{DevOps. Wir brauchen Sicherheit
+	\only<1>{\Large\textbf{Rasante Releasezyklen -- DevOps}}
+	\note{Ein kompletter Umbau der bisherigen Release- und Betriebsvorstellungen.
 	
 	}
 \end{frame}
 
+\begin{frame}{}
+	\only<1>{\Large\textbf{Industrie 4.0}}
+	\note{
+	
+	}
+\end{frame}
+
+
+\begin{frame}{}
+	\only<1>{\Large\textbf{Vier-Sektoren-Hypothese}}
+	\note{
+	
+	}
+\end{frame}
+
+\begin{frame}[plain]
+\begin{block}{Sektorenmodell nach Colin Clark}
+   \begin{centering} 
+     \pgfimage[height=0.85\paperheight]{Clarks_Sector_Model.png} 
+     \par
+   \end{centering}
+	\end{block}
+	\note{https://en.wikipedia.org/wiki/Colin_Clark_%28economist%29
+	
+	}
+\end{frame} 
 
 \begin{frame}{}
   \begin{quote}
@@ -276,8 +293,8 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 
 \begin{frame}{}
 	\only<1>{\Large\textbf{Google, Amazon, Uber, Facebook}}
-	\only<2->{\Large\textbf{Wer baut in 30 Jahren Autos?\\}}
-	\only<3->{\Large\textbf{Mit welchem Geschäftsmodell?}}
+	\only<2>{\Large\textbf{Wer baut in 30 Jahren Autos?}}
+	\only<3>{\Large\textbf{Mit welchem Geschäftsmodell?}}
 	\note{Vielleicht: Uber lässt von Google Autos bauen, nutzt deren Karten und bietet selbst fahrende Taxis?
 	
 	}
@@ -306,7 +323,7 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 			
 			}
 		\end{itemize}
-		\onslide<5->{\vskip3mm --- CEO eines Logistik-Dienstleisters}
+		\onslide<5->{\vskip3mm --- Manager eines Logistik-Dienstleisters}
 		\note<5->{Das Bewusstsein, dass ein Wandel stattfindet, ist im Business angekommen!}
 	\end{block}
 \end{frame}
@@ -421,6 +438,37 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 	\note{}
 \end{frame}
 
+\subsubsection{PRÄSENTATION - REPL}
+% REPL-Demo und Scratchpad in 
+\note{REPL-Demo und Scratchpad IntelliJ}
+\plain{REPL}
+
+
+% Todo
+\begin{frame}[fragile]{}
+	\begin{block}{SBT-Buildfile}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+organization := "org.eidecker"
+name := "demo-scala-vortrag"
+version := "1.0"
+
+scalaVersion := "2.11.8"
+scalacOptions ++= List(
+  "-unchecked", "-deprecation",
+  "-target:jvm-1.8", "-encoding", "UTF-8"
+)
+
+libraryDependencies ++= List(
+  "org.scalacheck" %% "scalacheck" % "1.12.5" % "test",
+  "org.scalatest"  %% "scalatest"  % "2.2.5"  % "test"
+)
+	\end{lstlisting}
+	\end{block}
+	\note{Definiert die grundlegende Konfiguration unseres Projektes, mit deren Hilfe SBT das Projekt bauen kann}
+\end{frame}
+
 % Todo
 \begin{frame}{}
 	\begin{block}{Continuous Integration}
@@ -436,45 +484,24 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 	}
 \end{frame}
 
-% Großer Text
-\begin{frame}<presentation:0>{}
-	\Large\textbf{REPL-Demo}
-	\note{}
-\end{frame}
-
-% REPL-Demo und Scratchpad in 
-\note{REPL-Demo und Scratchpad IntelliJ}
-\plain{}
-
-% Todo
-\begin{frame}[fragile]{}
-	\begin{block}{Buildfile}
-		\scriptsize
-		\onslide<2->
-  \begin{lstlisting}
-
-	\end{lstlisting}
-	\end{block}
-	\note{Definiert die grundlegende Konfiguration unseres Projektes, mit deren Hilfe SBT das Projekt bauen kann}
-\end{frame}
-
 
 \subsection{Code}
 \note{Vieles geklaut von Wikipedia oder Heiko Seebergers Buch}
 
 \begin{frame}{}
-	\begin{block}{Schnelldurchlauf Scala -- \alert{Endlich!}}
+	\begin{block}{Ein wenig Code}
 		\begin{itemize}
-			\item<2->Wichtige Bereiche
+			\item<2->Ausgewählte Bereiche -- Scala ist komplex
 			\item<3->Von einen Java-Entwickler ausgesucht
-			\item<5->Keine Vollständigkeit
-			\item<6->Ziel: Charakter der Sprache zeigen
+			\note<3>{Die Auswahl ist daher subjektiv, insbesondere funktionale Aspekte kommen sehr kurz.}
+			\item<4->Keine Vollständigkeit
+			\item<5->Ziel: Charakter der Sprache zeigen
 		\end{itemize}
 	\end{block}
 	\note{}
 \end{frame}
 
-\subsubsection**{Einführendes Beispiel und Gegenbeispiel}
+\subsubsection*{Einführendes Beispiel und Gegenbeispiel}
 
 \begin{frame}[fragile]{}
  \begin{block}{Eine Java-Klasse}
@@ -586,20 +613,16 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = xs match {
 }
 \end{frame}
 
-?\begin{frame}[fragile]{}
-\begin{center}
-	\includegraphics[width= 0.8\paperwidth]{Scala-Madness.PNG}
-\end{center}
-\note{Man sieht: Ausdrucksstark, aber auch nicht mehr so straight forward wie Java (vor 8). Scala ist beides: Sehr einfach und fast beliebig komplex.
+\begin{frame}[plain]
+   \begin{centering} 
+     \pgfimage[height=\paperheight]{Scala-Madness.PNG} 
+     \par 
+   \end{centering} 
+\end{frame} 
 
-}
-\end{frame}
+\subsubsection*{Variablen}
 
-
-
-\subsubsection**{Variablen}
-
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]
  \begin{block}{Variablen -- val und var}
 \scriptsize
 	\onslide<2->
@@ -718,11 +741,12 @@ def addOne(i: Int): Int = { i += 1; i }
 \note{i ist val per Default, also immutable. Letzter Ausdruck ist return}
 \end{frame}
 
+\subsubsection{PRÄSENTATION - Scratchpad}
 % Präsentation: Alles ist ein Typ im Scratchpad. Das ist aus meiner Sicht praktisch
-\plain
+\plain{Scratchpad}
 
 
-\subsubsection**{Listen}
+\subsubsection*{Listen}
 
 \begin{frame}[fragile]{}
  \begin{block}{Listen}
@@ -744,7 +768,7 @@ Immutable-Listen bevorzugen
 }
 \end{frame}
 
-\subsubsection**{Collection-Struktur}
+\subsubsection*{Collection-Struktur}
 % Todo: Struktur, Immutables
 % Anwendungsbeispiele, auch Maps
 \begin{frame}{}
@@ -1034,7 +1058,7 @@ class StarCruiser extends Spacecraft
 \end{frame}
 
 \begin{frame}[fragile]{}
-	\begin{block}{Vererbung}
+	\begin{block}{Traits -- Einschränkungen}
 		\scriptsize
 		\onslide<2->
   \begin{lstlisting}
@@ -1926,6 +1950,26 @@ def swap(i: Int, j: Int) {
 	\note{}
 \end{frame}
 
+% Grafik Vollbild
+\begin{frame}[plain]
+   \begin{centering} 
+     \pgfimage[height=\paperheight]{.PNG} 
+     \par 
+   \end{centering} 
+\end{frame} 
+
+% Grafik mit Überschrift
+\begin{frame}[plain]
+\begin{block}{Titel}
+   \begin{centering} 
+     \pgfimage[height=0.85\paperheight]{.png} 
+     \par
+   \end{centering}
+	\end{block}
+	\note{
+	
+	}
+\end{frame} 
 
 % Folie ausblenden
 \begin{frame}<presentation:0>[fragile]{}
