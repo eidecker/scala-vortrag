@@ -135,8 +135,6 @@
 	\note{
 Ich möchte heute über Scala reden. Eigentlich will ich aber nicht nur über Scala reden.  Ich möchte nicht Scala verkaufen, sondern etwas völlig anderes. Scala ist spannend - für Nerds, die des Geldes wegen Java benutzen, denen aber mittlerweile Oracles Update-Politik nicht mehr gefällt. 
 	
-Ich will aber auch über aus meiner Sicht wichtigere Probleme reden. Und vielleicht passt Scala ja doch irgendwie.
-	
 In der IT wollen wir Probleme lösen und Möglichkeiten schaffen.
 Ich bin der festen Überzeugung, dass wir zu selten über den Kern unserer Probleme nachdenken und auch, dass sich diese Probleme gerade ändern und immer schneller ändern werden.
 
@@ -163,11 +161,15 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 		\vskip2mm
 		\onslide<1->{\tableofcontents[pausesections,pausesubsections,subsubsectionstyle=hide]} %[hideallsubsections]}
 	\end{block}
-	\note{Ich will nicht nur über Scala reden. Da ich netterweise als erster Redner einer neuen Veranstaltung eingeladen wurde, möchte ich mir die Freiheit nehmen, etwas grundsätzlicher über die Softwareentwicklung zu reden.}
+	\note{Ich will nicht nur über Scala reden. Da ich netterweise als erster Redner einer neuen Veranstaltung eingeladen wurde, möchte ich mir die Freiheit nehmen, etwas grundsätzlicher über die Softwareentwicklung zu reden.
+	
+	Ich glaube, dass sich gerade -- oder auch schon seit einigen Jahren -- etwas Grundlegendes verändert. Die IT bekommt eine neue Rolle und auch viel mehr Bedeutung und Verantwortung. Diese Zukunft müssen wir gestalten. In Unternehmen. Als Unternehmen.
+	
+	}
 \end{frame}
 
 
-\section{IT im Wandel -- Mal wieder}
+\section[IT im Wandel]{IT im Wandel -- Mal wieder}
 
 \subsection{Ein neuer Anspruch}
 
@@ -297,6 +299,8 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 	\only<3>{\Large\textbf{Mit welchem Geschäftsmodell?}}
 	\note{Vielleicht: Uber lässt von Google Autos bauen, nutzt deren Karten und bietet selbst fahrende Taxis?
 	
+	Ich habe die Autos als Beispiel verwendet, weil sie bei uns Deutschen so tief verwurzelt sind. Als ich Jugendlicher war, wollte/musste fast jeder einen Führerschein haben. Die Automobilindustrie ist mächtig. Das nicht vorhandene Tempolimit auf Autobahnen ist uns heilig. Für andere Branchen gilt sicher Ähnliches.
+	
 	}
 \end{frame}
 
@@ -330,7 +334,7 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 
 
 \begin{frame}{}
-	\only<1>{\Large\textbf{Unsere Projekte}}\only<2>{\Large\textbf{Unsere Projekte -- \alert{Was sehen wir davon?}}}
+	\only<1>{\Large\textbf{Unsere Projekte}}\only<2>{\Large\textbf{Unsere Projekte -- \alert{Wo stehen wir?}}}
 	\note{Passt das? Haben wir ähnliche Herausforderungen? Haben wir diese schon gelöst?
 	
 	}
@@ -360,7 +364,7 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 \begin{frame}{}
 	\begin{block}{Eigenschaften}
 		\begin{itemize}
-			\item<2->Objektorientiert
+			\item<2->Objektorientiert -- Alles ist ein Typ
 			\note<2>{Keine Primitive, wie in Java. Ein schönes Beispiel: Dort hat man per Autoboxing Komplexität eingeführt statt Schönheit. NullPointer bei Primitiven anyone?}
 			\item<3->Funktional
 			\item<4->Statisch typisiert mit Type Inference
@@ -402,10 +406,11 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 		\begin{itemize}
 			\item<2->Java-Bytecode, läuft auf JVM
 			\item<3->Java-Bibliotheken nutzbar
-			\item<4->Bekannte IDEs
+			\item<4->Ähnliches Toolset, oft wiederverwendbar
 			\note<4,5>{Wenn man schon eine neue Sprache lernt, wird man wenigstens bei IDE und Buildprozess abgeholt.}
-			\item<5->Ähnliches Toolset, oft wiederverwendbar
-			\item<6->Projektstruktur wie Maven
+			\item<5->Projektstruktur wie Maven
+			\item<6->Erfindet das Rad nicht sinnlos neu
+			\note<6>{Neue Bibliotheken und Konzepte, wo Probleme erkannt werden, es wird nicht alles neu geschrieben und neu konzeptioniert. Gedanklich, auch was Architekturprinzipien angeht, nah an Java.}
 		\end{itemize}
 	\end{block}
 	\note{}
@@ -416,7 +421,7 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 	\begin{block}{IDE-Unterstützung}
 		\begin{itemize}
 			\item<2->Die üblichen Verdächtigen 
-			\item<3->"'Richtige"' IDEs: IntelliJ, Eclipse, Netbeans
+			\item<3->Ausgewachsene IDEs: IntelliJ, Eclipse, Netbeans
 			\item<4->Plugins für Editoren: Emacs, vi, ...
 			\item<5->Mittlerweile sehr ordentlich
 		\end{itemize}
@@ -427,19 +432,21 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 
 % Todo
 \begin{frame}{}
-	\begin{block}{SBT  -- Scala build tool}
+	\begin{block}{SBT -- Scala build tool}
 		\begin{itemize}
 			\item<2->Buildtool für Scala-Projekte
-			\item<3->Auch interaktiv (REPL -- Read eval print loop)
-			\item<4->Projektdefinition in Konfigurationsdatei
-			\item<5->scalac und scala natürlich auch
+			\item<3->Unterstützt Java-Code
+			\item<4->Unterstützt interaktiven REPL (Read eval print loop)-Modus
+			\item<5->Inkrementelles Kompilieren -- scalac ist langsam
+			\item<6->Konfiguration per Scala-DSL
+			\item<7->scalac und scala funktionieren auch
 		\end{itemize}
 	\end{block}
 	\note{}
 \end{frame}
 
-\subsubsection{PRÄSENTATION - REPL}
-% REPL-Demo und Scratchpad in 
+\subsubsection*{PRÄSENTATION - REPL}
+% REPL-Demo in Kommandozeile
 \note{REPL-Demo und Scratchpad IntelliJ}
 \plain{REPL}
 
@@ -676,6 +683,20 @@ Bei öffentlichen Methoden sollte man es aber tun, dann hat der Nutzer auch eine 
 }
 \end{frame}
 
+\begin{frame}[fragile]{}
+ \begin{block}{Parameter sind vals}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+def addOne(i: Int): Int = {
+  i += 1
+}
+	\end{lstlisting}
+\end{block}
+\onslide<3->Compile-Fehler, da i immutable
+\note{i ist val per Default, also immutable. Letzter Ausdruck ist return}
+\end{frame}
+
 
 \begin{frame}[fragile]{}
  \begin{block}{Implizites return}
@@ -729,19 +750,9 @@ def print(s: String): Unit = println(s)
 }
 \end{frame}
 
-\begin{frame}[fragile]{}
- \begin{block}{Parameter sind vals}
-\scriptsize
-	\onslide<2->
-  \begin{lstlisting}
-def addOne(i: Int): Int = { i += 1; i }
-	\end{lstlisting}
-\end{block}
-\onslide<3->Compile-Fehler, da i immutable
-\note{i ist val per Default, also immutable. Letzter Ausdruck ist return}
-\end{frame}
 
-\subsubsection{PRÄSENTATION - Scratchpad}
+
+\subsubsection*{PRÄSENTATION - Scratchpad}
 % Präsentation: Alles ist ein Typ im Scratchpad. Das ist aus meiner Sicht praktisch
 \plain{Scratchpad}
 
@@ -914,7 +925,7 @@ class Time(val hours: Int, val minutes: Int) {
   require(hours < 24 && hours >= 0)
   require(minutes < 60 && minutes >= 0)
 	
-	def this() = this(0)
+	def this() = this(0, 0)
 }
 	\end{lstlisting}
 	\onslide<3->
@@ -923,7 +934,10 @@ val t = new Time(1, 14)
 val t2 = new Time
 	\end{lstlisting}
 \end{block}
-\note{Der Standardkonstruktor für alle Parameter ist direkt im Methodenrumpf. Hilfskonstruktoren sind möglich.}
+\note{Der Standardkonstruktor für alle Parameter ist direkt im Methodenrumpf. Hilfskonstruktoren sind möglich.
+val Standard, Felder sind damit verfügbar. Var möglich, dann Setzen möglich?
+
+}
 \end{frame}
 
 \begin{frame}[fragile]{}
@@ -989,9 +1003,10 @@ val sohn = ich.copy(vorname = "Nils")
 \begin{frame}[fragile]{}
  \begin{block}{Vererbung und Traits}
 \begin{itemize}
-	\item<2->Geht
+	\item<2->Fast wie in Java
 	\item<3->Mehrfachvererbung durch Traits
-	\item<4->Weniger strukturell, eher funktionaler als in Java
+	\item<4->Verwendung: Weniger strukturell, funktionaler als in Java
+	\item<5->Java 8 hat nachgezogen
 \end{itemize}
 \end{block}
 \note{Ähnlich Java in den Grundzügen. Mit Traits Mehrfachvererbung möglich und funktionalerer Ansatz. Dadurch häufig kleinere Funktionsblöcke in Traits. Java 8 bietet mit default-Methoden in Interfaces ähnliches.
@@ -1000,107 +1015,94 @@ val sohn = ich.copy(vorname = "Nils")
 \end{frame}
 
 
-
-% Todo
 \begin{frame}[fragile]{}
 	\begin{block}{Vererbung}
 		\scriptsize
 		\onslide<2->
   \begin{lstlisting}
-
+abstract class Animal {
+  def sayHello() = println("I am an animal")
+}
 	\end{lstlisting}
+{
+\onslide<3->
+\begin{lstlisting}[firstnumber=4]
+class Bird extends Animal {
+  override def sayHello() = println("I am a bird")
+  def fly() = println("I can fly")
+  def sing() = println("I can sing")
+}
+\end{lstlisting}
+}
+{
+\onslide<4->
+\begin{lstlisting}[firstnumber=9]
+class Cow extends Animal {
+  override def sayHello() = println("I am a cow")
+  def walk() = println("I can walk")
+}
+\end{lstlisting}
+}
 	\end{block}
 	\note{}
 \end{frame}
 
 \begin{frame}[fragile]{}
-	\begin{block}{Vererbung}
+	\begin{block}{Was ist eine Ente?}
 		\scriptsize
 		\onslide<2->
   \begin{lstlisting}
-
+class Bird extends Animal
+class Fish extends Animal {
+  def swim() = println("I can swim")
+}
 	\end{lstlisting}
+{
+\onslide<3->
+\begin{lstlisting}[firstnumber=4]
+class Duck extends [???]
+\end{lstlisting}
+}
+{
+\onslide<4->
+\begin{lstlisting}[firstnumber=9]
+trait Swimmer {
+  val message = "I can swim"
+  def swim() = println(message)
+}
+\end{lstlisting}
+}
+{
+\onslide<5->
+\begin{lstlisting}[firstnumber=9]
+class Duck extends Bird with Swimmer {
+  override def sing() = println("Quak")
+}
+\end{lstlisting}
+}
 	\end{block}
 	\note{}
 \end{frame}
 
-\begin{frame}[fragile]{}
-	\begin{block}{Traits}
-		\scriptsize
-		\onslide<2->
-  \begin{lstlisting}
-abstract class Spacecraft {
-	def engage(): Unit
-}
-trait CommandoBridge extends Spacecraft {
-	def engage(): Unit = {
-		for (_ <- 1 to 3)
-			speedUp()
-	}
-	def speedUp(): Unit
-}
-trait PulseEngine extends Spacecraft {
-	val maxPulse: Int
-	var currentPulse: Int = 0
-	def speedUp(): Unit = {
-		if (currentPulse < maxPulse)
-			currentPulse += 1
-	}
-}
-class StarCruiser extends Spacecraft
-										 with CommandoBridge
-										 with PulseEngine {
-	val maxPulse = 200
-}
-	\end{lstlisting}
-	\end{block}
-	\note{}
-\end{frame}
 
-\begin{frame}[fragile]{}
+\begin{frame}{}
 	\begin{block}{Traits -- Einschränkungen}
-		\scriptsize
-		\onslide<2->
-  \begin{lstlisting}
-
-	\end{lstlisting}
+		\begin{itemize}
+			\item<2->Können Methoden definieren und implementieren
+			\item<3->Können Variablen definieren
+			\item<4->Können erben und hineinmixen
+			\item<5->Haben aber keine Konstruktor-Parameter
+		\end{itemize}
 	\end{block}
-	\note{}
+	\note{Auflösen von Problemen durch Linearisierung der Vererbungshierarchie. Es kann zu Problemen kommen. Kann und möchte ich in dieser kurzen Zeit aber nicht motivieren. Ist in der Realität aber wohl selten ein Problem.
+	
+	}
 \end{frame}
 
-\begin{frame}[fragile]{}
-	\begin{block}{Vererbung}
-		\scriptsize
-		\onslide<2->
-  \begin{lstlisting}
 
-	\end{lstlisting}
-	\end{block}
-	\note{}
-\end{frame}
 
-\begin{frame}[fragile]{}
-	\begin{block}{Vererbung}
-		\scriptsize
-		\onslide<2->
-  \begin{lstlisting}
-
-	\end{lstlisting}
-	\end{block}
-	\note{}
-\end{frame}
-
-\begin{frame}[fragile]{}
-	\begin{block}{Vererbung}
-		\scriptsize
-		\onslide<2->
-  \begin{lstlisting}
-
-	\end{lstlisting}
-	\end{block}
-	\note{}
-\end{frame}
-
+\subsubsection{PRÄSENTATION - Vererbung}
+\plain{Vererbung}
 
 \subsubsection*{Operatorendefinition}
 
@@ -1166,26 +1168,6 @@ Time(10,20) - Time(1,10)
 	\end{overlayarea}
 \end{block}
 \note{}
-\end{frame}
-
-\begin{frame}[fragile]{}
-	\begin{block}{For-Ausdrücke}
-		\scriptsize
-		\onslide<2->
-  \begin{lstlisting}
-val times = List(Time(12,0), Time(13,0), Time(14,0))
-
-for {
-  time <- times
-  minutes = time.hour * 60
-} yield minutes
-	\end{lstlisting}
-	\onslide<3->
-  \begin{lstlisting}[firstnumber = 7]
-List[Int] = List(720, 780, 840)
-	\end{lstlisting}
-	\end{block}
-	\note{}
 \end{frame}
 
 \subsubsection*{Schleifen}
@@ -1274,11 +1256,64 @@ Da fühlt sich der Compiler-Entwickler foch schon fast abgeholt.
 
 \subsubsection*{yield}
 \begin{frame}[fragile]{}
-	\begin{block}{Yield}
+	\begin{block}{Yield -- Generatoren}
 		\scriptsize
 		\onslide<2->
   \begin{lstlisting}
+for {
+  hours <- 0 to 23
+  minutes <- 0 to 59
+} yield {
+  new Time(hours, minutes)
+}
+	\end{lstlisting}
+{
+\onslide<3->
+\begin{lstlisting}[firstnumber=7]
+Vector(Time(0,0), Time(0,1), Time(0,2), ...
+\end{lstlisting}
+}
+	\end{block}
+	\note{}
+\end{frame}
 
+\begin{frame}[fragile]{}
+	\begin{block}{Yield -- Filter}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+for {
+	hours <- 0 to 23
+	minutes <- 0.to(59) if minutes % 15 == 0 && hours >= 22
+} yield {
+	new Time(hours, minutes)
+}
+	\end{lstlisting}
+{
+\onslide<3->
+\begin{lstlisting}[firstnumber=7]
+Vector(Time(22,0), Time(22,15), Time(22,30), Time(22,45), ...
+\end{lstlisting}
+}
+	\end{block}
+	\note{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+	\begin{block}{For-Ausdrücke}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+val times = List(Time(12,0), Time(13,0), Time(14,0))
+
+for {
+  time <- times
+  minutes = time.hour * 60
+} yield minutes
+	\end{lstlisting}
+	\onslide<3->
+  \begin{lstlisting}[firstnumber = 7]
+List[Int] = List(720, 780, 840)
 	\end{lstlisting}
 	\end{block}
 	\note{}
@@ -1377,6 +1412,7 @@ case class Time(hour:Int, minute:Int) {
 
 \subsubsection*{Implicits / Implicit conversion}
 
+% http://stackoverflow.com/questions/10375633/understanding-implicit-in-scala
 \begin{frame}[fragile]{}
 	\begin{block}{Implicits -- Wenn man nichts mehr versteht}
 		\scriptsize
@@ -1895,6 +1931,23 @@ def swap(i: Int, j: Int) {
 	\note{}
 \end{frame}
 
+% Listing mehrere Teile aufgedeckt
+\begin{frame}[fragile]{}
+	\begin{block}{}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+
+	\end{lstlisting}
+{
+\onslide<3->
+\begin{lstlisting}[firstnumber=5]
+
+\end{lstlisting}
+}
+	\end{block}
+	\note{}
+\end{frame}
 
 % Großer Text
 \begin{frame}{}
