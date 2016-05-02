@@ -366,10 +366,10 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 		\begin{itemize}
 			\item<2->Objektorientiert -- Alles ist ein Typ
 			\note<2>{Keine Primitive, wie in Java. Ein schönes Beispiel: Dort hat man per Autoboxing Komplexität eingeführt statt Schönheit. NullPointer bei Primitiven anyone?}
-			\item<3->Funktional
+			\item<3->Funktional -- First class functions
 			\item<4->Statisch typisiert mit Type Inference
 			\note<4>{Aber Type Inference, wenn gewünscht}
-			\item<5->Immutable by default
+			\item<5->Immutable wird bevorzugt
 			\item<6->Gewohnte Syntax ("`Java ohne Semikolon"')
 			\item<7->Ausdrucksstark (APIs/DSLs)
 			\note<7>{Bei Java bricht man sich schon die Hände, will man ein Builder-Pattern rekursiv umsetzen oder eine fluent API}
@@ -501,7 +501,7 @@ libraryDependencies ++= List(
 			\item<2->Ausgewählte Bereiche -- Scala ist komplex
 			\item<3->Von einen Java-Entwickler ausgesucht
 			\note<3>{Die Auswahl ist daher subjektiv, insbesondere funktionale Aspekte kommen sehr kurz.}
-			\item<4->Keine Vollständigkeit
+			\item<4->Keine Scala-Kurs
 			\item<5->Ziel: Charakter der Sprache zeigen
 		\end{itemize}
 	\end{block}
@@ -1056,6 +1056,33 @@ l1.map(addTwoExpressive)
 	\note{}
 \end{frame}
 
+\begin{frame}[fragile]{}
+	\begin{block}{Currying - Teilweise angewandte Funktionen}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}[firstnumber=1]
+def multiply(m: Int)(n: Int): Int = m * n
+	\end{lstlisting}
+		\onslide<3->
+  \begin{lstlisting}[firstnumber=2]
+multiply (2)(3)
+	\end{lstlisting}
+		\onslide<4->
+  \begin{lstlisting}[firstnumber=3]
+val timesTwo = multiply(2) _
+	\end{lstlisting}
+		\onslide<5->
+  \begin{lstlisting}[firstnumber=4]
+timesTwo(3)
+	\end{lstlisting}
+	\end{block}
+
+	\note{Sometimes it makes sense to let people apply some arguments to your function now and others later.
+
+Here’s an example of a function that lets you build multipliers of two numbers together. At one call site, you’ll decide which is the multiplier and at a later call site, you’ll choose a multiplicand.
+
+}
+\end{frame}
 
 \subsubsection*{Klassen und Objekte DONE}
 
@@ -1319,10 +1346,78 @@ Time(10,20) - Time(1,10)
 
 
 
-\subsubsection*{Pattern Matching}
+\subsubsection*{Pattern Matching DONE}
+
+
+
+
+%Todo: - Patterm Matching mit _
+% Verschiedene Matching-Möglichkeiten darstellen
 
 \begin{frame}[fragile]{}
- \begin{block}{Pattern Matching}
+	\begin{block}{Pattern Matching -- \texttt{switch} auf Steroiden}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+val number = 1
+	\end{lstlisting}
+	\onslide<3->
+  \begin{lstlisting}[firstnumber=2]
+number match {
+  case 1 => "one"
+  case 2 => "two"
+  case _ => "some other number"
+}
+	\end{lstlisting}
+		\onslide<4->
+  \begin{lstlisting}[firstnumber=7]
+number match {
+  case i if i == 1 => "one"
+  case i if i == 2 => "two"
+  case _ => "some other number"
+}
+	\end{lstlisting}
+	\end{block}
+	\note{Sehr mächtiges Feature. Code wirkt auf einmal sinnvoll. Java-Case auf Steroids ist noch zu schwach. Vielfältige Pattern möglich. Dabei Aufspalten von Listen möglich, siehe Quicksort.
+Bekannt aus rein funktionalen Sprachen.
+
+Wird an sehr vielen Stellen verwendet.
+
+}
+\end{frame}
+
+\begin{frame}[fragile]{}
+	\begin{block}{Matcher für Typen}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+def bigger(o: Any): Any = {
+  o match {
+    case i: Int if i < 0 => i - 1
+    case i: Int => i + 1
+    case d: Double if d < 0.0 => d - 0.1
+    case d: Double => d + 0.1
+    case text: String => text + "s"
+  }
+}
+	\end{lstlisting}
+	\onslide<2->
+  \begin{lstlisting}[firstnumber=10]
+bigger(3); bigger("Planet"); bigger(5.0)
+	\end{lstlisting}
+		\onslide<3->
+  \begin{lstlisting}[firstnumber=11]
+res0: Any = 4
+res1: Any = Planets
+res2: Any = 5.1
+	\end{lstlisting}
+	\end{block}
+	\note{}
+\end{frame}
+
+
+\begin{frame}[fragile]{}
+ \begin{block}{Matcher für Attribute}
 \scriptsize
 	\onslide<2->
   \begin{lstlisting}
@@ -1339,16 +1434,13 @@ for (person <- List(alice, bob, charlie)) {
 }
 	\end{lstlisting}
 \end{block}
-\note{Sehr mächtiges Feature. Code wirkt auf einmal sinnvoll. Java-Case auf Steroids ist noch zu schwach. Vielfältige Pattern möglich. Dabei Aufspalten von Listen möglich, siehe Quicksort.
-Bekannt aus rein funktionalen Sprachen.
-
-Wird an sehr vielen Stellen verwendet.
+\note{Wir können Attribute matchen und diese sogar an Variablen binden und verwenden.
 
 }
 \end{frame}
 
 \begin{frame}[fragile]{}
- \begin{block}{Pattern Matching -- Funktional Länge einer Liste}
+ \begin{block}{Funktional Länge einer Liste}
 \scriptsize
 	\onslide<2->
   \begin{lstlisting}
@@ -1366,20 +1458,6 @@ Da fühlt sich der Compiler-Entwickler foch schon fast abgeholt.
 }
 \end{frame}
 
-
-%Todo: - Patterm Matching mit _
-% Verschiedene Matching-Möglichkeiten darstellen
-
-\begin{frame}[fragile]{}
-	\begin{block}{Matcher}
-		\scriptsize
-		\onslide<2->
-  \begin{lstlisting}
-
-	\end{lstlisting}
-	\end{block}
-	\note{}
-\end{frame}
 
 \subsubsection*{For mit yield DONE}
 
@@ -1647,48 +1725,12 @@ numbers.get("three") match {
 	\note{}
 \end{frame}
 
-\subsubsection*{Futures}
-
-\begin{frame}[fragile]{}
-	\begin{block}{Futures}
-		\scriptsize
-		\onslide<2->
-  \begin{lstlisting}
-val x = future { someExpensiveComputation() }
-val y = future { someOtherExpensiveComputation() }
-val z = for (a <- x; b <- y) yield a*b
-for (c <- z) println("Result: " + c)
-println("Meanwhile, the main thread goes on!")
-	\end{lstlisting}
-	\end{block}
-	\note{In Scala, futures and promises can be used to process data asynchronously, making it easier to parallelize or even distribute your application.
-
-In this example, the future{} construct evaluates its argument asynchronously, and returns a handle to the asynchronous result as a Future[Int]. For-comprehensions can be used to register new callbacks (to post new things to do) when the future is completed, i.e., when the computation is finished. And since all this is executed asynchronously, without blocking, the main program thread can continue doing other work in the meantime. }
-\end{frame}
-
-\begin{frame}{}
-	\begin{block}{Titel}
-		\begin{itemize}
-			\item<2->
-			\item<3->
-			\item<4->
-		\end{itemize}
-	\end{block}
-	\note{}
-\end{frame}
-
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Ab hier Streichkandidaten
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Langweiligeres ab hier}
-
-\plain{Langweiliger -- Für mich}
+\plain{Das war es fast}
 
 \subsubsection*{Schleifen}
 \begin{frame}[fragile]{}
@@ -1817,29 +1859,32 @@ try {
 	\note{}
 \end{frame}
 
-\subsubsection*{Predef}
+\subsubsection*{Predef DONE}
 
-\begin{frame}[fragile]{}
-	\begin{block}{Predef}
-		\scriptsize
-		\onslide<2->
-  \begin{lstlisting}
-
-	\end{lstlisting}
-	\end{block}
-	\note{}
+\begin{frame}{}
+	 \begin{block}{Predef}
+			 \begin{itemize}
+				 \item<2->\texttt{java.lang} für Scala
+				 \item<3->Vordefinierte Objekte ohne Import sichtbar
+				 \item<4->Aliasse zur Bequemlichkeit
+				 \item<5->Hilfsmethoden wie \texttt{require}
+				 \item<6->Tendenz zu Immutables hier manifestiert
+			 \end{itemize}
+	 \end{block}
+	 \note{}
 \end{frame}
 
-\subsubsection*{Und viel, viel mehr}
+\subsubsection*{Und viel, viel mehr DONE}
 \begin{frame}{}
 	\Large\textbf{Und noch viel, viel mehr ...}
 	\note{Insbesondere im Bereich der funktionalen Programmierung. Aber dafür haben wir leider keine Zeit. Und ich kenne auch bwi weitem nicht alles.
+	Nein, Monaden gibt es heute sicher nicht.
 	
 	}
 \end{frame}
 
 
-\subsection{Spannendes aus dem Ökosystem}
+\subsection{Aus dem Ökosystem}
 
 \subsubsection*{Domain Specific Languages}
 
@@ -2154,13 +2199,11 @@ Es ist einfach natürlicher.
 			\note<2>{Sehr angenehmes Einsteigerbuch, das nur an der Oberfläche kratzt, aber genügend zeigt, um arbeiten zu können.}
 			\item<3->Martin Odersky: "`Programming in Scala"'
 			\note<3>{Unglaublich detaillierte Vorstellung des Schöpfers. Lest das nicht zuerst, es erschlägt.}
+			\item<4->Das Internet, nur ein Beispiel \texttt{https://twitter.github.io/scala\_school}
 			% Todo: Mehr Referenzen, z.B. Präsentationen, Screencasts
 		\end{itemize}
 	\end{block}
-	\note{Wie gesagt habe ich wenig Ahnung von Scala, da ich es noch nicht produktiv eingesetzt habe. Ich lasse mich aber gerne zwingen, 
-für Interessierte ein Hands on durchzuführen, bei dem wir ein paar Stunden mit Scala in einer echten IDE spielen, nicht auf Folien.
-Ich würde natürlich auch dafür aus Büchern klauen.
-
+	\note{
 }
 \end{frame}
 
