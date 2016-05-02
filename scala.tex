@@ -779,32 +779,6 @@ Immutable-Listen bevorzugen
 }
 \end{frame}
 
-\subsubsection*{Collection-Struktur}
-% Todo: Struktur, Immutables
-% Anwendungsbeispiele, auch Maps
-\begin{frame}{}
-	\begin{block}{Titel}
-		\begin{itemize}
-			\item<2->
-			\item<3->
-			\item<4->
-		\end{itemize}
-	\end{block}
-	\note{}
-\end{frame}
-
-
-\begin{frame}[fragile]{}
-	\begin{block}{Collections}
-		\scriptsize
-		\onslide<2->
-  \begin{lstlisting}
-
-	\end{lstlisting}
-	\end{block}
-	\note{}
-\end{frame}
-
 \begin{frame}[fragile]{}
 	\begin{block}{Listen verketten und auseinanderreißen}
 		\scriptsize
@@ -816,6 +790,33 @@ Immutable-Listen bevorzugen
 	\end{block}
 	\note{}
 \end{frame}
+
+\subsubsection*{Collection-Struktur}
+% Todo: Struktur, Immutables
+% Anwendungsbeispiele, auch Maps
+\begin{frame}{}
+	\begin{block}{Collection-Struktur}
+		\begin{itemize}
+			\item<2->Immutable und Mutable-Varianten
+			\item<3->
+			\item<4->
+		\end{itemize}
+	\end{block}
+	\note{}
+\end{frame}
+
+
+\begin{frame}[fragile]{}
+	\begin{block}{Vector statt ArrayList}
+		\begin{itemize}
+			\item<2->Vector (scala.collection.immutable.Vector)
+			\item<3->Immutable \emph{und} schnell
+		\end{itemize}
+		\end{block}
+	\note{}
+\end{frame}
+
+
 
 
 
@@ -973,7 +974,10 @@ object Time {
 val t = Time.fromMimutes(100)
 	\end{lstlisting}
 \end{block}
-\note{Companion Objects sind Singleton Objects. Sie existieren nur ein mal. "`Ersatz"' für static, das es nicht gibt. Companion Objects (selber Name, selbes Paket, selbe Datei wie Klasse) können auf private Elemente der Klasse zugreifen
+\note{Companion Objects sind Singleton Objects. Sie existieren nur ein mal. "`Ersatz"' für static, das es nicht gibt. Nützlich für Factory-Methoden.
+Companion Objects (selber Name, selbes Paket, selbe Datei wie Klasse) können auf private Elemente der Klasse zugreifen.
+
+Gilt auch für Traits.
 
 }
 \end{frame}
@@ -1091,7 +1095,8 @@ class Duck extends Bird with Swimmer {
 			\item<2->Können Methoden definieren und implementieren
 			\item<3->Können Variablen definieren
 			\item<4->Können erben und hineinmixen
-			\item<5->Haben aber keine Konstruktor-Parameter
+			\item<5->Können Companion-Objekte haben
+			\item<6->Haben aber keine Konstruktor-Parameter
 		\end{itemize}
 	\end{block}
 	\note{Auflösen von Problemen durch Linearisierung der Vererbungshierarchie. Es kann zu Problemen kommen. Kann und möchte ich in dieser kurzen Zeit aber nicht motivieren. Ist in der Realität aber wohl selten ein Problem.
@@ -1474,6 +1479,41 @@ In this example, the future{} construct evaluates its argument asynchronously, a
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Langweiligeres ab hier}
 \subsubsection*{Exception Handling}
+
+\subsubsection*{Type}
+\begin{frame}[fragile]{}
+	\begin{block}{Type}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+
+	\end{lstlisting}
+	\end{block}
+	\note{}
+\end{frame}
+
+\subsubsection*{Lazy val}
+% http://stackoverflow.com/questions/7484928/what-does-a-lazy-val-do
+% In contrast to a method (defined with def) a lazy val is executed once and then never again. This can be useful when an operation takes long time to complete and when it is not sure if it is later used.
+
+% Todo: Werden vars häufiger ausgewertet?
+\begin{frame}[fragile]{}
+\begin{block}{Lazy val}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+lazy val 
+	\end{lstlisting}
+	\normalsize
+	\begin{itemize}
+			\item<2->Auswertung bei erstem Aufruf
+			\item<3->Einmalig
+			\item<4->"`Memorized def"'
+		\end{itemize}
+	\end{block}
+	\note{}
+\end{frame}
+
 
 \subsubsection*{Verschachtelte Funktionen}
 \begin{frame}[fragile]{}
