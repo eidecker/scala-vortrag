@@ -436,7 +436,7 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 		\begin{itemize}
 			\item<2->Buildtool für Scala-Projekte
 			\item<3->Unterstützt Java-Code
-			\item<4->Unterstützt interaktiven REPL (Read eval print loop)-Modus
+			\item<4->Unterstützt interaktiven Read eval print loop-Modus
 			\item<5->Inkrementelles Kompilieren -- scalac ist langsam
 			\item<6->Konfiguration per Scala-DSL
 			\item<7->scalac und scala funktionieren auch
@@ -496,7 +496,7 @@ libraryDependencies ++= List(
 \note{Vieles geklaut von Wikipedia oder Heiko Seebergers Buch}
 
 \begin{frame}{}
-	\begin{block}{Ein wenig Code}
+	\begin{block}{Scala in Code-Beispielen}
 		\begin{itemize}
 			\item<2->Ausgewählte Bereiche -- Scala ist komplex
 			\item<3->Von einen Java-Entwickler ausgesucht
@@ -505,10 +505,12 @@ libraryDependencies ++= List(
 			\item<5->Ziel: Charakter der Sprache zeigen
 		\end{itemize}
 	\end{block}
-	\note{}
+	\note{Komplexität erinnert mich an die deutsche Grammatik. Man beherrscht sie irgendwann recht gut. Soll man aber grammatikalische Figuren angeben, ist man schnell am Ende. Außer man lernt die Details.
+	
+	}
 \end{frame}
 
-\subsubsection*{Einführendes Beispiel und Gegenbeispiel}
+\subsubsection*{Einführendes Beispiel und Gegenbeispiel DONE}
 
 \begin{frame}[fragile]{}
  \begin{block}{Eine Java-Klasse}
@@ -627,7 +629,7 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = xs match {
    \end{centering} 
 \end{frame} 
 
-\subsubsection*{Variablen}
+\subsubsection*{Variablen DONE}
 
 \begin{frame}[fragile]
  \begin{block}{Variablen -- val und var}
@@ -694,7 +696,7 @@ def addOne(i: Int): Int = {
 	\end{lstlisting}
 \end{block}
 \onslide<3->Compile-Fehler, da i immutable
-\note{i ist val per Default, also immutable. Letzter Ausdruck ist return}
+\note{i ist val, also immutable. Immer, var nicht möglich. Letzter Ausdruck ist return}
 \end{frame}
 
 
@@ -752,12 +754,12 @@ def print(s: String): Unit = println(s)
 
 
 
-\subsubsection*{PRÄSENTATION - Scratchpad}
+\subsubsection*{PRÄSENTATION - Alles ist ein Typ}
 % Präsentation: Alles ist ein Typ im Scratchpad. Das ist aus meiner Sicht praktisch
 \plain{Scratchpad}
 
 
-\subsubsection*{Listen}
+\subsubsection*{Listen DONE}
 
 \begin{frame}[fragile]{}
  \begin{block}{Listen}
@@ -780,47 +782,166 @@ Immutable-Listen bevorzugen
 \end{frame}
 
 \begin{frame}[fragile]{}
-	\begin{block}{Listen verketten und auseinanderreißen}
+	\begin{block}{Listenoperationen}
 		\scriptsize
-		\onslide<2->
-  \begin{lstlisting}
-++ +:
 
-	\end{lstlisting}
+\onslide<2->
+\begin{lstlisting}[firstnumber=1]
+val l1 = List.range(1, 11, 1)
+val l2 = List.range(20, 8, -2)
+\end{lstlisting}
+
+\onslide<3->
+\begin{lstlisting}[firstnumber=3]
+l1: List[Int] = List(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+l2: List[Int] = List(20, 18, 16, 14, 12, 10)
+\end{lstlisting}
+
+\onslide<4->
+\begin{lstlisting}[firstnumber=5]
+l1.intersect(l2)
+\end{lstlisting}
+
+\onslide<5->
+\begin{lstlisting}[firstnumber=6]
+res0: List[Int] = List(10)
+\end{lstlisting}
+
+\onslide<6->
+\begin{lstlisting}[firstnumber=7]
+l1.reverse
+\end{lstlisting}
+
+\onslide<7->
+\begin{lstlisting}[firstnumber=8]
+(l1 union l2 intersect l1) == l1
+\end{lstlisting}
+\note<7>{
+== prüft auf fachliche Gleichheit. eq die Objektreferenzen.
+
+}
+
+\onslide<8->
+\begin{lstlisting}[firstnumber=9]
+res1: Boolean = true
+\end{lstlisting}
 	\end{block}
 	\note{}
 \end{frame}
 
-\subsubsection*{Collection-Struktur}
+\begin{frame}[fragile]{}
+	\begin{block}{Listenoperationen}
+		\scriptsize
+\onslide<1->
+\begin{lstlisting}[firstnumber=10]
+l1 ++ l2
+\end{lstlisting}
+\onslide<2->
+\begin{lstlisting}[firstnumber=11]
+l1.head
+l1.tail
+\end{lstlisting}
+\onslide<3->
+\begin{lstlisting}[firstnumber=13]
+val head :: tail = l1
+\end{lstlisting}	
+
+\onslide<4->
+\begin{lstlisting}[firstnumber=14]
+head: Int = 1
+tail: List[Int] = List(2, 3, 4, 5, 6, 7, 8, 9, 10)
+\end{lstlisting}	
+\end{block}
+	\note{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+ \begin{block}{Map}
+\scriptsize
+	\onslide<2->
+  \begin{lstlisting}
+var colors = Map("red" -> 0xFF0000,
+  "turquoise" -> 0x00FFFF,
+  "black" -> 0x000000,
+  "orange" -> 0xFF8040,
+  "brown" -> 0x804000)
+	\end{lstlisting}
+\onslide<3->
+  \begin{lstlisting}[firstnumber = 6]
+colors += ("white" -> 0xFFFFFF)
+\end{lstlisting}
+\onslide<4->
+  \begin{lstlisting}[firstnumber = 7]
+colors.get("red")
+\end{lstlisting}
+\onslide<5->
+  \begin{lstlisting}[firstnumber = 8]
+colors.keys
+colors.values
+\end{lstlisting}
+\end{block}
+\note{
+}
+\end{frame}
+
+\subsubsection*{Collection-Struktur DONE} 
 % Todo: Struktur, Immutables
 % Anwendungsbeispiele, auch Maps
+
 \begin{frame}{}
 	\begin{block}{Collection-Struktur}
 		\begin{itemize}
-			\item<2->Immutable und Mutable-Varianten
-			\item<3->
-			\item<4->
+			\item<2->Alle gängigen Datenstrukturen
+			\item<3->Immutable \emph{und} Mutable-Varianten
+			\item<4->Je eigene Hierarchie -- Abgeleitet von Traits
+			\item<5->Tendenz zu Immutable -- Predef
+			\item<6->Star-Datenstruktur: Vector
+			\item<7->Immutable \emph{und} schnell
 		\end{itemize}
 	\end{block}
 	\note{}
 \end{frame}
 
+\begin{frame}[plain]
+\begin{block}{Collection-Struktur}
+   \begin{centering} 
+     \pgfimage[height=0.85\paperheight]{collection-traits.png} 
+     \par
+   \end{centering}
+	\end{block}
+	\note{Seq: Wohldefinierte Reihenfolge
+Map: 2-Tupel, Assoziativ
+Set: Menge
+	
+	}
+\end{frame} 
 
-\begin{frame}[fragile]{}
-	\begin{block}{Vector statt ArrayList}
-		\begin{itemize}
-			\item<2->Vector (scala.collection.immutable.Vector)
-			\item<3->Immutable \emph{und} schnell
-		\end{itemize}
-		\end{block}
-	\note{}
-\end{frame}
+\begin{frame}[plain]
+\begin{block}{Immutables}
+   \begin{centering} 
+     \pgfimage[height=0.85\paperheight]{collection-immutable.png} 
+     \par
+   \end{centering}
+	\end{block}
+	\note{Vektor ist Star
+	
+	}
+\end{frame} 
 
 
+\begin{frame}[plain]
+\begin{block}{Mutables}
+   \begin{centering} 
+     \pgfimage[height=0.85\paperheight]{collection-mutable.png} 
+     \par
+   \end{centering}
+	\end{block}
+	\note{
+	}
+\end{frame} 
 
 
-
-\subsubsection*{Funktionen höherer Ordnung}
+\subsubsection*{Funktionen höherer Ordnung DONE}
 
 \begin{frame}[fragile]{}
  \begin{block}{Funktionen höherer Ordnung}
@@ -888,10 +1009,18 @@ addOne kann dennoch übergeben werden, da Compiler die Arbeit übernimmt.
 		\scriptsize
 		\onslide<2->
   \begin{lstlisting}
-val people: Array[Person]
-    
-val (minors, adults) = people partition (_.age < 18)
+case class Person(name:String, age:Int)
+val people = Vector(Person("Sebastian", 37),  
+		Person("Fabian", 36), Person("Nils", 5))
+
+val (children, adults) = people partition (_.age < 18)
 	\end{lstlisting}
+		\onslide<3->
+  \begin{lstlisting}[firstnumber=5]
+children: scala.collection.immutable.Vector[Person] = Vector(Person(Nils,5))
+adults: scala.collection.immutable.Vector[Person] = Vector(Person(Sebastian,37), Person(Fabian,36))
+	\end{lstlisting}
+
 	\end{block}
 	\note{val people: Array[Person]
     // Partition `people` into two arrays `minors` and `adults`.
@@ -906,15 +1035,29 @@ val (minors, adults) = people partition (_.age < 18)
 	\begin{block}{Anonyme Funktionssyntax}
 		\scriptsize
 		\onslide<2->
-  \begin{lstlisting}
-
+  \begin{lstlisting}[firstnumber=1]
+val addTwo = (n: Int) => n + 2
 	\end{lstlisting}
+	
+		\onslide<3->
+  \begin{lstlisting}[firstnumber=2]
+val addTwoExpressive =
+new Function1[Int, Int] {
+  def apply(n: Int): Int = n + 2
+}
+	\end{lstlisting}
+		\onslide<4->
+  \begin{lstlisting}[firstnumber=6]
+l1.map(addTwo)
+l1.map(addTwoExpressive)
+	\end{lstlisting}
+
 	\end{block}
 	\note{}
 \end{frame}
 
 
-\subsubsection*{Klassen und Objekte}
+\subsubsection*{Klassen und Objekte DONE}
 
 \begin{frame}[fragile]{}
  \begin{block}{Klassen}
@@ -1002,7 +1145,7 @@ val sohn = ich.copy(vorname = "Nils")
 \end{frame}
 
 
-\subsubsection*{Vererbung}
+\subsubsection*{Vererbung DONE}
 
 \begin{frame}[fragile]{}
  \begin{block}{Vererbung und Traits}
@@ -1104,12 +1247,9 @@ class Duck extends Bird with Swimmer {
 	}
 \end{frame}
 
-
-
-\subsubsection{PRÄSENTATION - Vererbung}
 \plain{Vererbung}
 
-\subsubsection*{Operatorendefinition}
+\subsubsection*{Operatorendefinition DONE}
 
 \begin{frame}[fragile]{}
  \begin{block}{Schönere Methodenaufrufe}
@@ -1136,8 +1276,9 @@ List(1,2,3) isEmpty
 	\begin{onlyenv}<2-4>
   \begin{lstlisting}
 case class Time(hour:Int, minute:Int) {
-  def minus(time: Time) = {new Time(this.hour - time.hour, this.minute - time.minute)}
-
+  def minus(time: Time) = {
+		new Time(this.hour - time.hour, this.minute - time.minute)
+	}
 }
 	\end{lstlisting}
 	\end{onlyenv}
@@ -1175,28 +1316,7 @@ Time(10,20) - Time(1,10)
 \note{}
 \end{frame}
 
-\subsubsection*{Schleifen}
-\begin{frame}[fragile]{}
-	\begin{block}{While}
-		\scriptsize
-		\onslide<2->
-  \begin{lstlisting}
 
-	\end{lstlisting}
-	\end{block}
-	\note{}
-\end{frame}
-
-\begin{frame}[fragile]{}
-	\begin{block}{For}
-		\scriptsize
-		\onslide<2->
-  \begin{lstlisting}
-
-	\end{lstlisting}
-	\end{block}
-	\note{}
-\end{frame}
 
 
 \subsubsection*{Pattern Matching}
@@ -1221,6 +1341,8 @@ for (person <- List(alice, bob, charlie)) {
 \end{block}
 \note{Sehr mächtiges Feature. Code wirkt auf einmal sinnvoll. Java-Case auf Steroids ist noch zu schwach. Vielfältige Pattern möglich. Dabei Aufspalten von Listen möglich, siehe Quicksort.
 Bekannt aus rein funktionalen Sprachen.
+
+Wird an sehr vielen Stellen verwendet.
 
 }
 \end{frame}
@@ -1259,7 +1381,29 @@ Da fühlt sich der Compiler-Entwickler foch schon fast abgeholt.
 	\note{}
 \end{frame}
 
-\subsubsection*{yield}
+\subsubsection*{For mit yield DONE}
+
+\begin{frame}[fragile]{}
+	\begin{block}{For-Ausdrücke}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+val times = List(Time(12,0), Time(13,0), Time(14,0))
+
+for {
+  time <- times
+  minutes = time.hour * 60
+} yield minutes
+	\end{lstlisting}
+	\onslide<3->
+  \begin{lstlisting}[firstnumber = 7]
+List[Int] = List(720, 780, 840)
+	\end{lstlisting}
+	\end{block}
+	\note{}
+\end{frame}
+
+
 \begin{frame}[fragile]{}
 	\begin{block}{Yield -- Generatoren}
 		\scriptsize
@@ -1304,30 +1448,12 @@ Vector(Time(22,0), Time(22,15), Time(22,30), Time(22,45), ...
 	\note{}
 \end{frame}
 
-\begin{frame}[fragile]{}
-	\begin{block}{For-Ausdrücke}
-		\scriptsize
-		\onslide<2->
-  \begin{lstlisting}
-val times = List(Time(12,0), Time(13,0), Time(14,0))
 
-for {
-  time <- times
-  minutes = time.hour * 60
-} yield minutes
-	\end{lstlisting}
-	\onslide<3->
-  \begin{lstlisting}[firstnumber = 7]
-List[Int] = List(720, 780, 840)
-	\end{lstlisting}
-	\end{block}
-	\note{}
-\end{frame}
 
-\subsubsection*{Rekursion (tailrec)}
+\subsubsection*{Rekursion (tailrec) DONE}
 
 \begin{frame}[fragile]{}
- \begin{block}{@tailrec}
+ \begin{block}{@tailrec -- Scala denkt wirklich funktional}
 \scriptsize
 	\onslide<2->
   \begin{lstlisting}
@@ -1348,14 +1474,25 @@ def factorialTail(n: Int): Int = {
 }
 	\end{lstlisting}
 \end{block}
-\note{Es müssen keine Ergebnisse zwischengespeichert werden. Optimierung durch den Compiler. Warnung, wenn nicht tail recursive.
+\note{Es müssen keine Ergebnisse auf dem Stack zwischengespeichert werden. Optimierung durch den Compiler. Warnung, wenn nicht tail recursive.
+Recht hardcore funktional!
+
+
+In traditional recursion, the typical model is that you perform your recursive calls first, and then you take the return value of the recursive call and calculate the result. In this manner, you don't get the result of your calculation until you have returned from every recursive call.
+
+In tail recursion, you perform your calculations first, and then you execute the recursive call, passing the results of your current step to the next recursive step. This results in the last statement being in the form of "(return (recursive-function params))" (I think that's the syntax for Lisp). Basically, the return value of any given recursive step is the same as the return value of the next recursive call.
+
+The consequence of this is that once you are ready to perform your next recursive step, you don't need the current stack frame any more. This allows for some optimization. In fact, with an appropriately written compiler, you should never have a stack overflow snicker with a tail recursive call. Simply reuse the current stack frame for the next recursive step. I'm pretty sure Lisp does this.
+http://stackoverflow.com/questions/33923/what-is-tail-recursion
+
 https://myadventuresincoding.wordpress.com/2010/06/20/tail-recursion-in-scala-a-simple-example/
 
 Praktisch: Man kann Funktionen verschachteln.
+
 }
 \end{frame}
 
-\subsubsection*{Tupel}
+\subsubsection*{Tupel DONE}
 
 \begin{frame}[fragile]{}
  \begin{block}{Tupel}
@@ -1378,12 +1515,12 @@ def personMitAlter(person: Person, alter: Int): (Person, Int) = {
 }
 \end{lstlisting}
 \end{block}
-\note{Tupel können nützlich sein, wenn man mal kein neues Objekt erstellen will. Oder, wenn man Maps verwendet. Oder, wenn man Funktionen als Parameter übergibt. Oder, wenn man Compiler baut.
+\note{Haben wir beim Pattern Matching gesehen. Tupel können aber auch nützlich sein, wenn man mal kein neues Objekt erstellen will. Oder, wenn man Maps verwendet. Oder, wenn man Funktionen als Parameter übergibt. 
 
 }
 \end{frame}
 
-\subsubsection*{???}
+\subsubsection*{??? DONE}
 
 \begin{frame}[fragile]{}
  \begin{block}{??? -- Mein heimlicher Star}
@@ -1410,6 +1547,87 @@ case class Time(hour:Int, minute:Int) {
   \begin{lstlisting}
 
 	\end{lstlisting}
+	\end{block}
+	\note{}
+\end{frame}
+
+
+\subsubsection*{Option DONE}
+
+% Verwendung
+\begin{frame}{}
+	\begin{block}{Option}
+		\begin{itemize}
+			\item<2->Etwas könnte vorhanden sein -- oder nicht
+			\item<3->Null vermeiden
+			\item<4->Unterklassen \texttt{Some[T]} und \texttt{None}
+			\item<5->Gutes Zusammenspiel mit Pattern Matching
+			\item<6->Java 8: \texttt{Optional}
+		\end{itemize}
+	\end{block}
+	\note{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+	\begin{block}{Pseudocode Option}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+trait Option[T] {
+  def isDefined: Boolean
+  def get: T
+  def getOrElse(t: T): T
+}
+	\end{lstlisting}
+	\end{block}
+	\note{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+	\begin{block}{Option im Einsatz}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+val numbers = Map("one" -> 1, "two" -> 2)
+	\end{lstlisting}
+	\onslide<3->
+  \begin{lstlisting}[firstnumber=2]
+val two = numbers.get("two")
+	\end{lstlisting}
+	\onslide<4->
+  \begin{lstlisting}[firstnumber=3]
+two: Option[Int] = Some(2)
+	\end{lstlisting}
+	\onslide<5->
+  \begin{lstlisting}[firstnumber=4]
+val three = numbers.get("three")
+	\end{lstlisting}
+	\onslide<6->
+  \begin{lstlisting}[firstnumber=5]
+three: Option[Int] = None
+	\end{lstlisting}
+	\end{block}
+	\note{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+	\begin{block}{Option im Einsatz}
+		\scriptsize
+	\onslide<1->
+  \begin{lstlisting}[firstnumber=6]
+val result = if (three.isDefined) {
+  three.get * 2
+} else {
+  0
+}
+	\end{lstlisting}
+	\onslide<2->
+  \begin{lstlisting}[firstnumber=11]
+numbers.get("three") match {
+  case Some(n) => n * 2
+  case None => 0
+}
+	\end{lstlisting}	
 	\end{block}
 	\note{}
 \end{frame}
@@ -1460,24 +1678,42 @@ In this example, the future{} construct evaluates its argument asynchronously, a
 \end{frame}
 
 
-\subsubsection*{Option}
 
-% Verwendung
-\begin{frame}{}
-	\begin{block}{Besondere Typen -- Option, Some, None}
-		\begin{itemize}
-			\item<2->
-			\item<3->
-			\item<4->
-		\end{itemize}
-	\end{block}
-	\note{}
-\end{frame}
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Ab hier Streichkandidaten
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Langweiligeres ab hier}
+
+\plain{Langweiliger -- Für mich}
+
+\subsubsection*{Schleifen}
+\begin{frame}[fragile]{}
+	\begin{block}{While}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+
+	\end{lstlisting}
+	\end{block}
+	\note{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+	\begin{block}{For}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+
+	\end{lstlisting}
+	\end{block}
+	\note{}
+\end{frame}
+
+
 \subsubsection*{Exception Handling}
 
 \subsubsection*{Type}
