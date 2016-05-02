@@ -1401,11 +1401,11 @@ def bigger(o: Any): Any = {
   }
 }
 	\end{lstlisting}
-	\onslide<2->
+	\onslide<3->
   \begin{lstlisting}[firstnumber=10]
 bigger(3); bigger("Planet"); bigger(5.0)
 	\end{lstlisting}
-		\onslide<3->
+		\onslide<4->
   \begin{lstlisting}[firstnumber=11]
 res0: Any = 4
 res1: Any = Planets
@@ -1616,18 +1616,56 @@ case class Time(hour:Int, minute:Int) {
 \note{Kompiliert, beim Aufruf aber Exception. Hilfreich, wenn man test first entwickelt. Dann jammert der Compiler nicht ständig.}
 \end{frame}
 
-\subsubsection*{Arbeiten mit Strings}
+\subsubsection*{Arbeiten mit Strings DONE}
+
 
 \begin{frame}[fragile]{}
-	\begin{block}{Arbeiten mit Strings}
+	\begin{block}{Strings}
 		\scriptsize
 		\onslide<2->
   \begin{lstlisting}
-
+val hello = "Hello"
+val world = "world"
 	\end{lstlisting}
-	\end{block}
-	\note{}
+\onslide<3->
+\begin{lstlisting}[firstnumber=3]
+hello + ' ' + world
+hello.take(4)
+\end{lstlisting}
+\onslide<4->
+\begin{lstlisting}[firstnumber=5]
+val latin = """Lorem ipsum
+               |dolor sit amet""".stripMargin
+\end{lstlisting}
+
+
+\end{block}
+	
 \end{frame}
+
+
+\begin{frame}[fragile]{}
+	\begin{block}{Strings}
+		\scriptsize
+		\onslide<1->
+\begin{lstlisting}[firstnumber=7]
+val name = "Sebastian"
+val age = 37
+val weight = 80.0
+\end{lstlisting}
+		\onslide<2->
+\begin{lstlisting}[firstnumber=10]
+println(s"Hello, $name")
+println(f"$name is $age years old, and weighs $weight%.1f kilograms.")
+\end{lstlisting}
+	\end{block}
+\note{s: Variablenersetzung
+	f: Formatierung
+	
+	}
+\end{frame}
+
+
 
 
 \subsubsection*{Option DONE}
@@ -1729,71 +1767,10 @@ numbers.get("three") match {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Ab hier Streichkandidaten
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{Langweiligeres ab hier}
-\plain{Das war es fast}
-
-\subsubsection*{Schleifen}
-\begin{frame}[fragile]{}
-	\begin{block}{While}
-		\scriptsize
-		\onslide<2->
-  \begin{lstlisting}
-
-	\end{lstlisting}
-	\end{block}
-	\note{}
-\end{frame}
-
-\begin{frame}[fragile]{}
-	\begin{block}{For}
-		\scriptsize
-		\onslide<2->
-  \begin{lstlisting}
-
-	\end{lstlisting}
-	\end{block}
-	\note{}
-\end{frame}
+\subsubsection*{Langweiligeres ab hier DONE}
 
 
-\subsubsection*{Exception Handling}
-
-\subsubsection*{Type}
-\begin{frame}[fragile]{}
-	\begin{block}{Type}
-		\scriptsize
-		\onslide<2->
-  \begin{lstlisting}
-
-	\end{lstlisting}
-	\end{block}
-	\note{}
-\end{frame}
-
-\subsubsection*{Lazy val}
-% http://stackoverflow.com/questions/7484928/what-does-a-lazy-val-do
-% In contrast to a method (defined with def) a lazy val is executed once and then never again. This can be useful when an operation takes long time to complete and when it is not sure if it is later used.
-
-% Todo: Werden vars häufiger ausgewertet?
-\begin{frame}[fragile]{}
-\begin{block}{Lazy val}
-		\scriptsize
-		\onslide<2->
-  \begin{lstlisting}
-lazy val 
-	\end{lstlisting}
-	\normalsize
-	\begin{itemize}
-			\item<2->Auswertung bei erstem Aufruf
-			\item<3->Einmalig
-			\item<4->"`Memorized def"'
-		\end{itemize}
-	\end{block}
-	\note{}
-\end{frame}
-
-
-\subsubsection*{Verschachtelte Funktionen}
+\subsubsection*{Verschachtelte Funktionen DONE}
 \begin{frame}[fragile]{}
 	\begin{block}{Verschachtelte Funktionen}
 		\scriptsize
@@ -1813,7 +1790,19 @@ def factorial(n: Int): Int = {
 	\note{Praktisch bspw. für rekursive Funktionen. Haben wir dort schon gesehen.}
 \end{frame}
 
-% Todo
+\subsubsection*{Exception Handling DONE}
+
+\begin{frame}{}
+	\begin{block}{Exceptions}
+		\begin{itemize}
+			\item<2->Wie in Java
+			\item<3->Pattern Matching
+			\item<4->Selten: Option oder Either nutzen
+		\end{itemize}
+	\end{block}
+	\note{}
+\end{frame}
+
 \begin{frame}[fragile]{}
 	\begin{block}{Exceptions}
 		\scriptsize
@@ -1834,30 +1823,7 @@ try {
 	\note{}
 \end{frame}
 
-% Todo
-\begin{frame}{}
-	\begin{block}{Exceptions}
-		\begin{itemize}
-			\item<2->Wie in Java
-			\item<3->Pattern Matching
-			\item<4->Selten: Option oder Either nutzen
-		\end{itemize}
-	\end{block}
-	\note{}
-\end{frame}
 
-\subsubsection*{Annotationen}
-
-\begin{frame}[fragile]{}
-	\begin{block}{Annotationen}
-		\scriptsize
-		\onslide<2->
-  \begin{lstlisting}
-
-	\end{lstlisting}
-	\end{block}
-	\note{}
-\end{frame}
 
 \subsubsection*{Predef DONE}
 
@@ -1896,13 +1862,14 @@ try {
 				 \item<4->Entwicklung schwierig
 				 \item<5->Einschränkungen vorhanden
 				\note<5->{Gegenüber externen DSLs wie Xtext, die beliebige Syntax erlauben}
+				\item<6->Häufig in Standard-Frameworks verwendet
 			 \end{itemize}
 	 \end{block}
 	 \note{}
 \end{frame}
 
 
-\begin{frame}<presentation:0>[fragile]{}
+\begin{frame}[fragile]{}
  \begin{block}{DSL -- Beispiel}
 \scriptsize
 	\onslide<1->
@@ -2081,25 +2048,18 @@ Und mit Scala (vor allem Pattern Matching) bricht man sich bei der Implementieru
 }
 \end{frame}
 
-\subsubsection*{Akka HTTP}
 
-% Großer Text
-\begin{frame}{}
-	\Large\textbf{Akka HTTP}
-	\note{}
-\end{frame}
 
 % Todo
 \begin{frame}{}
 	\begin{block}{Einsatzmöglichkeiten}
 		\begin{itemize}
-			\item<2->Start, Stop, Nachrichten, Zustand
-			
-			\item<4->Nebenläufig, skalierbar, resilient durch Akka
-			\item[]<5->
-			\item<5->Mein Traum: Direkte Abbildung
-			\item<6->Scheint machbar
-			\item<7->Umgewöhnung
+			\item<2->Live-Domänenmodell, automatisch berechnend
+			\note<2>{Logik in Aktoren, berechnen sich immer live. Eventual consistent}
+			\item<3->Simulation
+			\item<4->Kommunikation (Messaging)
+			\item<5->Batch processing
+			\item<6->Workflow
 		\end{itemize}
 	\end{block}
 	\note{}
@@ -2120,6 +2080,13 @@ Es ist einfach natürlicher.
 }
 \end{frame}
 
+\subsubsection*{Akka HTTP}
+
+% Großer Text
+\begin{frame}{}
+	\Large\textbf{Akka HTTP}
+	\note{}
+\end{frame}
 
 
 \subsection*{Abschließende Worte}
@@ -2175,7 +2142,7 @@ Es ist einfach natürlicher.
 			\item<9->Scripting
 			\item<10->Maschinennah
 			\item<11->Spiele, Grafik, etc.
-			\item<12->Man nutzt bereits F\# oder Swift
+			\item<12->Umstieg auf JVM notwendig (F\# oder Swift)
 		\end{itemize}
 	\end{block}
   \end{columns}
