@@ -1757,7 +1757,7 @@ numbers.get("three") match {
 \end{frame}
 
 
-\subsubsection*{Implicits / Implicit conversion}
+\subsubsection*{Implicits DONE}
 
 \begin{frame}[fragile]{}
 	\begin{block}{Wieso?}
@@ -1881,25 +1881,26 @@ res0: Int = 360
 	\end{lstlisting}
 \onslide<3->
 \begin{lstlisting}[firstnumber=2]
-object Time {
-  import scala.language.implicitConversions
-
-  implicit class IntOps(val n: Int) extends AnyVal {
-    def ::(hours: Int): Time = Time(hours, n)
-  }
+class IntOps(val n: Int) {
+  def ::(hours: Int): Time = Time(hours, n)
 }
+
+implicit def intToIntOps(n: Int): IntOps = new IntOps(n)
 \end{lstlisting}
 \onslide<4->
-\begin{lstlisting}[firstnumber=9]
-import Time._
+\begin{lstlisting}[firstnumber=7]
+implicit class IntOps(val n: Int) {
+  def ::(hours: Int): Time = Time(hours, n)
+}
+\end{lstlisting}
+\onslide<5->
+\begin{lstlisting}[firstnumber=10]
 6::15
 res1: Time = 06:15
 \end{lstlisting}
-\normalsize{\textbf{Impliziter primärer Konstruktor}}
 	\end{block}
-	\note{An implicit class is a class marked with the implicit keyword. This keyword makes the class’ primary constructor available for implicit conversions when the class is in scope.
+	\note{Kombination aus impliziter Methode und Wrapper-Klasse. Seit Scala 2.10
 	
-	Einzelnes : geht in Scala leider nicht.
 	}
 \end{frame}
 
