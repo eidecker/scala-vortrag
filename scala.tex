@@ -327,7 +327,7 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 			
 			}
 		\end{itemize}
-		\onslide<5->{\vskip3mm --- Manager eines Logistik-Dienstleisters}
+		\onslide<5->{\vskip3mm --- Manager eines Logistik-Unternehmens}
 		\note<5->{Das Bewusstsein, dass ein Wandel stattfindet, ist im Business angekommen!}
 	\end{block}
 \end{frame}
@@ -439,10 +439,11 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 			\item<4->Unterstützt interaktiven Read eval print loop-Modus
 			\item<5->Inkrementelles Kompilieren -- scalac ist langsam
 			\item<6->Konfiguration per Scala-DSL
-			\item<7->scalac und scala funktionieren auch
+			\item<7->Tasks sind Scala-Funktionen
+			\item<8->scalac und scala funktionieren auch
 		\end{itemize}
 	\end{block}
-	\note{}
+	\note{Typische Befehle clean compile run package test}
 \end{frame}
 
 \subsubsection*{PRÄSENTATION - REPL}
@@ -473,7 +474,13 @@ libraryDependencies ++= List(
 )
 	\end{lstlisting}
 	\end{block}
-	\note{Definiert die grundlegende Konfiguration unseres Projektes, mit deren Hilfe SBT das Projekt bauen kann}
+	\note{Definiert die grundlegende Konfiguration unseres Projektes, mit deren Hilfe SBT das Projekt bauen kann
+	
+	libraryDependencies += groupID % artifactID % revision % configuration
+	Resolver bestimmt, woher die Libs geholt werden. 
+	
+	Predefined: u.A. Maven (http://www.scala-sbt.org/0.13/docs/Resolvers.html)
+	}
 \end{frame}
 
 % Todo
@@ -756,7 +763,7 @@ def print(s: String): Unit = println(s)
 
 \subsubsection*{PRÄSENTATION - Alles ist ein Typ}
 % Präsentation: Alles ist ein Typ im Scratchpad. Das ist aus meiner Sicht praktisch
-\plain{Scratchpad}
+\plain{Worksheet}
 
 
 \subsubsection*{Listen DONE}
@@ -1274,7 +1281,8 @@ class Duck extends Bird with Swimmer {
 	}
 \end{frame}
 
-\plain{Vererbung}
+\subsubsection{RAUS: PRÄSENTATION Vererbung}
+%\plain{Vererbung}
 
 \subsubsection*{Operatorendefinition DONE}
 
@@ -2083,10 +2091,66 @@ Es ist einfach natürlicher.
 \subsubsection*{Akka HTTP}
 
 % Großer Text
+% https://dzone.com/articles/building-rest-service-scala
 \begin{frame}{}
 	\Large\textbf{Akka HTTP}
 	\note{}
 \end{frame}
+
+\begin{frame}{}
+	\begin{block}{Akka HTTP}
+		\begin{itemize}
+			\item<+->HTTP-Stack aufbauend auf Akka
+			\item<+->Asynchron, non-blocking (Reactive Streams)
+			\item<+->Client und Server, high-level und low-level APIs
+			\item<+->Kein Framework
+			\item<+->Routing-DSL
+		\end{itemize}
+	\end{block}
+	\note{http://www.reactive-streams.org/
+	
+	Reactive Streams is an initiative to provide a standard for asynchronous stream processing with non-blocking back pressure. This encompasses efforts aimed at runtime environments (JVM and JavaScript) as well as network protocols.
+	
+	Verspricht damit, performant und elastisch zu sein. Wer also nicht in das Node-Lager wechseln will, kann bei Akka bleiben.}
+\end{frame}
+
+\begin{frame}[fragile]{}
+	\begin{block}{Routung-DSL}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+val route =
+      get {
+        pathSingleSlash {
+          complete("<html><body>Hello world!</body></html>")
+        } ~
+          path("ping") {
+            complete("PONG!")
+          } ~
+          path("pong") {
+            complete("PING!")
+          } ~
+          pathPrefix("echo" / Segment) { message =>
+            complete(message)
+          }
+      }
+	\end{lstlisting}
+
+	\end{block}
+	\note{Kombination von Routen, ganze Anwendung?
+	
+	Mehrere Segmente: Verschachteln
+	}
+
+\end{frame}
+
+
+
+\subsubsection{PRÄSENTATION Akka HTTP}
+\plain{Akka HTTP}
+\note{Es bringt nicht viel, weil es kein relevanter UseCase ist, aber dennoch will ich kurz das HelloWorld zeigen. Nicht ganz so kurz wie Node, aber immerhin.
+
+}
 
 
 \subsection*{Abschließende Worte}
