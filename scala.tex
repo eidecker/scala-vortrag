@@ -1759,17 +1759,191 @@ numbers.get("three") match {
 
 \subsubsection*{Implicits / Implicit conversion}
 
-% http://stackoverflow.com/questions/10375633/understanding-implicit-in-scala
 \begin{frame}[fragile]{}
-	\begin{block}{Implicits -- Wenn man nichts mehr versteht}
+	\begin{block}{Wieso?}
 		\scriptsize
 		\onslide<2->
   \begin{lstlisting}
-
+val tupel = 1 -> "a"
+tupel: (Int, String) = (1,a)
 	\end{lstlisting}
+\onslide<3->
+\begin{lstlisting}[firstnumber=3]
+"org.scalatest"  %% "scalatest"  % "2.2.5"  % "test"
+\end{lstlisting}
+\onslide<4->
+\begin{lstlisting}[firstnumber=4]
+class TimeSpec extends WordSpec with Matchers with {
+  "fromMinutes" should {
+    "return Time(0, 10) for 10 minutes" in {
+\end{lstlisting}
+	\end{block}
+	\note{Auf Int ist -> nicht definiert. Auf String \% und \%\% nicht, auch nicht should. Wieso also geht dies?}
+\end{frame}
+
+\begin{frame}{}
+	\begin{block}{Implicits}
+		\begin{itemize}
+			\item<2->Sehr mächtiges Sprachfeature
+			\item<3->Dinge tun, die nicht definiert sind
+			\item<4->Wenn man nicht mehr versteht, was passiert
+			\item<5->Das Mittel, Scala an eigene Bedürfnisse anzupassen
+		\end{itemize}
 	\end{block}
 	\note{}
 \end{frame}
+
+\begin{frame}{}
+  \begin{quote}
+		{\large\textbf{Aus großer Kraft folgt große Verantwortung}}
+		\vskip3mm
+		\hspace*\fill{\small--- Ben Parker, Spiderman}
+	\end{quote}
+	\note{
+}
+\end{frame}
+
+\begin{frame}{}
+	\begin{block}{Implicits -- Formen}
+		\begin{itemize}
+			\item<2->Implicit Conversion zum Expected Type
+			\item<3->Implicit Conversion des Receivers
+			\item<4->Implicit Classes
+			\item<5->Implicit Parameters
+		\end{itemize}
+	\end{block}
+	\note{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+	\begin{block}{Implicit Conversion zum Expected Type}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+val n: Int = "1"
+val o: Int = "Big"
+	\end{lstlisting}
+\onslide<3->
+\begin{lstlisting}[firstnumber=3]
+implicit def numberToString(n: String) : Int = {
+  n match {
+    case "1" => 1
+    case _ => 99
+  }
+}
+\end{lstlisting}
+\onslide<4->
+\begin{lstlisting}[firstnumber=9]
+n: Int = 1
+o: Int = 99
+\end{lstlisting}
+	\end{block}
+	\note{When the compiler finds an expression of the wrong type for the context, it will look for an implicit Function value of a type that will allow it to typecheck. So if an A is required and it finds a B, it will look for an implicit value of type B => A in scope (it also checks some other places like in the B and A companion objects, if they exist).
+	
+	}
+\end{frame}
+
+\begin{frame}[fragile]{}
+	\begin{block}{Implicit Conversion des Receivers}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+"09:00" - "03:00"
+	\end{lstlisting}
+\onslide<3->
+\begin{lstlisting}[firstnumber=2]
+val timePattern = """(\d\d):(\d\d)""".r
+implicit def apply(s: String): Time =
+	try {
+		val timePattern(hours, minutes) = s
+		Time(hours.toInt, minutes.toInt)
+	} catch {
+		case _: MatchError => throw new IllegalArgumentException(s"Time must have format hh:mm!")
+	}
+\end{lstlisting}
+\onslide<4->
+\begin{lstlisting}[firstnumber=10]
+res0: Int = 360
+\end{lstlisting}
+\normalsize{\textbf{Erweitert API bestehender Klassen!}}
+	\end{block}
+	\note{Receiver: Objekte, auf denen Methoden aufgerufen werden. Hier gibt es die Methode nicht. Der Compiler sucht nach - in String. Wir müssen ihm eine Conversion geben, so dass er Time sieht, und damit - aufrufen kann.
+	
+	Mächtig. Für DSLs. Sieht man aber kaum noch!}
+\end{frame}
+
+\begin{frame}[fragile]{}
+	\begin{block}{Implicit Classes}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+6::15
+	\end{lstlisting}
+\onslide<3->
+\begin{lstlisting}[firstnumber=2]
+object Time {
+  import scala.language.implicitConversions
+
+  implicit class IntOps(val n: Int) extends AnyVal {
+    def ::(hours: Int): Time = Time(hours, n)
+  }
+}
+\end{lstlisting}
+\onslide<4->
+\begin{lstlisting}[firstnumber=9]
+import Time._
+6::15
+res1: Time = 06:15
+\end{lstlisting}
+\normalsize{\textbf{Impliziter primärer Konstruktor}}
+	\end{block}
+	\note{An implicit class is a class marked with the implicit keyword. This keyword makes the class’ primary constructor available for implicit conversions when the class is in scope.
+	
+	Einzelnes : geht in Scala leider nicht.
+	}
+\end{frame}
+
+\begin{frame}[fragile]{}
+	\begin{block}{Implicit Parameters}
+		\scriptsize
+		\onslide<2->
+  \begin{lstlisting}
+def addOne(implicit i: Int) = i + 1
+	\end{lstlisting}
+\onslide<3->
+\begin{lstlisting}[firstnumber=5]
+implicit val defaultNumber = 0
+\end{lstlisting}
+\onslide<4->
+\begin{lstlisting}[firstnumber=5]
+val one = addOne
+\end{lstlisting}
+\onslide<4->
+\begin{lstlisting}[firstnumber=5]
+one: Int = 1
+\end{lstlisting}
+	\end{block}
+	\note{}
+\end{frame}
+
+\begin{frame}{}
+	\begin{block}{Implicits -- Geht alles?}
+		\begin{itemize}
+			\item<2->Nein, es gibt klare Regeln
+			\item<3->Passende Definitionen per \texttt{implicit} im Scope
+			\item<4->Klare Hierarchie bei mehrdeutigen Definitionen
+			\item<5->Dennoch: Bitte umsichtig verwenden!
+		\end{itemize}
+	\end{block}
+	\note{http://docs.scala-lang.org/tutorials/FAQ/finding-implicits.html
+	
+	Scope: Direkt im Block, per Import, CompanionObject}
+\end{frame}
+
+
+
+
+% http://stackoverflow.com/questions/10375633/understanding-implicit-in-scala
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2088,7 +2262,7 @@ Es ist einfach natürlicher.
 }
 \end{frame}
 
-\subsubsection*{Akka HTTP}
+\subsubsection*{Akka HTTP DONE}
 
 % Großer Text
 % https://dzone.com/articles/building-rest-service-scala
