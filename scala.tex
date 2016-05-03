@@ -1,4 +1,4 @@
-\documentclass[14pt,aspectratio=169]{beamer} %aspectratio=169 %aspectratio=43 % trans erzeugt Folien ohne Overlay
+\documentclass[14pt,aspectratio=169]{beamer} %aspectratio=169 %aspectratio=43 % beamer, trans erzeugt Folien ohne Overlay
 \usepackage[ngerman]{babel}
 \usepackage[ansinew]{luainputenc}
 \usepackage{listings}
@@ -241,7 +241,7 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 \end{frame}
 
 \begin{frame}{}
-	\only<1>{\Large\textbf{Internet of things}}
+	\only<1>{\Large\textbf{Internet of Things}}
 	\note{
 	
 	}
@@ -440,7 +440,7 @@ Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bed
 			\item<5->Inkrementelles Kompilieren -- scalac ist langsam
 			\item<6->Konfiguration per Scala-DSL
 			\item<7->Tasks sind Scala-Funktionen
-			\item<8->scalac und scala funktionieren auch
+			\item<8->\texttt{scalac} und \texttt{scala} funktionieren auch
 		\end{itemize}
 	\end{block}
 	\note{Typische Befehle clean compile run package test}
@@ -506,9 +506,9 @@ libraryDependencies ++= List(
 	\begin{block}{Scala in Code-Beispielen}
 		\begin{itemize}
 			\item<2->Ausgewählte Bereiche -- Scala ist komplex
-			\item<3->Von einen Java-Entwickler ausgesucht
+			\item<3->Von einem Java-Entwickler ausgesucht
 			\note<3>{Die Auswahl ist daher subjektiv, insbesondere funktionale Aspekte kommen sehr kurz.}
-			\item<4->Keine Scala-Kurs
+			\item<4->Kein Scala-Kurs
 			\item<5->Ziel: Charakter der Sprache zeigen
 		\end{itemize}
 	\end{block}
@@ -652,7 +652,7 @@ val k = 3
 k = 4
 \end{lstlisting}
 \end{block}
-\onslide<4->Compile-Fehler für k, da immutable
+\onslide<4->\textbf{Compile-Fehler für k, da immutable}
 \onslide<5->
 \begin{lstlisting}[firstnumber=5]
 val k: Int = 3
@@ -702,7 +702,7 @@ def addOne(i: Int): Int = {
 }
 	\end{lstlisting}
 \end{block}
-\onslide<3->Compile-Fehler, da i immutable
+\onslide<3->\textbf{Compile-Fehler, da i immutable}
 \note{i ist val, also immutable. Immer, var nicht möglich. Letzter Ausdruck ist return}
 \end{frame}
 
@@ -719,7 +719,7 @@ def f() = {
 }
 	\end{lstlisting}
 \end{block}
-\onslide<3->{Letzte Anweisung wird zurückgegeben, impliziter Typ String.}
+\onslide<3->{\textbf{Letzte Anweisung wird zurückgegeben, impliziter Typ String.}}
 \note{
 Kein return, letzte Anweisung wird zurückgegeben. Alles hat einen Typen!
 Die Methode ist statisch typisiert! Der Compiler kann den Typen der Rückgabe ermitteln: String -- Type Inference
@@ -742,7 +742,7 @@ def f() = {
 	\end{lstlisting}
 \end{block}
 \onslide<3->
-Erste gemeinsame Oberklasse, zur Not Any
+\textbf{Erste gemeinsame Oberklasse, zur Not Any}
 \note{}
 \end{frame}
 
@@ -782,7 +782,7 @@ val bagContent = List(1, "a", Time(12,30), 4)
 	\end{lstlisting}
 \end{block}
 \onslide<4->
-Immutable-Listen bevorzugen
+\textbf{Immutable-Listen bevorzugen}
 \note{Einfache Erstellung von Listen. Type Inference auch hier, zweite ist Liste von Any. Collections gibt es immer auch Immutable, die auch schnell sind.
 
 }
@@ -1281,7 +1281,7 @@ class Duck extends Bird with Swimmer {
 	}
 \end{frame}
 
-\subsubsection{RAUS: PRÄSENTATION Vererbung}
+\subsubsection*{RAUS: PRÄSENTATION Vererbung}
 %\plain{Vererbung}
 
 \subsubsection*{Operatorendefinition DONE}
@@ -1314,33 +1314,36 @@ case class Time(hour:Int, minute:Int) {
   def minus(time: Time) = {
 		new Time(this.hour - time.hour, this.minute - time.minute)
 	}
+	
 }
 	\end{lstlisting}
 	\end{onlyenv}
 	\begin{onlyenv}<5->
 	\begin{lstlisting}
 case class Time(hour:Int, minute:Int) {
-  def minus(time: Time) = {new Time(this.hour - time.hour, this.minute - time.minute)}
+  def minus(time: Time) = {
+		new Time(this.hour - time.hour, this.minute - time.minute)
+	}
   def -(time: Time) = minus(time)
 }
 	\end{lstlisting}
 	\end{onlyenv}
 	\begin{onlyenv}<3>
-  \begin{lstlisting}[firstnumber=5]
+  \begin{lstlisting}[firstnumber=7]
 Time(10,20).minus(Time(1,10))
 
 			
 	\end{lstlisting}
 	\end{onlyenv}
 	\begin{onlyenv}<4-5>
-  \begin{lstlisting}[firstnumber=5]
+  \begin{lstlisting}[firstnumber=7]
 Time(10,20).minus(Time(1,10))
 Time(10,20) minus Time(1,10)
 
 	\end{lstlisting}
 	\end{onlyenv}
 	\begin{onlyenv}<6->
-  \begin{lstlisting}[firstnumber=5]
+  \begin{lstlisting}[firstnumber=7]
 Time(10,20).minus(Time(1,10))
 Time(10,20) minus Time(1,10)
 Time(10,20) - Time(1,10)
@@ -1448,7 +1451,7 @@ for (person <- List(alice, bob, charlie)) {
 \end{frame}
 
 \begin{frame}[fragile]{}
- \begin{block}{Funktional Länge einer Liste}
+ \begin{block}{Matcher -- Funktional Länge einer Liste}
 \scriptsize
 	\onslide<2->
   \begin{lstlisting}
@@ -1642,6 +1645,10 @@ hello.take(4)
 \end{lstlisting}
 \onslide<4->
 \begin{lstlisting}[firstnumber=5]
+res0: String = Hell
+\end{lstlisting}
+\onslide<5->
+\begin{lstlisting}[firstnumber=6]
 val latin = """Lorem ipsum
                |dolor sit amet""".stripMargin
 \end{lstlisting}
@@ -1653,16 +1660,16 @@ val latin = """Lorem ipsum
 
 
 \begin{frame}[fragile]{}
-	\begin{block}{Strings}
+	\begin{block}{Strings -- Formatierung}
 		\scriptsize
 		\onslide<1->
-\begin{lstlisting}[firstnumber=7]
+\begin{lstlisting}
 val name = "Sebastian"
 val age = 37
 val weight = 80.0
 \end{lstlisting}
 		\onslide<2->
-\begin{lstlisting}[firstnumber=10]
+\begin{lstlisting}[firstnumber=4]
 println(s"Hello, $name")
 println(f"$name is $age years old, and weighs $weight%.1f kilograms.")
 \end{lstlisting}
@@ -2377,7 +2384,7 @@ val route =
 
 
 
-\subsubsection{PRÄSENTATION Akka HTTP}
+\subsubsection*{PRÄSENTATION Akka HTTP}
 \plain{Akka HTTP}
 \note{Es bringt nicht viel, weil es kein relevanter UseCase ist, aber dennoch will ich kurz das HelloWorld zeigen. Nicht ganz so kurz wie Node, aber immerhin.
 
