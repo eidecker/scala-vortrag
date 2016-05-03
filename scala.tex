@@ -2114,10 +2114,69 @@ Es ist einfach natürlicher.
 	Verspricht damit, performant und elastisch zu sein. Wer also nicht in das Node-Lager wechseln will, kann bei Akka bleiben.}
 \end{frame}
 
+
 \begin{frame}[fragile]{}
-	\begin{block}{Routung-DSL}
-		\scriptsize
-		\onslide<2->
+ \begin{block}{Routing-DSL}
+\scriptsize
+\begin{overlayarea}{\textwidth}{7cm}
+	\begin{onlyenv}<2>
+  \begin{lstlisting}
+val route =
+      get {
+        
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+          
+      }
+	\end{lstlisting}
+	\end{onlyenv}
+	\begin{onlyenv}<3>
+	\begin{lstlisting}
+val route =
+      get {
+        pathSingleSlash {
+          complete("<html><body>Hello world!</body></html>")
+        } 
+				
+				
+				
+				
+				
+				
+				
+				
+				
+      }
+	\end{lstlisting}
+	\end{onlyenv}
+	\begin{onlyenv}<4>
+  \begin{lstlisting}
+val route =
+      get {
+        pathSingleSlash {
+          complete("<html><body>Hello world!</body></html>")
+        } ~
+          path("ping") {
+            complete("PONG!")
+          } ~
+          path("pong") {
+            complete("PING!")
+          }
+					
+					
+					
+      }
+	\end{lstlisting}
+	\end{onlyenv}
+	\begin{onlyenv}<5>
   \begin{lstlisting}
 val route =
       get {
@@ -2135,13 +2194,10 @@ val route =
           }
       }
 	\end{lstlisting}
-
-	\end{block}
-	\note{Kombination von Routen, ganze Anwendung?
-	
-	Mehrere Segmente: Verschachteln
-	}
-
+	\end{onlyenv}
+	\end{overlayarea}
+\end{block}
+\note{}
 \end{frame}
 
 
