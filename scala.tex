@@ -2293,7 +2293,9 @@ Es ist einfach natürlicher.
 	
 	Reactive Streams is an initiative to provide a standard for asynchronous stream processing with non-blocking back pressure. This encompasses efforts aimed at runtime environments (JVM and JavaScript) as well as network protocols.
 	
-	Verspricht damit, performant und elastisch zu sein. Wer also nicht in das Node-Lager wechseln will, kann bei Akka bleiben.}
+	Verspricht damit, performant und elastisch zu sein. Wer also nicht in das Node-Lager wechseln will, kann bei Akka bleiben.
+	
+	https://medium.com/@kvnwbbr/a-journey-into-reactive-streams-5ee2a9cd7e29\#.chzpkx3iw}
 \end{frame}
 
 
@@ -2379,7 +2381,10 @@ val route =
 	\end{onlyenv}
 	\end{overlayarea}
 \end{block}
-\note{}
+\note{Routen können auch in separaten Dateien (am besten in Traits) definiert und dann kombiniert werden.
+
+http://qiita.com/visualskyrim/items/e3738ab93e9ca11ea7fd
+}
 \end{frame}
 
 
@@ -2399,24 +2404,25 @@ val route =
 	  \onslide<2->
       \begin{block}{Vorteile}
 		\begin{itemize}
-			\item<3->Für moderne Architekturen
-			\item<4->Verständlich funktional
-			\item<5->Java-Ökosystem
-			\item<6->Macht Spaß
-			\item<7->Statisch typisiert
+			\item<3->Moderne Architekturen
+			\item<4->Bessere Abstraktion
+			\item<5->Verständlich funktional
+			\item<6->Java-Ökosystem
+			\item<7->Macht Spaß
+			\item<8->Statisch typisiert
 		\end{itemize}
 	\end{block}
     \column{0.5\textwidth}
-	  \onslide<8->
+	  \onslide<9->
       \begin{block}{Nachteile}
 		\begin{itemize}
-			\item<9->Komplex
-			\item<10->Zukunftssicher?
-			\note<10->{Ich glaube ja, und mittlerweile ist es auch keine Nische mehr. Wenn man aber darauf angewiesen ist, dass eine Technologie auch in 10 Jahren noch genauso vorhanden ist (was wahrscheinlich schlecht ist), dann muss man vielleicht den an sich schlechteren Mainstream wählen. Scala ist aber bei weitem nicht mehr esoterisch.}
-			\item<11->Anzahl Entwicklungssklaven
-			\note<11->{Es gibt eine Lernkurve, man braucht Entwickler, die Spaß daran haben und die Vorteile sehen wollen.}
-			\item<12->Binärkompatibilität nicht in alle Ewigkeit
-			\note<12->{Ist besser geworden, insbes. mit Java 8. Die Scala-Macher sind aber nicht so konservativ wie Oracle. Aber wozu das führt, haben wir ja gesehen.}
+			\item<10->Komplex
+			\item<11->Zukunftssicher?
+			\note<11->{Ich glaube ja, und mittlerweile ist es auch keine Nische mehr. Wenn man aber darauf angewiesen ist, dass eine Technologie auch in 10 Jahren noch genauso vorhanden ist (was wahrscheinlich schlecht ist), dann muss man vielleicht den an sich schlechteren Mainstream wählen. Scala ist aber bei weitem nicht mehr esoterisch.}
+			\item<12->Anzahl Entwicklungssklaven
+			\note<12->{Es gibt eine Lernkurve, man braucht Entwickler, die Spaß daran haben und die Vorteile sehen wollen.}
+			\item<13->Binärkompatibilität nicht in alle Ewigkeit
+			\note<13->{Ist besser geworden, insbes. mit Java 8. Die Scala-Macher sind aber nicht so konservativ wie Oracle. Aber wozu das führt, haben wir ja gesehen.}
 		\end{itemize}
 	\end{block}
   \end{columns}
@@ -2432,19 +2438,20 @@ val route =
 		\begin{itemize}
 			\item<3->Akka
 			\item<4->Moderne Architekturen auf der JVM
-			\item<5->Tests für Java-Code
-			\item<6->Hoher funtkionaler Anteil
-			\item<7->Java ablösen, effizienter werden
+			\item<5->(Statt Umstieg auf Node.js)
+			\item<6->Tests für Java-Code
+			\item<7->Hoher funtkionaler Anteil
+			\item<8->Java als Sprache ablösen
 		\end{itemize}
 	\end{block}
     \column{0.5\textwidth}
-	  \onslide<8->
+	  \onslide<9->
       \begin{block}{Weniger geeignet}
 		\begin{itemize}
-			\item<9->Scripting
-			\item<10->Maschinennah
-			\item<11->Spiele, Grafik, etc.
-			\item<12->Umstieg auf JVM notwendig (F\# oder Swift)
+			\item<10->Scripting
+			\item<11->Maschinennah
+			\item<12->Spiele, Grafik, etc.
+			\item<13->Umstieg auf JVM notwendig (F\# oder Swift)
 		\end{itemize}
 	\end{block}
   \end{columns}
