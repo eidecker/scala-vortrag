@@ -133,37 +133,37 @@
 		\hspace*\fill{\small--- Paul Watzlawick}
 	\end{quote}
 	\note{
-Ich möchte heute über Scala reden. Eigentlich will ich aber nicht nur über Scala reden.  Ich möchte nicht Scala verkaufen, sondern etwas v�llig anderes. Scala ist spannend - f�r Nerds, die des Geldes wegen Java benutzen, denen aber mittlerweile Oracles Update-Politik nicht mehr gef�llt. 
+Ich möchte heute über Scala reden. Eigentlich will ich aber nicht nur über Scala reden.  Ich möchte nicht Scala verkaufen, sondern etwas völlig anderes. Scala ist spannend - für Nerds, die des Geldes wegen Java benutzen, denen aber mittlerweile Oracles Update-Politik nicht mehr gefällt. 
 	
-In der IT wollen wir Probleme l�sen und M�glichkeiten schaffen.
-Ich bin der festen �berzeugung, dass wir zu selten �ber den Kern unserer Probleme nachdenken und auch, dass sich diese Probleme gerade �ndern und immer schneller �ndern werden.
+In der IT wollen wir Probleme lösen und Möglichkeiten schaffen.
+Ich bin der festen Überzeugung, dass wir zu selten über den Kern unserer Probleme nachdenken und auch, dass sich diese Probleme gerade ändern und immer schneller ändern werden.
 
-Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kennen m�ssen. Ich glaube, dass wir zumindest wissen m�ssen, was im Baumarkt ausliegt und wir bei Bedarf einkaufen k�nnen. Daher kann es aus meiner Sicht nie schaden, sich neue Werkzeuge und Arbeitsweisen anzuschauen, damit man sie bei Bedarf zumindest im Hinterkopf hat. Sonst kann es passieren, dass wir das Problem gar nicht verstehen, weil wir kein passendes Werkzeug daf�r besitzen und verwenden k�nnen.
+Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kennen müssen. Ich glaube, dass wir zumindest wissen müssen, was im Baumarkt ausliegt und wir bei Bedarf einkaufen können. Daher kann es aus meiner Sicht nie schaden, sich neue Werkzeuge und Arbeitsweisen anzuschauen, damit man sie bei Bedarf zumindest im Hinterkopf hat. Sonst kann es passieren, dass wir das Problem gar nicht verstehen, weil wir kein passendes Werkzeug dafür besitzen und verwenden können.
 
 }
 \end{frame}
 
 
 \begin{frame}<presentation:0>{}
-	\begin{block}{�ber mich}
+	\begin{block}{Über mich}
 		\begin{itemize}
 			\item<2->Softwareentwickler
-			\item<3->Enterprise-gesch�digt
-			\item<4->Java-gepr�gt
+			\item<3->Enterprise-geschädigt
+			\item<4->Java-geprägt
 		\end{itemize}
 	\end{block}
-	\note{Erz�hlen, wer ich bin, was ich mache und warum das meine Sicht auf die IT-Welt und Scala massiv beeinflusst}
+	\note{Erzählen, wer ich bin, was ich mache und warum das meine Sicht auf die IT-Welt und Scala massiv beeinflusst}
 \end{frame}
 
 \begin{frame}{}
 	\setbeamertemplate{section in toc}[sections unnumbered]
-	\begin{block}{Wor�ber will ich reden?}
+	\begin{block}{Worüber will ich reden?}
 		\vskip2mm
 		\onslide<1->{\tableofcontents[pausesections,pausesubsections,subsubsectionstyle=hide]} %[hideallsubsections]}
 	\end{block}
-	\note{Ich will nicht nur �ber Scala reden. Da ich netterweise als erster Redner einer neuen Veranstaltung eingeladen wurde, m�chte ich mir die Freiheit nehmen, etwas grunds�tzlicher �ber die Softwareentwicklung zu reden.
+	\note{Ich will nicht nur über Scala reden. Da ich netterweise als erster Redner einer neuen Veranstaltung eingeladen wurde, möchte ich mir die Freiheit nehmen, etwas grundsätzlicher über die Softwareentwicklung zu reden.
 	
-	Ich glaube, dass sich gerade -- oder auch schon seit einigen Jahren -- etwas Grundlegendes ver�ndert. Die IT bekommt eine neue Rolle und auch viel mehr Bedeutung und Verantwortung. Diese Zukunft m�ssen wir gestalten. In Unternehmen. Als Unternehmen.
+	Ich glaube, dass sich gerade -- oder auch schon seit einigen Jahren -- etwas Grundlegendes verändert. Die IT bekommt eine neue Rolle und auch viel mehr Bedeutung und Verantwortung. Diese Zukunft müssen wir gestalten. In Unternehmen. Als Unternehmen.
 	
 	}
 \end{frame}
@@ -175,19 +175,19 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 
 \begin{frame}{}
 	\only<1>{\Large\textbf{Software Engineering}}\only<2>{\Large\textbf{Software \alert{Engineering}}}
-	\note{Software Engineering. Passt der Begriff? Ich denke, dies impliziert zu stark, dass wir ein Problem nur lange genug durchdenken, exakt definieren und dann eine gute L�sung bauen m�ssen. Wom�glich verstehe ich den Beruf des Ingenieurs falsch, aber ich glaube, wir haben gesehen, dass Software agil gebaut werden sollte, dass wir nicht zu Beginn eines Projektes alle Anforderungen exakt spezifizieren k�nnen. Und: Wir k�nnen kein System bauen, das hunderte Jahre stabil steht, wie eine Kirche oder Br�cke. Wir m�ssen es st�ndig pflegen und verbessern, damit es n�tzlich bleibt.
+	\note{Software Engineering. Passt der Begriff? Ich denke, dies impliziert zu stark, dass wir ein Problem nur lange genug durchdenken, exakt definieren und dann eine gute Lösung bauen müssen. Womöglich verstehe ich den Beruf des Ingenieurs falsch, aber ich glaube, wir haben gesehen, dass Software agil gebaut werden sollte, dass wir nicht zu Beginn eines Projektes alle Anforderungen exakt spezifizieren können. Und: Wir können kein System bauen, das hunderte Jahre stabil steht, wie eine Kirche oder Brücke. Wir müssen es ständig pflegen und verbessern, damit es nützlich bleibt.
 	
 }
 \end{frame}
 
 \begin{frame}{}
 	\begin{block}{Agiles Manifest (2001)}
-		% Todo: Ausf�hrlicher, die Punkte sind wichter als...
+		% Todo: Ausführlicher, die Punkte sind wichter als...
 		\begin{itemize}
 			\item<2->Individuen und Interaktionen mehr als Prozesse und Werkzeuge
 			\item<3->Funktionierende Software mehr als umfassende Dokumentation
 			\item<4->Zusammenarbeit mit dem Kunden mehr als Vertragsverhandlung
-			\item<5->Reagieren auf Ver�nderung mehr als das Befolgen eines Plans
+			\item<5->Reagieren auf Veränderung mehr als das Befolgen eines Plans
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -215,15 +215,15 @@ Ich glaube daher, dass wir unser Problem \alert{und} unseren Werkzeugkasten kenn
 \end{frame}
 
 
-\note{Es gibt Manifeste von Softwareentwicklern, die sehr �hnliches aussagen. (Reaktives Manifest, agiles Manifest, Manifest der Software Craftmanship-Bewegung als Beispiele) Diese sind bekannt und -- ich habe zumindest das Gef�hl -- auch anerkannt. Ich will auch nur sehr kurz darauf eingehen, es soll ja vor allem um Scala gehen.
+\note{Es gibt Manifeste von Softwareentwicklern, die sehr Ähnliches aussagen. (Reaktives Manifest, agiles Manifest, Manifest der Software Craftmanship-Bewegung als Beispiele) Diese sind bekannt und -- ich habe zumindest das Gefühl -- auch anerkannt. Ich will auch nur sehr kurz darauf eingehen, es soll ja vor allem um Scala gehen.
 
-Im Grunde geht es �berall darum, gemeinsam Software zu entwickeln, dabei die Bed�rnisse des Kunden aktiv zu erforschen und m�glichst zuverl�ssige und n�tzliche Software zu erstellen.
+Im Grunde geht es überall darum, gemeinsam Software zu entwickeln, dabei die Bedürnisse des Kunden aktiv zu erforschen und möglichst zuverlässige und nützliche Software zu erstellen.
 }
 
 \begin{frame}{}
 	\only<1>{\Large\textbf{Nur Manifeste?}}
-	\only<2>{\Large\textbf{Realit�tsabgleich}}
-	\note{Erst einmal nur Manifeste. Sie stammen jedoch von Praktikern. Also schauen wir mal in die aktuelle Welt. Ich denke n�mlich, die Anforderungen und die Rolle der IT �ndern sich gerade dramatisch.
+	\only<2>{\Large\textbf{Realitätsabgleich}}
+	\note{Erst einmal nur Manifeste. Sie stammen jedoch von Praktikern. Also schauen wir mal in die aktuelle Welt. Ich denke nämlich, die Anforderungen und die Rolle der IT ändern sich gerade dramatisch.
 	
 	Ein paar Schlagworte: Was passiert eigentlich gerade?
 	
@@ -296,10 +296,10 @@ Im Grunde geht es �berall darum, gemeinsam Software zu entwickeln, dabei die B
 \begin{frame}{}
 	\only<1>{\Large\textbf{Google, Amazon, Uber, Facebook}}
 	\only<2>{\Large\textbf{Wer baut in 30 Jahren Autos?}}
-	\only<3>{\Large\textbf{Mit welchem Gesch�ftsmodell?}}
-	\note{Vielleicht: Uber l�sst von Google Autos bauen, nutzt deren Karten und bietet selbst fahrende Taxis?
+	\only<3>{\Large\textbf{Mit welchem Geschäftsmodell?}}
+	\note{Vielleicht: Uber lässt von Google Autos bauen, nutzt deren Karten und bietet selbst fahrende Taxis?
 	
-	Ich habe die Autos als Beispiel verwendet, weil sie bei uns Deutschen so tief verwurzelt sind. Als ich Jugendlicher war, wollte/musste fast jeder einen F�hrerschein haben. Die Automobilindustrie ist m�chtig. Das nicht vorhandene Tempolimit auf Autobahnen ist uns heilig. F�r andere Branchen gilt sicher �hnliches.
+	Ich habe die Autos als Beispiel verwendet, weil sie bei uns Deutschen so tief verwurzelt sind. Als ich Jugendlicher war, wollte/musste fast jeder einen Führerschein haben. Die Automobilindustrie ist mächtig. Das nicht vorhandene Tempolimit auf Autobahnen ist uns heilig. Für andere Branchen gilt sicher Ähnliches.
 	
 	}
 \end{frame}
@@ -307,23 +307,23 @@ Im Grunde geht es �berall darum, gemeinsam Software zu entwickeln, dabei die B
 
 
 
-% Todo: Raus, da Hellmann-Interna? Stattdessen �ffentliche Quelle suchen
+% Todo: Raus, da Hellmann-Interna? Stattdessen öffentliche Quelle suchen
 \begin{frame}{}
 	\begin{block}{Konkrete Forderungen des Business}
 		\begin{itemize}
-			\item<2->Stabilit�t und Resilienz
-			\note<2>{Sorgen sie durch ihre Arbeit daf�r, dass Systeme Kriterien der Stabilit�t und Resilienz erf�llen.
-			Seien sie "`dran"' an den Problemen, antizipieren sie sie, schaffen sie Fall-Back-L�sungen -- auch an Wochenenden.
+			\item<2->Stabilität und Resilienz
+			\note<2>{Sorgen sie durch ihre Arbeit dafür, dass Systeme Kriterien der Stabilität und Resilienz erfüllen.
+			Seien sie "`dran"' an den Problemen, antizipieren sie sie, schaffen sie Fall-Back-Lösungen -- auch an Wochenenden.
 			
 			}
 			\item<3->Wertbeitrag
 			\note<3>{IT entwickelt sich zunehmend zu einem eigenen Produktionsfaktor (4-Sektor-Hypothese).
-			Seien sie ein verl�sslicher Partner f�r das Business, nehmen sie die Business-Seite auch an die Hand, helfen und unterst�tzen sie, leisten sie einen wahrgenommenen Wertbeitrag.[...]
+			Seien sie ein verlässlicher Partner für das Business, nehmen sie die Business-Seite auch an die Hand, helfen und unterstützen sie, leisten sie einen wahrgenommenen Wertbeitrag.[...]
 			
 			}
 			\item<4->Businesstreiber
-			\note<4>{Die Entwicklung der IT treibt zunehmend die Business-Seite und ver�ndert Gesch�ftsmodelle.
-			Seien sie an der Front und treiben sie das Business, entwickeln sie neue Ideen, forschen sie nach neuen L�sungen (Beispiele: Uber, 3D-Printing, CoLo21, ...
+			\note<4>{Die Entwicklung der IT treibt zunehmend die Business-Seite und verändert Geschäftsmodelle.
+			Seien sie an der Front und treiben sie das Business, entwickeln sie neue Ideen, forschen sie nach neuen Lösungen (Beispiele: Uber, 3D-Printing, CoLo21, ...
 			
 			}
 		\end{itemize}
@@ -335,7 +335,7 @@ Im Grunde geht es �berall darum, gemeinsam Software zu entwickeln, dabei die B
 
 \begin{frame}{}
 	\only<1>{\Large\textbf{Unsere Projekte}}\only<2>{\Large\textbf{Unsere Projekte -- \alert{Wo stehen wir?}}}
-	\note{Passt das? Haben wir �hnliche Herausforderungen? Haben wir diese schon gel�st?
+	\note{Passt das? Haben wir ähnliche Herausforderungen? Haben wir diese schon gelöst?
 	
 	}
 \end{frame}
@@ -365,14 +365,14 @@ Im Grunde geht es �berall darum, gemeinsam Software zu entwickeln, dabei die B
 	\begin{block}{Eigenschaften}
 		\begin{itemize}
 			\item<2->Objektorientiert -- Alles ist ein Typ
-			\note<2>{Keine Primitive, wie in Java. Ein sch�nes Beispiel: Dort hat man per Autoboxing Komplexit�t eingef�hrt statt Sch�nheit. NullPointer bei Primitiven anyone?}
+			\note<2>{Keine Primitive, wie in Java. Ein schönes Beispiel: Dort hat man per Autoboxing Komplexität eingeführt statt Schönheit. NullPointer bei Primitiven anyone?}
 			\item<3->Funktional -- First class functions
 			\item<4->Statisch typisiert mit Type Inference
-			\note<4>{Aber Type Inference, wenn gew�nscht}
+			\note<4>{Aber Type Inference, wenn gewünscht}
 			\item<5->Immutable wird bevorzugt
 			\item<6->Gewohnte Syntax ("`Java ohne Semikolon"')
 			\item<7->Ausdrucksstark (APIs/DSLs)
-			\note<7>{Bei Java bricht man sich schon die H�nde, will man ein Builder-Pattern rekursiv umsetzen oder eine fluent API}
+			\note<7>{Bei Java bricht man sich schon die Hände, will man ein Builder-Pattern rekursiv umsetzen oder eine fluent API}
 			\item<8->Jung (2004, Hype 2011)
 		\end{itemize}
 	\end{block}
@@ -382,18 +382,18 @@ Im Grunde geht es �berall darum, gemeinsam Software zu entwickeln, dabei die B
 \begin{frame}{}
 	\begin{block}{Versprechen}
 	\begin{itemize}
-		\item<2->Produktivit�tssteigerung
-		\item<3->H�here Codequalit�t
-		\item<4->Mehr Spa�
-		\note<4>{REPL, habe ich mir f�r Java schon immer gew�nscht. Wer hat keine Testklasse, um mal etwas auszuprobieren?}
+		\item<2->Produktivitätssteigerung
+		\item<3->Höhere Codequalität
+		\item<4->Mehr Spaß
+		\note<4>{REPL, habe ich mir für Java schon immer gewünscht. Wer hat keine Testklasse, um mal etwas auszuprobieren?}
 		\item[]<5->\alert{durch}
 		\item<5->Weniger Code
-		\item<6->H�heres Abstraktionsniveau
+		\item<6->Höheres Abstraktionsniveau
 		\item<7->Skalierbarkeit
 	\end{itemize}
 	\end{block}
 \end{frame}
-\note{Passt in unseren Entwicklungsprozess. Leichte �nderungen an Deployment etc.
+\note{Passt in unseren Entwicklungsprozess. Leichte Änderungen an Deployment etc.
 
 }
 
@@ -404,9 +404,9 @@ Im Grunde geht es �berall darum, gemeinsam Software zu entwickeln, dabei die B
 \begin{frame}{}
 	\begin{block}{Scala und die Java-Plattform}
 		\begin{itemize}
-			\item<2->Java-Bytecode, l�uft auf JVM
+			\item<2->Java-Bytecode, läuft auf JVM
 			\item<3->Java-Bibliotheken nutzbar
-			\item<4->�hnliches Toolset, oft wiederverwendbar
+			\item<4->Ähnliches Toolset, oft wiederverwendbar
 			\note<4,5>{Wenn man schon eine neue Sprache lernt, wird man wenigstens bei IDE und Buildprozess abgeholt.}
 			\item<5->Projektstruktur wie Maven
 			\item<6->Erfindet das Rad nicht sinnlos neu
@@ -418,11 +418,11 @@ Im Grunde geht es �berall darum, gemeinsam Software zu entwickeln, dabei die B
 
 
 \begin{frame}{}
-	\begin{block}{IDE-Unterst�tzung}
+	\begin{block}{IDE-Unterstützung}
 		\begin{itemize}
-			\item<2->Die �blichen Verd�chtigen 
+			\item<2->Die üblichen Verdächtigen 
 			\item<3->Ausgewachsene IDEs: IntelliJ, Eclipse, Netbeans
-			\item<4->Plugins f�r Editoren: Emacs, vi, ...
+			\item<4->Plugins für Editoren: Emacs, vi, ...
 			\item<5->Mittlerweile sehr ordentlich
 		\end{itemize}
 	\end{block}
@@ -434,9 +434,9 @@ Im Grunde geht es �berall darum, gemeinsam Software zu entwickeln, dabei die B
 \begin{frame}{}
 	\begin{block}{SBT -- Scala build tool}
 		\begin{itemize}
-			\item<2->Buildtool f�r Scala-Projekte
-			\item<3->Unterst�tzt Java-Code
-			\item<4->Unterst�tzt interaktiven Read eval print loop-Modus
+			\item<2->Buildtool für Scala-Projekte
+			\item<3->Unterstützt Java-Code
+			\item<4->Unterstützt interaktiven Read eval print loop-Modus
 			\item<5->Inkrementelles Kompilieren -- scalac ist langsam
 			\item<6->Konfiguration per Scala-DSL
 			\item<7->Tasks sind Scala-Funktionen
@@ -446,7 +446,7 @@ Im Grunde geht es �berall darum, gemeinsam Software zu entwickeln, dabei die B
 	\note{Typische Befehle clean compile run package test}
 \end{frame}
 
-\subsubsection*{PR�SENTATION - REPL}
+\subsubsection*{PRÄSENTATION - REPL}
 % REPL-Demo in Kommandozeile
 \note{REPL-Demo und Scratchpad IntelliJ}
 \plain{REPL}
@@ -487,10 +487,10 @@ libraryDependencies ++= List(
 \begin{frame}{}
 	\begin{block}{Continuous Integration}
 		\begin{itemize}
-			\item<2->SBT-Plugins f�r Jenkins/Bamboo
+			\item<2->SBT-Plugins für Jenkins/Bamboo
 			\item<3->Unit-Tests: Scalatest
 			\item<4->Statische Codeanalyse: ScalaStyle
-			\item<5->Tools f�r die JVM funktionieren
+			\item<5->Tools für die JVM funktionieren
 		\end{itemize}
 	\end{block}
 	\note{Also alles wie gewohnt
@@ -505,19 +505,19 @@ libraryDependencies ++= List(
 \begin{frame}{}
 	\begin{block}{Scala in Code-Beispielen}
 		\begin{itemize}
-			\item<2->Ausgew�hlte Bereiche -- Scala ist komplex
+			\item<2->Ausgewählte Bereiche -- Scala ist komplex
 			\item<3->Von einem Java-Entwickler ausgesucht
 			\note<3>{Die Auswahl ist daher subjektiv, insbesondere funktionale Aspekte kommen sehr kurz.}
 			\item<4->Kein Scala-Kurs
 			\item<5->Ziel: Charakter der Sprache zeigen
 		\end{itemize}
 	\end{block}
-	\note{Komplexit�t erinnert mich an die deutsche Grammatik. Man beherrscht sie irgendwann recht gut. Soll man aber grammatikalische Figuren angeben, ist man schnell am Ende. Au�er man lernt die Details.
+	\note{Komplexität erinnert mich an die deutsche Grammatik. Man beherrscht sie irgendwann recht gut. Soll man aber grammatikalische Figuren angeben, ist man schnell am Ende. Außer man lernt die Details.
 	
 	}
 \end{frame}
 
-\subsubsection*{Einf�hrendes Beispiel und Gegenbeispiel DONE}
+\subsubsection*{Einführendes Beispiel und Gegenbeispiel DONE}
 
 \begin{frame}[fragile]{}
  \begin{block}{Eine Java-Klasse}
@@ -585,13 +585,13 @@ public class Person {
 
 \begin{frame}[fragile]{}
 	\Large\textbf{Businesslogik?}
-	\note{Wo ist die Businesslogik versteckt? Ich gebe zu, das wird nur ein Beispiel, aber es zeigt symptomatisch eine Schw�che von Java: 
-Java ist leicht verst�ndlich, �nderungen werden aber immer non-breaking eingef�hrt und f�hlen sich oft deplatziert an.
-Scala hat den Vorteil, neuer zu sein und kennt die Schmerzen der Java-Entwickler. Daher sind viele Dinge eingebaut, die man sich schon lange w�nscht 
-oder Konzepte, die man eigentlich schon immer umsetzen wollte, wenn es denn nicht so l�stig w�re.
+	\note{Wo ist die Businesslogik versteckt? Ich gebe zu, das wird nur ein Beispiel, aber es zeigt symptomatisch eine Schwäche von Java: 
+Java ist leicht verständlich, Änderungen werden aber immer non-breaking eingeführt und fühlen sich oft deplatziert an.
+Scala hat den Vorteil, neuer zu sein und kennt die Schmerzen der Java-Entwickler. Daher sind viele Dinge eingebaut, die man sich schon lange wünscht 
+oder Konzepte, die man eigentlich schon immer umsetzen wollte, wenn es denn nicht so lästig wäre.
 (Immutable Objects, Lambdas, Generics, checked Exceptions als Beispiel)
 
-Ein besonders l�stiges Nicht-Feature-Feature sind in meinen Augen JavaBeans, wie wir sie gerade gesehen haben. Leicht verst�ndlich, aber strikte Richtlinien durch Konvention. Und wehe, dein Framework mag die Namen Deiner Getter und Setter nicht.
+Ein besonders lästiges Nicht-Feature-Feature sind in meinen Augen JavaBeans, wie wir sie gerade gesehen haben. Leicht verständlich, aber strikte Richtlinien durch Konvention. Und wehe, dein Framework mag die Namen Deiner Getter und Setter nicht.
 
 }
 \end{frame}
@@ -605,7 +605,7 @@ Ein besonders l�stiges Nicht-Feature-Feature sind in meinen Augen JavaBeans, w
 case class Person(firstName:String, lastName:String)
 	\end{lstlisting}
 \end{block}
-\note{Ja, nur ein Beispiel, ein besonders krasses. Aber dennoch ein allt�gliches.}
+\note{Ja, nur ein Beispiel, ein besonders krasses. Aber dennoch ein alltägliches.}
 \end{frame}
 
 
@@ -624,7 +624,7 @@ def quickSort[A <% Ordered[A]](xs: List[A]): List[A] = xs match {
 }
 	\end{lstlisting}
 \end{block}
-\note{Man sieht: Ausdrucksstark, aber auch nicht mehr so straight forward wie Java (vor 8). Scala ist beides: Sehr einfach und fast beliebig komplex. Und dieser Quicksort ist noch lange nicht das Ende der M�glichkeiten.
+\note{Man sieht: Ausdrucksstark, aber auch nicht mehr so straight forward wie Java (vor 8). Scala ist beides: Sehr einfach und fast beliebig komplex. Und dieser Quicksort ist noch lange nicht das Ende der Möglichkeiten.
 
 }
 \end{frame}
@@ -652,7 +652,7 @@ val k = 3
 k = 4
 \end{lstlisting}
 \end{block}
-\onslide<4->\textbf{Compile-Fehler f�r k, da immutable}
+\onslide<4->\textbf{Compile-Fehler für k, da immutable}
 \onslide<5->
 \begin{lstlisting}[firstnumber=5]
 val k: Int = 3
@@ -684,10 +684,10 @@ def f(i: Int) = {
 }
 	\end{lstlisting}
 \end{block}
-\note{Hier mal eine Methode. Mit = definiert. Methoden k�nnen mehr als in Java, dazu sp�ter.
+\note{Hier mal eine Methode. Mit = definiert. Methoden können mehr als in Java, dazu später.
 Die Klammern kann man sich sparen, wenn 
 Typen kann man angeben, muss es aber nicht, so lange der Compiler sie ermitteln kann. 
-Bei �ffentlichen Methoden sollte man es aber tun, dann hat der Nutzer auch eine reelle Chance.
+Bei öffentlichen Methoden sollte man es aber tun, dann hat der Nutzer auch eine reelle Chance.
 
 }
 \end{frame}
@@ -703,7 +703,7 @@ def addOne(i: Int): Int = {
 	\end{lstlisting}
 \end{block}
 \onslide<3->\textbf{Compile-Fehler, da i immutable}
-\note{i ist val, also immutable. Immer, var nicht m�glich. Letzter Ausdruck ist return}
+\note{i ist val, also immutable. Immer, var nicht möglich. Letzter Ausdruck ist return}
 \end{frame}
 
 
@@ -719,11 +719,11 @@ def f() = {
 }
 	\end{lstlisting}
 \end{block}
-\onslide<3->{\textbf{Letzte Anweisung wird zur�ckgegeben, impliziter Typ String.}}
+\onslide<3->{\textbf{Letzte Anweisung wird zurückgegeben, impliziter Typ String.}}
 \note{
-Kein return, letzte Anweisung wird zur�ckgegeben. Alles hat einen Typen!
-Die Methode ist statisch typisiert! Der Compiler kann den Typen der R�ckgabe ermitteln: String -- Type Inference
-Wenn wir wollen, k�nnen wir ihn deklarieren. Bei �ffentlichen Methoden sollte man das auch tun.
+Kein return, letzte Anweisung wird zurückgegeben. Alles hat einen Typen!
+Die Methode ist statisch typisiert! Der Compiler kann den Typen der Rückgabe ermitteln: String -- Type Inference
+Wenn wir wollen, können wir ihn deklarieren. Bei öffentlichen Methoden sollte man das auch tun.
 
 }
 \end{frame}
@@ -754,15 +754,15 @@ def f() = {
 def print(s: String): Unit = println(s)
 	\end{lstlisting}
 \end{block}
-\note{Wollen wir mal wirklich nichts zur�ckgeben, so existiert der Typ Unit. Sinnvoll bei Methoden, die ausschlie�lich Seiteneffekte haben. Sollte also selten sein.
+\note{Wollen wir mal wirklich nichts zurückgeben, so existiert der Typ Unit. Sinnvoll bei Methoden, die ausschließlich Seiteneffekte haben. Sollte also selten sein.
 
 }
 \end{frame}
 
 
 
-\subsubsection*{PR�SENTATION - Alles ist ein Typ}
-% Pr�sentation: Alles ist ein Typ im Scratchpad. Das ist aus meiner Sicht praktisch
+\subsubsection*{PRÄSENTATION - Alles ist ein Typ}
+% Präsentation: Alles ist ein Typ im Scratchpad. Das ist aus meiner Sicht praktisch
 \plain{Worksheet}
 
 
@@ -824,7 +824,7 @@ l1.reverse
 (l1 union l2 intersect l1) == l1
 \end{lstlisting}
 \note<7>{
-== pr�ft auf fachliche Gleichheit. eq die Objektreferenzen.
+== prüft auf fachliche Gleichheit. eq die Objektreferenzen.
 
 }
 
@@ -898,7 +898,7 @@ colors.values
 \begin{frame}{}
 	\begin{block}{Collection-Struktur}
 		\begin{itemize}
-			\item<2->Alle g�ngigen Datenstrukturen
+			\item<2->Alle gängigen Datenstrukturen
 			\item<3->Immutable \emph{und} Mutable-Varianten
 			\item<4->Je eigene Hierarchie -- Abgeleitet von Traits
 			\item<5->Tendenz zu Immutable -- Predef
@@ -948,10 +948,10 @@ Set: Menge
 \end{frame} 
 
 
-\subsubsection*{Funktionen h�herer Ordnung DONE}
+\subsubsection*{Funktionen höherer Ordnung}
 
 \begin{frame}[fragile]{}
- \begin{block}{Funktionen h�herer Ordnung}
+ \begin{block}{Funktionen höherer Ordnung}
 \scriptsize
 	\onslide<2->
   \begin{lstlisting}
@@ -967,8 +967,8 @@ val numbersDecreasing = numbers.sortWith((x, y) => x > y)
 val numbersPlusOne = numbers.map(x => x + 1)
 \end{lstlisting}
 \end{block}
-\note{Funktionen k�nnen als Parameter �bergeben werden. Auch die Funktion ist ein Objekt.
-Kennt man in Java mittlerweile auch, wirkt aber aus meiner Sicht nicht so sch�n integriert.
+\note{Funktionen können als Parameter übergeben werden. Auch die Funktion ist ein Objekt.
+Kennt man in Java mittlerweile auch, wirkt aber aus meiner Sicht nicht so schön integriert.
 
 }
 \end{frame}
@@ -1001,12 +1001,12 @@ val sortedNumbers = numbers.sortWith(descending)
 \end{lstlisting}
 
 \end{block}
-\note{Wir k�nnen Funktionen auch wie Variablen verwenden und �bergeben. Es sind first class citizens. Und das ist m�chtig. Das sehen wir schon in Java 8, aber in Scala war es schon immer und wird bereits flei�ig in APIs genutzt. Das macht es f�r Programmierer, die keinen funktionalen Background haben, leider auch nicht einfacher. Methoden sind �brigens keine Objekte (Methode per def, Funktion per val deklariert.)
+\note{Wir können Funktionen auch wie Variablen verwenden und übergeben. Es sind first class citizens. Und das ist mächtig. Das sehen wir schon in Java 8, aber in Scala war es schon immer und wird bereits fleißig in APIs genutzt. Das macht es für Programmierer, die keinen funktionalen Background haben, leider auch nicht einfacher. Methoden sind übrigens keine Objekte (Methode per def, Funktion per val deklariert.)
 Methode in Funktion umwandeln
 def addOne(n: Int) = n+1
 val f = addOne \_
 
-addOne kann dennoch �bergeben werden, da Compiler die Arbeit �bernimmt.
+addOne kann dennoch übergeben werden, da Compiler die Arbeit übernimmt.
 
 }
 \end{frame}
@@ -1086,7 +1086,7 @@ timesTwo(3)
 
 	\note{Sometimes it makes sense to let people apply some arguments to your function now and others later.
 
-Here�s an example of a function that lets you build multipliers of two numbers together. At one call site, you�ll decide which is the multiplier and at a later call site, you�ll choose a multiplicand.
+Here's an example of a function that lets you build multipliers of two numbers together. At one call site, you'll decide which is the multiplier and at a later call site, you'll choose a multiplicand.
 
 }
 \end{frame}
@@ -1099,7 +1099,7 @@ Here�s an example of a function that lets you build multipliers of two numbers
 	\onslide<2->
   \begin{lstlisting}
 class Time(val hours: Int, val minutes: Int) {
-  // Prim�rer Konstruktor
+  // Primärer Konstruktor
   require(hours < 24 && hours >= 0)
   require(minutes < 60 && minutes >= 0)
 	
@@ -1112,8 +1112,8 @@ val t = new Time(1, 14)
 val t2 = new Time
 	\end{lstlisting}
 \end{block}
-\note{Der Standardkonstruktor f�r alle Parameter ist direkt im Methodenrumpf. Hilfskonstruktoren sind m�glich.
-val Standard, Felder sind damit verf�gbar. Var m�glich, dann Setzen m�glich?
+\note{Der Standardkonstruktor für alle Parameter ist direkt im Methodenrumpf. Hilfskonstruktoren sind möglich.
+val Standard, Felder sind damit verfügbar. Var möglich, dann Setzen möglich?
 
 }
 \end{frame}
@@ -1132,7 +1132,7 @@ val t = new Time(1)
 val t2 = new Time(minutes = 13)
 	\end{lstlisting}
 \end{block}
-\note{Damit werden Argumentnamen aber auch API-Bestandteil und d�rfen nicht ge�ndert werden.}
+\note{Damit werden Argumentnamen aber auch API-Bestandteil und dürfen nicht geändert werden.}
 \end{frame}
 
 \begin{frame}[fragile]{}
@@ -1151,10 +1151,10 @@ object Time {
 val t = Time.fromMimutes(100)
 	\end{lstlisting}
 \end{block}
-\note{Companion Objects sind Singleton Objects. Sie existieren nur ein mal. "`Ersatz"' f�r static, das es nicht gibt. N�tzlich f�r Factory-Methoden.
-Companion Objects (selber Name, selbes Paket, selbe Datei wie Klasse) k�nnen auf private Elemente der Klasse zugreifen.
+\note{Companion Objects sind Singleton Objects. Sie existieren nur ein mal. "`Ersatz"' für static, das es nicht gibt. Nützlich für Factory-Methoden.
+Companion Objects (selber Name, selbes Paket, selbe Datei wie Klasse) können auf private Elemente der Klasse zugreifen.
 
-Gilt auch f�r Traits.
+Gilt auch für Traits.
 
 }
 \end{frame}
@@ -1173,7 +1173,7 @@ val ich = Person("Eidecker", "Sebastian")
 val sohn = ich.copy(vorname = "Nils")
 	\end{lstlisting}
 \end{block}
-\note{Case classes sind JavaBeans in sch�n. Nehmen die �blichen Dinge ab, die sowieso die IDE macht. Ideal als DTO, man kann/sollte aber nicht von ihnen erben. H�bscher "`Konstruktor"', Copy-Konstruktor und toString
+\note{Case classes sind JavaBeans in schön. Nehmen die üblichen Dinge ab, die sowieso die IDE macht. Ideal als DTO, man kann/sollte aber nicht von ihnen erben. Hübscher "`Konstruktor"', Copy-Konstruktor und toString
 
 }
 \end{frame}
@@ -1190,7 +1190,7 @@ val sohn = ich.copy(vorname = "Nils")
 	\item<5->Java 8 hat nachgezogen
 \end{itemize}
 \end{block}
-\note{�hnlich Java in den Grundz�gen. Mit Traits Mehrfachvererbung m�glich und funktionalerer Ansatz. Dadurch h�ufig kleinere Funktionsbl�cke in Traits. Java 8 bietet mit default-Methoden in Interfaces �hnliches.
+\note{Ähnlich Java in den Grundzügen. Mit Traits Mehrfachvererbung möglich und funktionalerer Ansatz. Dadurch häufig kleinere Funktionsblöcke in Traits. Java 8 bietet mit default-Methoden in Interfaces Ähnliches.
 
 }
 \end{frame}
@@ -1267,27 +1267,27 @@ class Duck extends Bird with Swimmer {
 
 
 \begin{frame}{}
-	\begin{block}{Traits -- Einschr�nkungen}
+	\begin{block}{Traits -- Einschränkungen}
 		\begin{itemize}
-			\item<2->K�nnen Methoden definieren und implementieren
-			\item<3->K�nnen Variablen definieren
-			\item<4->K�nnen erben und hineinmixen
-			\item<5->K�nnen Companion-Objekte haben
+			\item<2->Können Methoden definieren und implementieren
+			\item<3->Können Variablen definieren
+			\item<4->Können erben und hineinmixen
+			\item<5->Können Companion-Objekte haben
 			\item<6->Haben aber keine Konstruktor-Parameter
 		\end{itemize}
 	\end{block}
-	\note{Aufl�sen von Problemen durch Linearisierung der Vererbungshierarchie. Es kann zu Problemen kommen. Kann und m�chte ich in dieser kurzen Zeit aber nicht motivieren. Ist in der Realit�t aber wohl selten ein Problem.
+	\note{Auflösen von Problemen durch Linearisierung der Vererbungshierarchie. Es kann zu Problemen kommen. Kann und möchte ich in dieser kurzen Zeit aber nicht motivieren. Ist in der Realität aber wohl selten ein Problem.
 	
 	}
 \end{frame}
 
-\subsubsection*{RAUS: PR�SENTATION Vererbung}
+\subsubsection*{RAUS: PRÄSENTATION Vererbung}
 %\plain{Vererbung}
 
 \subsubsection*{Operatorendefinition DONE}
 
 \begin{frame}[fragile]{}
- \begin{block}{Sch�nere Methodenaufrufe}
+ \begin{block}{Schönere Methodenaufrufe}
 \scriptsize
 	\onslide<2->
   \begin{lstlisting}
@@ -1363,7 +1363,7 @@ Time(10,20) - Time(1,10)
 
 
 %Todo: - Patterm Matching mit _
-% Verschiedene Matching-M�glichkeiten darstellen
+% Verschiedene Matching-Möglichkeiten darstellen
 
 \begin{frame}[fragile]{}
 	\begin{block}{Pattern Matching -- \texttt{switch} auf Steroiden}
@@ -1389,7 +1389,7 @@ number match {
 }
 	\end{lstlisting}
 	\end{block}
-	\note{Sehr m�chtiges Feature. Code wirkt auf einmal sinnvoll. Java-Case auf Steroids ist noch zu schwach. Vielf�ltige Pattern m�glich. Dabei Aufspalten von Listen m�glich, siehe Quicksort.
+	\note{Sehr mächtiges Feature. Code wirkt auf einmal sinnvoll. Java-Case auf Steroids ist noch zu schwach. Vielfältige Pattern möglich. Dabei Aufspalten von Listen möglich, siehe Quicksort.
 Bekannt aus rein funktionalen Sprachen.
 
 Wird an sehr vielen Stellen verwendet.
@@ -1398,7 +1398,7 @@ Wird an sehr vielen Stellen verwendet.
 \end{frame}
 
 \begin{frame}[fragile]{}
-	\begin{block}{Matcher f�r Typen}
+	\begin{block}{Matcher für Typen}
 \scriptsize
 	\onslide<2->
   \begin{lstlisting}
@@ -1428,7 +1428,7 @@ res2: Any = 5.1
 
 
 \begin{frame}[fragile]{}
- \begin{block}{Matcher f�r Attribute}
+ \begin{block}{Matcher für Attribute}
 \scriptsize
 	\onslide<2->
   \begin{lstlisting}
@@ -1445,13 +1445,13 @@ for (person <- List(alice, bob, charlie)) {
 }
 	\end{lstlisting}
 \end{block}
-\note{Wir k�nnen Attribute matchen und diese sogar an Variablen binden und verwenden.
+\note{Wir können Attribute matchen und diese sogar an Variablen binden und verwenden.
 
 }
 \end{frame}
 
 \begin{frame}[fragile]{}
- \begin{block}{Matcher -- Funktional L�nge einer Liste}
+ \begin{block}{Matcher -- Funktional Länge einer Liste}
 \scriptsize
 	\onslide<2->
   \begin{lstlisting}
@@ -1464,7 +1464,7 @@ def length[A](list : List[A]) : Int = {
 	\end{lstlisting}
 \end{block}
 \note{Liste wird in Head und tail geteilt per :: Dann rekursiv weiter
-Da f�hlt sich der Compiler-Entwickler foch schon fast abgeholt.
+Da fühlt sich der Compiler-Entwickler foch schon fast abgeholt.
 
 }
 \end{frame}
@@ -1473,7 +1473,7 @@ Da f�hlt sich der Compiler-Entwickler foch schon fast abgeholt.
 \subsubsection*{For mit yield DONE}
 
 \begin{frame}[fragile]{}
-	\begin{block}{For-Ausdr�cke}
+	\begin{block}{For-Ausdrücke}
 		\scriptsize
 		\onslide<2->
   \begin{lstlisting}
@@ -1563,7 +1563,7 @@ def factorialTail(n: Int): Int = {
 }
 	\end{lstlisting}
 \end{block}
-\note{Es m�ssen keine Ergebnisse auf dem Stack zwischengespeichert werden. Optimierung durch den Compiler. Warnung, wenn nicht tail recursive.
+\note{Es müssen keine Ergebnisse auf dem Stack zwischengespeichert werden. Optimierung durch den Compiler. Warnung, wenn nicht tail recursive.
 Recht hardcore funktional!
 
 
@@ -1604,7 +1604,7 @@ def personMitAlter(person: Person, alter: Int): (Person, Int) = {
 }
 \end{lstlisting}
 \end{block}
-\note{Haben wir beim Pattern Matching gesehen. Tupel k�nnen aber auch n�tzlich sein, wenn man mal kein neues Objekt erstellen will. Oder, wenn man Maps verwendet. Oder, wenn man Funktionen als Parameter �bergibt. 
+\note{Haben wir beim Pattern Matching gesehen. Tupel können aber auch nützlich sein, wenn man mal kein neues Objekt erstellen will. Oder, wenn man Maps verwendet. Oder, wenn man Funktionen als Parameter übergibt. 
 
 }
 \end{frame}
@@ -1623,8 +1623,8 @@ case class Time(hour:Int, minute:Int) {
 }
 	\end{lstlisting}
 \end{block}
-\onslide<3->{Kompilierbar, aber nicht gef�hrlich.}
-\note{Kompiliert, beim Aufruf aber Exception. Hilfreich, wenn man test first entwickelt. Dann jammert der Compiler nicht st�ndig.}
+\onslide<3->{Kompilierbar, aber nicht gefährlich.}
+\note{Kompiliert, beim Aufruf aber Exception. Hilfreich, wenn man test first entwickelt. Dann jammert der Compiler nicht ständig.}
 \end{frame}
 
 \subsubsection*{Arbeiten mit Strings DONE}
@@ -1689,7 +1689,7 @@ println(f"$name is $age years old, and weighs $weight%.1f kilograms.")
 \begin{frame}{}
 	\begin{block}{Option}
 		\begin{itemize}
-			\item<2->Etwas k�nnte vorhanden sein -- oder nicht
+			\item<2->Etwas könnte vorhanden sein -- oder nicht
 			\item<3->Null vermeiden
 			\item<4->Unterklassen \texttt{Some[T]} und \texttt{None}
 			\item<5->Gutes Zusammenspiel mit Pattern Matching
@@ -1791,10 +1791,10 @@ class TimeSpec extends WordSpec with Matchers with {
 \begin{frame}{}
 	\begin{block}{Implicits}
 		\begin{itemize}
-			\item<2->Sehr m�chtiges Sprachfeature
+			\item<2->Sehr mächtiges Sprachfeature
 			\item<3->Dinge tun, die nicht definiert sind
 			\item<4->Wenn man nicht mehr versteht, was passiert
-			\item<5->Das Mittel, Scala an eigene Bed�rfnisse anzupassen
+			\item<5->Das Mittel, Scala an eigene Bedürfnisse anzupassen
 		\end{itemize}
 	\end{block}
 	\note{}
@@ -1802,7 +1802,7 @@ class TimeSpec extends WordSpec with Matchers with {
 
 \begin{frame}{}
   \begin{quote}
-		{\large\textbf{Aus gro�er Kraft folgt gro�e Verantwortung}}
+		{\large\textbf{Aus großer Kraft folgt große Verantwortung}}
 		\vskip3mm
 		\hspace*\fill{\small--- Ben Parker, Spiderman}
 	\end{quote}
@@ -1874,9 +1874,9 @@ res0: Int = 360
 \end{lstlisting}
 \normalsize{\textbf{Erweitert API bestehender Klassen!}}
 	\end{block}
-	\note{Receiver: Objekte, auf denen Methoden aufgerufen werden. Hier gibt es die Methode nicht. Der Compiler sucht nach - in String. Wir m�ssen ihm eine Conversion geben, so dass er Time sieht, und damit - aufrufen kann.
+	\note{Receiver: Objekte, auf denen Methoden aufgerufen werden. Hier gibt es die Methode nicht. Der Compiler sucht nach - in String. Wir müssen ihm eine Conversion geben, so dass er Time sieht, und damit - aufrufen kann.
 	
-	M�chtig. F�r DSLs. Sieht man aber kaum noch!}
+	Mächtig. Für DSLs. Sieht man aber kaum noch!}
 \end{frame}
 
 \begin{frame}[fragile]{}
@@ -1977,7 +1977,7 @@ def factorial(n: Int): Int = {
 }
 	\end{lstlisting}
 	\end{block}
-	\note{Praktisch bspw. f�r rekursive Funktionen. Haben wir dort schon gesehen.}
+	\note{Praktisch bspw. für rekursive Funktionen. Haben wir dort schon gesehen.}
 \end{frame}
 
 \subsubsection*{Exception Handling DONE}
@@ -2020,7 +2020,7 @@ try {
 \begin{frame}{}
 	 \begin{block}{Predef}
 			 \begin{itemize}
-				 \item<2->\texttt{java.lang} f�r Scala
+				 \item<2->\texttt{java.lang} für Scala
 				 \item<3->Vordefinierte Objekte ohne Import sichtbar
 				 \item<4->Aliasse zur Bequemlichkeit
 				 \item<5->Hilfsmethoden wie \texttt{require}
@@ -2033,7 +2033,7 @@ try {
 \subsubsection*{Und viel, viel mehr DONE}
 \begin{frame}{}
 	\Large\textbf{Und noch viel, viel mehr ...}
-	\note{Insbesondere im Bereich der funktionalen Programmierung. Aber daf�r haben wir leider keine Zeit. Und ich kenne auch bwi weitem nicht alles.
+	\note{Insbesondere im Bereich der funktionalen Programmierung. Aber dafür haben wir leider keine Zeit. Und ich kenne auch bwi weitem nicht alles.
 	Nein, Monaden gibt es heute sicher nicht.
 	
 	}
@@ -2048,7 +2048,7 @@ try {
 	 \begin{block}{Domain Specific Languages}
 			 \begin{itemize}
 				 \item<2->Fachliche Abstraktion
-				 \item<3->Verst�ndlicher
+				 \item<3->Verständlicher
 				 \item<4->Entwicklung schwierig
 				 \item<5->Einschränkungen vorhanden
 				\note<5->{Gegenüber externen DSLs wie Xtext, die beliebige Syntax erlauben}
@@ -2072,7 +2072,7 @@ try {
 150 LET ('v := 'v + 'burn * 10 / ('fuel + 'mass))
 	\end{lstlisting}
 \end{block}
-\note{Ist nat�rlich Quatsch, zeigt aber, was geht. Und wir kommen auch gleich }
+\note{Ist natürlich Quatsch, zeigt aber, was geht. Und wir kommen auch gleich }
 \end{frame}
 
 \begin{frame}[fragile]{}
@@ -2091,7 +2091,7 @@ try {
   }
 	\end{lstlisting}
 \end{block}
-\note{DSLs sind sinnvoll, wenn sie besser zum Ausdruck bringen, was in der Dom�ne beschrieben wird.
+\note{DSLs sind sinnvoll, wenn sie besser zum Ausdruck bringen, was in der Domäne beschrieben wird.
 
 }
 \end{frame}
@@ -2101,14 +2101,14 @@ try {
 \begin{frame}{}
 	\begin{block}{Aktoren}
 		\begin{itemize}
-				\item<2->Nebenl�ufige Einheiten
+				\item<2->Nebenläufige Einheiten
 				\item<3->Empfangen Nachrichten (Ereignisse)
 				\item<4->Abarbeitung FIFO
-				\item<5->Verhaltens�nderung
+				\item<5->Verhaltensänderung
 				\item<6->Asynchrone Kommunikation mit Aktoren
 			\end{itemize}
 	\end{block}
-	\note{Kommen wir zu etwas wirklich Spannenden. Ich habe davon zugegeben kaum Ahnung, finde es aber so interessant, dass ich es heute erz�hlen muss!
+	\note{Kommen wir zu etwas wirklich Spannenden. Ich habe davon zugegeben kaum Ahnung, finde es aber so interessant, dass ich es heute erzählen muss!
 	
 	The Actor Model, which was first proposed by Carl Hewitt in 1973 [5] and was improved, among others, by Gul Agha [6]. This model takes a different approach to concurrency, which should avoid the problems caused by threading and locking.
 
@@ -2120,7 +2120,7 @@ A second important property is that all communications happen by means of messag
 
 Each actor runs concurrently with other actors: it can be seen as a small independently running process.
 
-Das ist �hnlich der reinen Objektorientierung, aber komplett asynchron. Die Idee ist �brigens alt (1973) und schon lange, z.B. in Erlang im Einsatz. Momentan passen die Probleme aber.
+Das ist ähnlich der reinen Objektorientierung, aber komplett asynchron. Die Idee ist übrigens alt (1973) und schon lange, z.B. in Erlang im Einsatz. Momentan passen die Probleme aber.
 	http://www.brianstorti.com/the-actor-model/
 	
 	
@@ -2132,7 +2132,7 @@ Das ist �hnlich der reinen Objektorientierung, aber komplett asynchron. Die Id
 	\begin{block}{Akka}
 		\begin{itemize}
 			\item<2->Aktoren
-			\note<2>{Klar, sonst h�tte es die vorherige Folie nicht gegeben.
+			\note<2>{Klar, sonst hätte es die vorherige Folie nicht gegeben.
 			Actors give you:
 Simple and high-level abstractions for concurrency and parallelism.
 Asynchronous, non-blocking and highly performant event-driven programming model.
@@ -2176,7 +2176,7 @@ class Ping(pong: ActorRef) extends Actor {
 	\end{lstlisting}
 \end{block}
 \note{http://alvinalexander.com/scala/scala-akka-actors-ping-pong-simple-example
-Nachrichten mit Case-Klassen, einfacher geht es nicht. Und typsicher, was mir pers�nlich gut gef�llt.
+Nachrichten mit Case-Klassen, einfacher geht es nicht. Und typsicher, was mir persönlich gut gefällt.
 Ein Aktor hat einen Zustand und vor allem eine receive-Methode.
 
 }
@@ -2225,13 +2225,13 @@ class Pong extends Actor {
 }
 	\end{lstlisting}
 \end{block}
-\note{Und hier das Gegenst�ck:
-Ein einfaches Beispiel, aber man sieht, wie hier Nachrichten ausgetauscht werden. Das soll hier aber keine Akka-Schulung sein, die ich auch nicht halten k�nnte, sondern
-eine Idee geben, warum Scala geeignet sein k�nnte, Aktoren zu implementieren.
+\note{Und hier das Gegenstück:
+Ein einfaches Beispiel, aber man sieht, wie hier Nachrichten ausgetauscht werden. Das soll hier aber keine Akka-Schulung sein, die ich auch nicht halten könnte, sondern
+eine Idee geben, warum Scala geeignet sein könnte, Aktoren zu implementieren.
 
 Aktoren, die Daten empfangen, evtl. Zustand halten, die Daten verarbeiten und Nachrichten weiterschicken.
 Das ganze hochparallelisiert, die Nachrichten werden sicher gespeichert.
-Ich kann mir nicht helfen, aber das liest sich f�r mich wie ein Business-Prozess. Den man beliebig zusammenstecken kann. Und er funktioniert dennoch, weil man in der Programmiersprache dasselbe macht wie in einem EPK oder BPMN-Modell. (Disclaimer: Ich habe es noch nicht viel weiter als bis zu diesem Niveau ausprobiert, aber Menschen, die es getan haben, stimmen darin �berein).
+Ich kann mir nicht helfen, aber das liest sich für mich wie ein Business-Prozess. Den man beliebig zusammenstecken kann. Und er funktioniert dennoch, weil man in der Programmiersprache dasselbe macht wie in einem EPK oder BPMN-Modell. (Disclaimer: Ich habe es noch nicht viel weiter als bis zu diesem Niveau ausprobiert, aber Menschen, die es getan haben, stimmen darin überein).
 
 Und mit Scala (vor allem Pattern Matching) bricht man sich bei der Implementierung auch nicht die Finger.
 
@@ -2242,9 +2242,9 @@ Und mit Scala (vor allem Pattern Matching) bricht man sich bei der Implementieru
 
 % Todo
 \begin{frame}{}
-	\begin{block}{Einsatzm�glichkeiten}
+	\begin{block}{Einsatzmöglichkeiten}
 		\begin{itemize}
-			\item<2->Live-Dom�nenmodell, automatisch berechnend
+			\item<2->Live-Domänenmodell, automatisch berechnend
 			\note<2>{Logik in Aktoren, berechnen sich immer live. Eventual consistent}
 			\item<3->Simulation
 			\item<4->Kommunikation (Messaging)
@@ -2261,18 +2261,18 @@ Und mit Scala (vor allem Pattern Matching) bricht man sich bei der Implementieru
 			\item<2->Pattern Matching
 			\item<3->Funktional
 			\item<4->Weniger Code
-			\item<5->Besser verst�ndlich
+			\item<5->Besser verständlich
 		\end{itemize}
 	\end{block}
 	\note{Akka kann man auch mit Java umsetzen. Aber insbesondere das Pattern Matching macht einem das Leben mit Scala viel leichter. 
-Es ist einfach nat�rlicher.
+Es ist einfach natürlicher.
 
 }
 \end{frame}
 
 \subsubsection*{Akka HTTP DONE}
 
-% Gro�er Text
+% Großer Text
 % https://dzone.com/articles/building-rest-service-scala
 \begin{frame}{}
 	\Large\textbf{Akka HTTP}
@@ -2381,7 +2381,7 @@ val route =
 	\end{onlyenv}
 	\end{overlayarea}
 \end{block}
-\note{Routen k�nnen auch in separaten Dateien (am besten in Traits) definiert und dann kombiniert werden.
+\note{Routen können auch in separaten Dateien (am besten in Traits) definiert und dann kombiniert werden.
 
 http://qiita.com/visualskyrim/items/e3738ab93e9ca11ea7fd
 }
@@ -2389,14 +2389,14 @@ http://qiita.com/visualskyrim/items/e3738ab93e9ca11ea7fd
 
 
 
-\subsubsection*{PR�SENTATION Akka HTTP}
+\subsubsection*{PRÄSENTATION Akka HTTP}
 \plain{Akka HTTP}
 \note{Es bringt nicht viel, weil es kein relevanter UseCase ist, aber dennoch will ich kurz das HelloWorld zeigen. Nicht ganz so kurz wie Node, aber immerhin.
 
 }
 
 
-\subsection*{Abschlie�ende Worte}
+\subsection*{Abschließende Worte}
 
 \begin{frame}{Scala -- Meine Meinung}
   \begin{columns}[T,onlytextwidth]
@@ -2406,9 +2406,9 @@ http://qiita.com/visualskyrim/items/e3738ab93e9ca11ea7fd
 		\begin{itemize}
 			\item<3->Moderne Architekturen
 			\item<4->Bessere Abstraktion
-			\item<5->Verst�ndlich funktional
-			\item<6->Java-�kosystem
-			\item<7->Macht Spa�
+			\item<5->Verständlich funktional
+			\item<6->Java-Ökosystem
+			\item<7->Macht Spaß
 			\item<8->Statisch typisiert
 		\end{itemize}
 	\end{block}
@@ -2418,11 +2418,11 @@ http://qiita.com/visualskyrim/items/e3738ab93e9ca11ea7fd
 		\begin{itemize}
 			\item<10->Komplex
 			\item<11->Zukunftssicher?
-			\note<11->{Ich glaube ja, und mittlerweile ist es auch keine Nische mehr. Wenn man aber darauf angewiesen ist, dass eine Technologie auch in 10 Jahren noch genauso vorhanden ist (was wahrscheinlich schlecht ist), dann muss man vielleicht den an sich schlechteren Mainstream w�hlen. Scala ist aber bei weitem nicht mehr esoterisch.}
+			\note<11->{Ich glaube ja, und mittlerweile ist es auch keine Nische mehr. Wenn man aber darauf angewiesen ist, dass eine Technologie auch in 10 Jahren noch genauso vorhanden ist (was wahrscheinlich schlecht ist), dann muss man vielleicht den an sich schlechteren Mainstream wählen. Scala ist aber bei weitem nicht mehr esoterisch.}
 			\item<12->Anzahl Entwicklungssklaven
-			\note<12->{Es gibt eine Lernkurve, man braucht Entwickler, die Spa� daran haben und die Vorteile sehen wollen.}
-			\item<13->Bin�rkompatibilit�t nicht in alle Ewigkeit
-			\note<13->{Ist besser geworden, insbes. mit Java 8. Die Scala-Macher sind aber nicht so konservativ wie Oracle. Aber wozu das f�hrt, haben wir ja gesehen.}
+			\note<12->{Es gibt eine Lernkurve, man braucht Entwickler, die Spaß daran haben und die Vorteile sehen wollen.}
+			\item<13->Binärkompatibilität nicht in alle Ewigkeit
+			\note<13->{Ist besser geworden, insbes. mit Java 8. Die Scala-Macher sind aber nicht so konservativ wie Oracle. Aber wozu das führt, haben wir ja gesehen.}
 		\end{itemize}
 	\end{block}
   \end{columns}
@@ -2439,9 +2439,9 @@ http://qiita.com/visualskyrim/items/e3738ab93e9ca11ea7fd
 			\item<3->Akka
 			\item<4->Moderne Architekturen auf der JVM
 			\item<5->(Statt Umstieg auf Node.js)
-			\item<6->Tests f�r Java-Code
+			\item<6->Tests für Java-Code
 			\item<7->Hoher funtkionaler Anteil
-			\item<8->Java als Sprache abl�sen
+			\item<8->Java als Sprache ablösen
 		\end{itemize}
 	\end{block}
     \column{0.5\textwidth}
@@ -2461,22 +2461,22 @@ http://qiita.com/visualskyrim/items/e3738ab93e9ca11ea7fd
 
 \begin{frame}{}
   \begin{quote}
-		{\large We�ve found that Scala has enabled us to \alert{deliver things faster} with less code. It�s reinvigorated the team.}
+		{\large We've found that Scala has enabled us to \alert{deliver things faster} with less code. It's reinvigorated the team.}
 		\vskip3mm
 		\hspace*\fill{\small--- Graham Tackley, Guardian}
 	\end{quote}
-	\note{Der Guardian ist der Inbegriff f�r den Technologiewandel in einer klassischen, beh�bigen Branche. Lange, bevor Springer wach geworden ist.}
+	\note{Der Guardian ist der Inbegriff für den Technologiewandel in einer klassischen, behäbigen Branche. Lange, bevor Springer wach geworden ist.}
 \end{frame}
 
 \begin{frame}{}
 	\begin{block}{Literatur}
 		\begin{itemize}
-			\item<2->Heiko Seeberger: "`Durchstarten mit Scala. Tutorial f�r Einsteiger"'
-			\note<2>{Sehr angenehmes Einsteigerbuch, das nur an der Oberfl�che kratzt, aber gen�gend zeigt, um arbeiten zu k�nnen.}
+			\item<2->Heiko Seeberger: "`Durchstarten mit Scala. Tutorial für Einsteiger"'
+			\note<2>{Sehr angenehmes Einsteigerbuch, das nur an der Oberfläche kratzt, aber genügend zeigt, um arbeiten zu können.}
 			\item<3->Martin Odersky: "`Programming in Scala"'
-			\note<3>{Unglaublich detaillierte Vorstellung des Sch�pfers. Lest das nicht zuerst, es erschl�gt.}
+			\note<3>{Unglaublich detaillierte Vorstellung des Schöpfers. Lest das nicht zuerst, es erschlägt.}
 			\item<4->Das Internet, nur ein Beispiel \texttt{https://twitter.github.io/scala\_school}
-			% Todo: Mehr Referenzen, z.B. Pr�sentationen, Screencasts
+			% Todo: Mehr Referenzen, z.B. Präsentationen, Screencasts
 		\end{itemize}
 	\end{block}
 	\note{
@@ -2495,7 +2495,7 @@ http://qiita.com/visualskyrim/items/e3738ab93e9ca11ea7fd
 \appendix
 
 % Notes
-% Notes k�nnen innerhalb von Folien definiert und mit Overlays spezifiziert werden. Dann werden sie entsprechend zum Folienteil angezeigt.
+% Notes können innerhalb von Folien definiert und mit Overlays spezifiziert werden. Dann werden sie entsprechend zum Folienteil angezeigt.
 % Nach der Folie definierte Notes werden der Folie zugeordnet, aber nur einmal - am Ende der Folie - ausgegeben.
 
 % Listing einfach
@@ -2544,7 +2544,7 @@ def swap(i: Int, j: Int) {
 	\note{}
 \end{frame}
 
-% Gro�er Text
+% Großer Text
 \begin{frame}{}
 	\Large\textbf{}
 	\note{}
@@ -2560,7 +2560,7 @@ def swap(i: Int, j: Int) {
 \end{frame}
 
 
-% Aufz�hlung
+% Aufzählung
 \begin{frame}{}
 	\begin{block}{Titel}
 		\begin{itemize}
@@ -2606,7 +2606,7 @@ def swap(i: Int, j: Int) {
    \end{centering} 
 \end{frame} 
 
-% Grafik mit �berschrift
+% Grafik mit Überschrift
 \begin{frame}[plain]
 \begin{block}{Titel}
    \begin{centering} 
